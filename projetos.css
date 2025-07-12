@@ -1,0 +1,75 @@
+/* projetos.css */
+
+body {
+    font-family: 'Outfit', sans-serif; /* Use sua fonte principal aqui */
+    background-color: #f0f0f0; /* Mesmo fundo do seu site principal, ou adapte */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.projects-page-container {
+    text-align: center;
+    padding: 50px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 800px;
+    width: 90%;
+    margin: 40px auto; /* Adicionado margem para centralizar e dar espaço */
+}
+
+.projects-page-container h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.8em;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.projects-page-container p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.back-to-home-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 30px;
+    background-color: #007bff; /* Use sua cor de botão principal */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.back-to-home-button:hover {
+    background-color: #0056b3; /* Cor mais escura no hover */
+}
+
+/* Responsividade básica para a página de projetos */
+@media (max-width: 768px) {
+    .projects-page-container {
+        padding: 30px;
+        margin: 20px auto;
+    }
+    .projects-page-container h1 {
+        font-size: 2em;
+    }
+    .projects-page-container p {
+        font-size: 1em;
+    }
+    .back-to-home-button {
+        padding: 10px 25px;
+        font-size: 0.9em;
+    }
+}
