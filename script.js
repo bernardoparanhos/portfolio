@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menuToggle.addEventListener('click', () => {
         sidebar.classList.toggle('open');
-        menuToggle.classList.toggle('open'); // Adiciona/remove a classe 'open' para animar o ícone
+        menuToggle.classList.toggle('open'); 
     });
 
     // Opcional: Fechar o menu ao clicar fora dele
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Opcional: Fechar o menu ao clicar em um item dentro da sidebar (se forem links para seções)
+    
     const sidebarButtons = document.querySelectorAll('.sidebar-button');
     sidebarButtons.forEach(button => {
         button.addEventListener('click', () => {

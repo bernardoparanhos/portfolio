@@ -4,10 +4,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: #ffffff;
     color: #333;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden; 
 }
 
-/* Base style for all sections */
+
 .page-section {
     width: 100%;
     min-height: 100vh;
@@ -17,13 +17,13 @@ body {
     box-sizing: border-box;
 }
 
-/* --- Menu Toggle (Hamburguer) Styles --- */
+
 .menu-toggle {
-    display: none; /* Hidden by default, shown on smaller screens */
+    display: none; 
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 1001; /* Above everything else */
+    z-index: 1001; 
     width: 40px;
     height: 30px;
     cursor: pointer;
@@ -36,12 +36,11 @@ body {
 .hamburger {
     width: 100%;
     height: 4px;
-    background-color: white; /* Cor branca para o hamburguer */
+    background-color: white; 
     border-radius: 2px;
     transition: all 0.3s ease;
 }
 
-/* Transform hamburger to 'X' */
 .menu-toggle.open .hamburger:nth-child(1) {
     transform: translateY(13px) rotate(45deg);
 }
@@ -54,14 +53,14 @@ body {
     transform: translateY(-13px) rotate(-45deg);
 }
 
-/* --- Sidebar Styles --- */
+
 .sidebar {
     position: fixed;
     top: 0;
-    right: -300px; /* Hidden by default */
+    right: -300px; 
     width: 280px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Darker overlay for content below */
+    background-color: rgba(0, 0, 0, 0.9); 
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     transition: right 0.3s ease-in-out;
@@ -72,7 +71,7 @@ body {
 }
 
 .sidebar.open {
-    right: 0; /* Slide in */
+    right: 0; 
 }
 
 .sidebar-header {
@@ -92,21 +91,20 @@ body {
 .sidebar-buttons {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Space between buttons */
+    gap: 15px; 
 }
 
 .sidebar-button {
-    width: 100%; /* Make buttons full width in sidebar */
+    width: 100%; 
     box-sizing: border-box;
 }
 
-/* --- Page 1 Styles --- */
 #page1 {
     padding: 0;
     justify-content: flex-start;
 }
 
-/* Content below the image on Page 1 */
+
 .content-below {
     padding: 40px 20px;
     text-align: center;
@@ -120,7 +118,7 @@ body {
     align-items: center;
 }
 
-/* Heading for the welcome section */
+
 .welcome-heading {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.8em;
@@ -132,7 +130,6 @@ body {
     opacity: 0;
 }
 
-/* Text for the welcome section */
 .welcome-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1em;
@@ -146,12 +143,12 @@ body {
     animation-delay: 0.4s;
 }
 
-/* Estilo para o texto em negrito dentro da frase de boas-vindas - Cor removida, apenas negrito */
+
 .welcome-text strong {
     font-weight: 700;
 }
 
-/* --- Image Section Styles --- */
+
 .image-container {
     width: 100%;
     height: 60vh;
@@ -168,7 +165,7 @@ body {
     display: block;
 }
 
-/* Text overlaid on the image */
+
 .image-text {
     position: absolute;
     top: 50%;
@@ -215,7 +212,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* Social icons container */
+
 .social-icons {
     display: flex;
     gap: 35px;
@@ -230,7 +227,7 @@ body {
     text-decoration: none;
 }
 
-/* --- Button Styles (Original, visible on larger screens) --- */
+
 .button-container {
     display: flex;
     gap: 20px;
@@ -249,7 +246,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); /* For Safari */
+    -webkit-backdrop-filter: blur(8px); 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -265,7 +262,6 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* --- Animação (Ajustada para mais fluidez) --- */
 @keyframes fadeInSlideUp {
     from {
         opacity: 0;
@@ -283,7 +279,6 @@ body {
 /* ===================================== */
 
 @media (max-width: 768px) {
-    /* Ajustes para a imagem e texto */
     .image-container {
         height: 60vh;
         border-bottom-left-radius: 20px;
@@ -323,7 +318,6 @@ body {
         margin-bottom: 30px;
     }
 
-    /* Ícones sociais horizontalmente */
     .social-icons {
         gap: 25px;
         margin-bottom: 30px;
@@ -336,17 +330,15 @@ body {
         height: 38px;
     }
 
-    /* Oculta os botões principais em telas pequenas */
     .button-container {
         display: none;
     }
 
-    /* Exibe o botão de menu hamburguer */
     .menu-toggle {
         display: flex;
     }
 
-    /* Ajustes para a seção de boas-vindas */
+    
     .content-below {
         padding: 30px 20px;
         margin-top: -20px;
@@ -361,11 +353,11 @@ body {
         max-width: 90%;
         margin: 0 auto 20px auto;
     }
-    /* Removido: SVG de Boas-Vindas em telas menores */
+    
 }
 
 @media (max-width: 480px) {
-    /* Ajustes ainda menores para telas de celular */
+    
     .image-text {
         top: 50%;
         left: 50%;
@@ -414,7 +406,7 @@ body {
         font-size: 0.9em;
         max-width: 95%;
     }
-    /* Removido: SVG de Boas-Vindas em telas muito pequenas */
+    
 }
 
 /* ===================================== */
@@ -466,7 +458,7 @@ body {
         height: 28px;
     }
 
-    /* Ajuste específico para o texto de boas-vindas em paisagem */
+    
     .content-below .welcome-text {
         font-size: 0.85em;
         max-width: 90%;
@@ -475,17 +467,17 @@ body {
     .content-below .welcome-heading {
         font-size: 1.8em;
     }
-    /* Removido: SVG de Boas-Vindas em paisagem */
+    
 }
 
 
-/* --- Page 2 Styles --- */
+
 #page2 {
     background-color: #f0f0f0;
     color: #555;
     padding: 20px;
-    justify-content: flex-start; /* Alinha o conteúdo ao topo da seção */
-    align-items: center; /* Centraliza horizontalmente o h2 e o education-item */
+    justify-content: flex-start; 
+    align-items: center; 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -495,31 +487,31 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 2em;
     color: #808080;
-    margin-top: 50px; /* Margem superior para afastar do topo da seção */
-    margin-bottom: 30px; /* Espaço entre o título "Educação" e o primeiro item */
+    margin-top: 50px; 
+    margin-bottom: 30px; 
     text-align: center;
 }
 
-/* --- NOVO: Estilos para o item de educação --- */
+
 .education-item {
-    display: flex; /* Permite que os sub-elementos (logo, detalhes, localização) fiquem lado a lado */
-    align-items: center; /* Centraliza verticalmente os itens dentro do card */
+    display: flex; 
+    align-items: center; 
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px 30px;
-    margin-bottom: 40px; /* AJUSTADO: Aumentei a margem para dar espaço para o novo título */
-    max-width: 800px; /* Limita a largura do card */
-    width: 90%; /* Responsivo, ocupa 90% da largura do pai */
-    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+    margin-bottom: 40px; 
+    max-width: 800px; 
+    width: 90%; 
+    box-sizing: border-box; 
 }
 
 .education-logo {
-    flex-shrink: 0; /* Impede que a imagem encolha */
-    margin-right: 25px; /* Espaço entre o logo e os detalhes */
-    width: 80px; /* Tamanho fixo para o logo */
+    flex-shrink: 0; 
+    margin-right: 25px; 
+    width: 80px; 
     height: 80px;
-    display: flex; /* Para centralizar a imagem dentro do div */
+    display: flex; 
     justify-content: center;
     align-items: center;
 }
@@ -527,12 +519,12 @@ body {
 .education-logo img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
+    object-fit: contain; 
 }
 
 .education-details {
-    flex-grow: 1; /* Permite que ocupe o espaço restante */
-    text-align: left; /* Alinha o texto à esquerda */
+    flex-grow: 1; 
+    text-align: left; 
 }
 
 .education-details h3 {
@@ -551,94 +543,93 @@ body {
     line-height: 1.4;
 }
 
-/* Estilos para a localização e bandeira */
+
 .education-location {
-    flex-shrink: 0; /* Impede que encolha */
-    margin-left: 25px; /* Espaço entre os detalhes e a localização */
-    display: flex; /* Transforma em flexbox para alinhar bandeira e texto */
-    align-items: center; /* Centraliza verticalmente a bandeira e o div de texto */
-    gap: 10px; /* Espaço entre a bandeira e o texto de localização */
+    flex-shrink: 0; 
+    margin-left: 25px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
 }
 
 .education-location svg {
-    width: 40px; /* Garantir o tamanho, embora já esteja no HTML */
-    height: 40px; /* Garantir o tamanho, embora já esteja no HTML */
-    flex-shrink: 0; /* Impede que a SVG encolha */
+    width: 40px; 
+    height: 40px; 
+    flex-shrink: 0; 
 }
 
-/* Container para o ano e a cidade/país */
+
 .location-details {
     display: flex;
-    flex-direction: column; /* Empilha o ano e o local */
-    align-items: flex-end; /* Alinha o texto à direita dentro deste container */
+    flex-direction: column; 
+    align-items: flex-end; 
 }
 
 .location-details p {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9em;
     color: #666;
-    margin: 0; /* Remove margem padrão dos parágrafos */
+    margin: 0; 
     line-height: 1.3;
-    white-space: nowrap; /* Impede a quebra de linha automática */
-}
-
-/* Para forçar a quebra de linha no "Angra dos Reis, Brasil" */
-.location-details p:nth-child(2) { /* Seleciona o segundo parágrafo (Cidade, País) */
-    white-space: normal; /* Permite a quebra de linha novamente */
-    word-break: break-word; /* Garante que palavras longas quebrem se necessário */
-    max-width: 120px; /* Ajuste conforme necessário para o texto "Angra dos Reis" + "Brasil" */
-    text-align: right; /* Garante que se mantenha alinhado à direita */
+    white-space: nowrap; 
 }
 
 
-/* --- Responsividade para Telas Menores (ajustes para o education-item) --- */
+.location-details p:nth-child(2) { 
+    white-space: normal; 
+    word-break: break-word; 
+    max-width: 120px; 
+    text-align: right; 
+    
+}
+
+
+
 @media (max-width: 768px) {
-    /* ... (Mantenha todos os outros estilos responsivos que você já tem) ... */
 
-    /* Ajustes para o novo item de educação em telas menores */
     .education-item {
-        flex-direction: column; /* Empilha os elementos verticalmente */
-        align-items: center; /* Centraliza tudo */
+        flex-direction: column; 
+        align-items: center; 
         padding: 20px;
-        margin-bottom: 30px; /* AJUSTADO: Margem para mobile */
+        margin-bottom: 30px; 
     }
 
     .education-logo {
         margin-right: 0;
-        margin-bottom: 15px; /* Espaço abaixo do logo */
+        margin-bottom: 15px; 
     }
 
     .education-details {
-        text-align: center; /* Centraliza o texto */
-        margin-bottom: 15px; /* Espaço abaixo dos detalhes */
+        text-align: center; 
+        margin-bottom: 15px; 
     }
 
-    /* ATUALIZADO: Ajusta a bandeira para ficar por cima da data em telas menores */
+    
     .education-location {
         margin-left: 0;
-        flex-direction: column; /* Agora empilha a bandeira e o texto verticalmente */
-        justify-content: center; /* Centraliza-os horizontalmente */
-        align-items: center; /* Centraliza verticalmente */
-        gap: 5px; /* Ajusta o espaço entre a bandeira e o texto quando empilhados */
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        gap: 5px; 
     }
 
     .education-location svg {
-        margin-bottom: 5px; /* Adiciona uma pequena margem abaixo da bandeira */
+        margin-bottom: 5px;
     }
 
     .location-details {
-        align-items: center; /* Centraliza o texto (ano e local) dentro da div */
+        align-items: center; 
     }
     
-    /* Responsividade para a quebra de linha em telas menores */
+    
     .location-details p:nth-child(2) {
-        text-align: center; /* Centraliza o texto "Angra dos Reis, Brasil" em telas menores */
-        max-width: none; /* Remove a limitação de largura */
+        text-align: center; 
+        max-width: none; 
     }
 }
 
 @media (max-width: 480px) {
-    /* ... (Mantenha todos os outros estilos responsivos que você já tem) ... */
+   
 
     .education-item {
         padding: 15px;
@@ -663,9 +654,7 @@ body {
 }
 
 @media (max-height: 480px) and (orientation: landscape) {
-    /* ... (Mantenha todos os outros estilos responsivos que você já tem) ... */
-
-    /* Ajuste para o item de educação em paisagem */
+   
     .education-item {
         padding: 15px 20px;
     }
@@ -701,8 +690,7 @@ body {
 /* --- Novas Seções (Page 3 e Page 4) --- */
 /* ===================================== */
 
-/* Estilos gerais para o conteúdo dentro das novas páginas */
-/* O content-wrapper não será mais usado diretamente na page3, mas mantido para outras páginas se necessário. */
+
 .content-wrapper {
     max-width: 800px;
     width: 90%;
@@ -735,9 +723,9 @@ body {
     font-size: 0.95em;
 }
 
-/* --- Page 3 (Sobre mim - Habilidades) --- */
+
 #page3 {
-    background-color: #f0f0f0; /* Fundo clean, claro */
+    background-color: #f0f0f0; 
     color: #333;
     padding: 20px;
     display: flex;
@@ -750,34 +738,35 @@ body {
 #page3 h2 {
     font-family: 'Outfit', sans-serif;
     font-size: 2.5em;
-    color: #000000; /* Título "Sobre mim" preto */
+    color: #000000; 
     margin-top: 60px;
-    margin-bottom: 40px; /* Aumentei a margem inferior do título para separar dos blocos de habilidades */
+    margin-bottom: 40px; 
     text-align: center;
 }
 
-/* Container para os blocos de habilidades */
+
 .skills-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que os blocos quebrem a linha em telas menores */
+    flex-wrap: wrap; 
     justify-content: center;
-    gap: 30px; /* Espaço entre os blocos */
-    max-width: 1000px; /* Largura máxima para centralizar os blocos */
+    gap: 30px; 
+    max-width: 1000px; 
     width: 90%;
 }
 
-/* Estilos para cada categoria de habilidade (Soft Skills, Hard Skills) */
+
 .skill-category {
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     padding: 25px 30px;
-    flex: 1; /* Permite que os blocos ocupem o espaço disponível */
-    min-width: 300px; /* Largura mínima para os blocos */
-    max-width: 450px; /* Largura máxima para os blocos */
+    flex: 1; 
+    min-width: 300px; 
+    max-width: 450px; 
+    
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinha o conteúdo à esquerda dentro do bloco por padrão */
+    align-items: flex-start; 
 }
 
 .skill-category h3 {
@@ -786,60 +775,58 @@ body {
     color: #333;
     margin-top: 0;
     margin-bottom: 20px;
-    text-align: center; /* Centraliza o título da categoria */
-    width: 100%; /* Garante que o título ocupe a largura total para centralizar */
+    text-align: center; 
+    width: 100%; 
 }
 
-/* NOVO: Estilos para as linhas de itens de habilidade */
+
 .skill-row {
     display: flex;
-    justify-content: space-around; /* Distribui os itens uniformemente */
-    width: 100%; /* Ocupa a largura total da skill-category */
-    margin-bottom: 15px; /* Espaço entre as linhas de itens */
-    flex-wrap: wrap; /* Permite que itens quebrem a linha se não houver espaço */
-    gap: 10px; /* Espaço entre os itens dentro da linha */
+    justify-content: space-around; 
+    width: 100%; 
+    margin-bottom: 15px; 
+    flex-wrap: wrap; 
+    gap: 10px; 
 }
 
-/* NOVO: Ajuste para linhas com um único item (centraliza-o) */
+
 .skill-row.single-item-center {
-    justify-content: center; /* Centraliza o item na linha */
-    margin-top: 10px; /* Adiciona um pouco de espaço extra acima */
+    justify-content: center; 
+    margin-top: 10px; 
 }
 
-/* Estilos para cada item de habilidade */
+
 .skill-item {
     display: flex;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 1em;
     color: #555;
-    flex-shrink: 0; /* Impede que o item encolha */
-    padding: 5px 0; /* Pequeno padding para espaçamento interno */
-    /* Em telas grandes, para que o Resolução de Problemas e Inteligência Emocional fiquem lado a lado */
-    /* E para HTML/CSS/JavaScript e o outro Hard Skill fiquem lado a lado */
-    flex: 1 1 45%; /* Permite que os itens cresçam/encolham, ocupando cerca de 45% da linha para 2 itens */
-    max-width: 50%; /* Garante que no máximo ocupe 50% para permitir o outro item */
+    flex-shrink: 0; 
+    padding: 5px 0; 
+    flex: 1 1 45%; 
+    max-width: 50%; 
 }
 
-/* NOVO: Estilos para a imagem do ícone */
+
 .skill-image {
-    width: 24px; /* Ajuste o tamanho da imagem */
-    height: 24px; /* Ajuste o tamanho da imagem */
+    width: 24px; 
+    height: 24px; 
     margin-right: 10px;
-    object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
-    flex-shrink: 0; /* Impede que a imagem encolha */
+    object-fit: contain; 
+    flex-shrink: 0; 
 }
 
-/* NOVO: Container para o mini texto "Sobre mim" */
+
 .about-me-text-container {
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     padding: 25px 30px;
-    margin-top: 40px; /* Espaço entre os blocos de habilidades e o texto */
-    max-width: 900px; /* Largura máxima para o texto */
+    margin-top: 40px; 
+    max-width: 900px; 
     width: 90%;
-    text-align: center; /* Centraliza o texto */
+    text-align: center; 
 }
 
 .about-me-text-container p {
@@ -847,10 +834,10 @@ body {
     font-size: 1em;
     color: #444;
     line-height: 1.6;
-    margin-bottom: 15px; /* Espaço entre parágrafos */
+    margin-bottom: 15px; 
 }
 
-/* --- Page 4 (Contato) --- */
+
 #page4 {
     background-color: #f0f0f0;
     color: #333;
@@ -864,7 +851,7 @@ body {
     padding-bottom: 100px;
 }
 
-/* Estilos para o título principal da Page 4 */
+
 #page4 h2 {
     font-family: 'Outfit', sans-serif;
     font-size: 3.0em;
@@ -874,7 +861,7 @@ body {
     text-align: center;
 }
 
-/* Estilos para a subfrase */
+
 .page-subtitle {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1em;
@@ -885,7 +872,7 @@ body {
     display: block;
 }
 
-/* --- Estilos para a seção de contato abaixo do título na Page 4 (NOVOS ESTILOS) --- */
+
 .contact-info {
     display: flex;
     justify-content: center;
@@ -916,7 +903,7 @@ body {
     margin-right: 8px;
 }
 
-/* NOVO: Estilos para os links de navegação no final da page4 */
+
 .page4-nav-links {
     display: flex;
     justify-content: center;
@@ -956,7 +943,7 @@ body {
 }
 
 
-/* NOVO: Estilos para o Rodapé */
+
 .site-footer {
     background-color: #f0f0f0;
     color: #808080;
@@ -971,7 +958,7 @@ body {
 }
 
 
-/* --- Page 2 Styles --- */
+
 #page2 {
     background-color: #f0f0f0;
     color: #555;
@@ -992,7 +979,7 @@ body {
     text-align: center;
 }
 
-/* --- Estilos para o item de educação --- */
+
 .education-item {
     display: flex;
     align-items: center;
@@ -1058,7 +1045,7 @@ body {
     flex-shrink: 0;
 }
 
-/* Container para o ano e a cidade/país */
+
 .location-details {
     display: flex;
     flex-direction: column;
@@ -1074,7 +1061,7 @@ body {
     white-space: nowrap;
 }
 
-/* Para forçar a quebra de linha no "Angra dos Reis, Brasil" */
+
 .location-details p:nth-child(2) {
     white-space: normal;
     word-break: break-word;
@@ -1088,7 +1075,7 @@ body {
 /* ===================================== */
 
 @media (max-width: 768px) {
-    /* Ajustes para o content-wrapper em telas menores */
+    
     .content-wrapper {
         padding: 15px;
         margin-top: 20px;
@@ -1110,7 +1097,7 @@ body {
         font-size: 0.9em;
     }
 
-    /* Ajustes para a seção de contato em telas menores */
+    
     .contact-info {
         flex-direction: column;
         padding: 20px 25px;
@@ -1129,7 +1116,7 @@ body {
         height: 20px;
     }
 
-    /* Ajustes para os links de navegação da page4 em telas menores */
+    
     .page4-nav-links {
         flex-direction: column;
         margin-top: 60px;
@@ -1140,12 +1127,12 @@ body {
         font-size: 1em;
     }
 
-    /* Ajustes para o rodapé em telas menores */
+    
     .site-footer {
         padding: 15px 0;
     }
 
-    /* --- Responsividade para o item de educação em telas menores --- */
+    
     .education-item {
         flex-direction: column;
         align-items: center;
@@ -1184,18 +1171,18 @@ body {
         max-width: none;
     }
 
-    /* NOVO: Ajustes para os blocos de habilidades em telas menores */
+    
     .skills-container {
-        flex-direction: column; /* Empilha os blocos verticalmente */
-        gap: 20px; /* Ajusta o espaçamento entre os blocos empilhados */
-        width: 100%; /* Ocupa a largura total */
+        flex-direction: column; 
+        gap: 20px; 
+        width: 100%; 
     }
 
     .skill-category {
-        min-width: unset; /* Remove a largura mínima para melhor ajuste */
-        max-width: 90%; /* Limita a largura para mobile */
-        margin: 0 auto; /* Centraliza o bloco */
-        align-items: center; /* Centraliza os itens dentro do bloco em mobile */
+        min-width: unset; 
+        max-width: 90%; 
+        margin: 0 auto; 
+        align-items: center; 
     }
 
     .skill-category h3 {
@@ -1203,24 +1190,24 @@ body {
     }
 
     .skill-row {
-        flex-direction: column; /* Empilha os itens da linha em mobile */
-        gap: 5px; /* Espaço entre os itens empilhados */
-        margin-bottom: 10px; /* Menos espaço entre as linhas em mobile */
+        flex-direction: column; 
+        gap: 5px; 
+        margin-bottom: 10px; 
     }
 
     .skill-item {
         font-size: 0.95em;
-        flex: unset; /* Remove flex sizing em mobile para que cada item ocupe sua largura natural */
-        max-width: unset; /* Remove max-width em mobile */
+        flex: unset; 
+        max-width: unset;
     }
     
-    /* Ajustes para o ícone/imagem em telas menores */
+  
     .skill-image {
-        width: 20px; /* Um pouco menor para mobile */
+        width: 20px; 
         height: 20px;
     }
 
-    /* NOVO: Ajustes para o container do texto sobre mim em telas menores */
+    
     .about-me-text-container {
         padding: 20px;
         margin-top: 30px;
@@ -1280,7 +1267,7 @@ body {
         padding: 15px 0;
     }
 
-    /* NOVO: Ajustes para os blocos de habilidades em telas muito pequenas */
+    
     .skill-category {
         padding: 20px;
     }
@@ -1290,7 +1277,7 @@ body {
     .skill-item {
         font-size: 0.9em;
     }
-    /* NOVO: Ajustes para o container do texto sobre mim em telas muito pequenas */
+    
     .about-me-text-container {
         padding: 15px;
     }
@@ -1327,16 +1314,16 @@ body {
         font-size: 1em;
     }
 
-    /* NOVO: Ajustes para os blocos de habilidades em paisagem */
+    
     .skills-container {
-        flex-direction: row; /* Mantém em linha */
+        flex-direction: row; 
         gap: 20px;
-        margin-top: 20px; /* Ajusta a margem superior para paisagem */
+        margin-top: 20px; 
     }
     .skill-category {
-        flex: 1; /* Distribui o espaço igualmente */
+        flex: 1; 
         padding: 15px 20px;
-        align-items: flex-start; /* Alinha à esquerda em paisagem */
+        align-items: flex-start; 
     }
     .skill-category h3 {
         font-size: 1.4em;
@@ -1346,20 +1333,20 @@ body {
         margin-bottom: 8px;
     }
     
-    /* Ajuste o tamanho da imagem em paisagem, se necessário */
+    
     .skill-image {
         width: 20px;
         height: 20px;
     }
     .skill-row {
-        flex-direction: row; /* Mantém lado a lado em paisagem */
-        justify-content: space-around; /* Distribui os itens uniformemente */
+        flex-direction: row; 
+        justify-content: space-around; 
         gap: 10px;
     }
     .skill-row.single-item-center {
-        justify-content: center; /* Mantém centralizado o item único */
+        justify-content: center; 
     }
-    /* NOVO: Ajustes para o container do texto sobre mim em paisagem */
+    
     .about-me-text-container {
         margin-top: 20px;
         padding: 15px 20px;

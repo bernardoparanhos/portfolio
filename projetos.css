@@ -1,8 +1,8 @@
 /* projetos.css */
 
 body {
-    font-family: 'Outfit', sans-serif; /* Use sua fonte principal aqui */
-    background-color: #f0f0f0; /* Mesmo fundo do seu site principal, ou adapte */
+    font-family: 'Outfit', sans-serif; 
+    background-color: #f0f0f0; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,7 +21,7 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     max-width: 800px;
     width: 90%;
-    margin: 40px auto; /* Adicionado margem para centralizar e dar espaço */
+    margin: 40px auto; 
 }
 
 .projects-page-container h1 {
@@ -42,7 +42,7 @@ body {
     display: inline-block;
     margin-top: 30px;
     padding: 12px 30px;
-    background-color: #007bff; /* Use sua cor de botão principal */
+    background-color: #007bff; 
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -53,10 +53,9 @@ body {
 }
 
 .back-to-home-button:hover {
-    background-color: #0056b3; /* Cor mais escura no hover */
+    background-color: #0056b3;
 }
 
-/* Responsividade básica para a página de projetos */
 @media (max-width: 768px) {
     .projects-page-container {
         padding: 30px;
