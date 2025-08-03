@@ -4,9 +4,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: #ffffff;
     color: #333;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
-
 
 .page-section {
     width: 100%;
@@ -17,13 +16,12 @@ body {
     box-sizing: border-box;
 }
 
-
 .menu-toggle {
-    display: none; 
+    display: none; /* Escondido por padrão, será flex apenas em telas menores */
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 1001; 
+    z-index: 1001;
     width: 40px;
     height: 30px;
     cursor: pointer;
@@ -36,7 +34,7 @@ body {
 .hamburger {
     width: 100%;
     height: 4px;
-    background-color: white; 
+    background-color: white;
     border-radius: 2px;
     transition: all 0.3s ease;
 }
@@ -53,14 +51,13 @@ body {
     transform: translateY(-13px) rotate(-45deg);
 }
 
-
 .sidebar {
     position: fixed;
     top: 0;
-    right: -300px; 
+    right: -300px;
     width: 280px;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); 
+    height: 100%; /* Ocupa a altura total da viewport */
+    background-color: rgba(0, 0, 0, 0.9);
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     transition: right 0.3s ease-in-out;
@@ -68,10 +65,11 @@ body {
     flex-direction: column;
     padding: 20px;
     box-sizing: border-box;
+    overflow-y: auto; /* Adicionado para permitir scroll se o conteúdo for longo */
 }
 
 .sidebar.open {
-    right: 0; 
+    right: 0;
 }
 
 .sidebar-header {
@@ -91,11 +89,11 @@ body {
 .sidebar-buttons {
     display: flex;
     flex-direction: column;
-    gap: 15px; 
+    gap: 15px;
 }
 
 .sidebar-button {
-    width: 100%; 
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -103,7 +101,6 @@ body {
     padding: 0;
     justify-content: flex-start;
 }
-
 
 .content-below {
     padding: 40px 20px;
@@ -117,7 +114,6 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
 
 .welcome-heading {
     font-family: 'Montserrat', sans-serif;
@@ -143,11 +139,9 @@ body {
     animation-delay: 0.4s;
 }
 
-
 .welcome-text strong {
     font-weight: 700;
 }
-
 
 .image-container {
     width: 100%;
@@ -164,7 +158,6 @@ body {
     object-fit: cover;
     display: block;
 }
-
 
 .image-text {
     position: absolute;
@@ -212,7 +205,6 @@ body {
     margin-bottom: 30px;
 }
 
-
 .social-icons {
     display: flex;
     gap: 35px;
@@ -226,7 +218,6 @@ body {
     justify-content: center;
     text-decoration: none;
 }
-
 
 .button-container {
     display: flex;
@@ -246,7 +237,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -273,6 +264,90 @@ body {
     }
 }
 
+/* --- Language Selector Styles --- */
+.language-selector {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Posição inicial para telas maiores (direita) */
+    z-index: 100;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.language-selector .globe-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.language-selector .globe-button svg {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.language-selector .globe-button svg path {
+    fill: white;
+    transition: fill 0.3s ease;
+}
+
+.language-selector .globe-button:hover svg path {
+    fill: #e0e0e0;
+}
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0; /* Alinha o dropdown à direita do botão do globo por padrão */
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    min-width: 130px;
+    z-index: 101;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.language-dropdown.open {
+    display: block;
+}
+
+.language-dropdown button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-dropdown button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.language-dropdown button.active {
+    background-color: rgba(255, 255, 255, 0.3);
+    font-weight: 700;
+}
+
+.language-dropdown button img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
 /* ===================================== */
 /* --- Responsividade para Telas Menores --- */
@@ -335,10 +410,9 @@ body {
     }
 
     .menu-toggle {
-        display: flex;
+        display: flex; /* EXIBE O HAMBÚRGUER EM TELAS < 768px */
     }
 
-    
     .content-below {
         padding: 30px 20px;
         margin-top: -20px;
@@ -353,15 +427,36 @@ body {
         max-width: 90%;
         margin: 0 auto 20px auto;
     }
-    
+
+    /* AJUSTES DO LANGUAGE SELECTOR PARA TELAS < 768px */
+    .language-selector {
+        top: 20px; /* Mantém a posição top */
+        left: 20px; /* Move para a esquerda */
+        right: auto; /* Remove a regra de right */
+        z-index: 1001; /* Aumenta o z-index para garantir visibilidade com o menu-toggle */
+    }
+
+    .language-dropdown {
+        left: 0; /* Alinha o dropdown com o botão do globo na esquerda */
+        right: auto;
+        top: 45px;
+        min-width: 120px;
+        font-size: 0.9em;
+    }
+
+    .language-dropdown button {
+        padding: 7px 10px;
+        gap: 7px;
+    }
+
+    .language-selector .globe-button svg {
+        width: 35px;
+        height: 35px;
+    }
 }
 
 @media (max-width: 480px) {
-    
     .image-text {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         padding: 0 10px;
     }
 
@@ -406,7 +501,28 @@ body {
         font-size: 0.9em;
         max-width: 95%;
     }
-    
+
+    /* AJUSTES DO LANGUAGE SELECTOR PARA TELAS < 480px */
+    .language-selector {
+        top: 20px; /* Levemente ajustado */
+        left: 15px; /* Mais para a esquerda */
+    }
+
+    .language-dropdown {
+        top: 40px;
+        min-width: 110px;
+        font-size: 0.8em;
+    }
+
+    .language-dropdown button {
+        padding: 6px 8px;
+        gap: 6px;
+    }
+
+    .language-dropdown button img {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 /* ===================================== */
@@ -458,22 +574,74 @@ body {
         height: 28px;
     }
 
-    
     .content-below .welcome-text {
         font-size: 0.85em;
         max-width: 90%;
         padding: 0 10px;
     }
+
     .content-below .welcome-heading {
         font-size: 1.8em;
     }
-    
+
+    /* --- AJUSTES ESPECÍFICOS PARA LANDSCAPE --- */
+
+    /* Garante que o menu-toggle esteja visível e na direita */
+    .menu-toggle {
+        display: flex; /* Sobrescreve 'display: none' do base */
+        top: 15px; /* Ajusta a posição para não ficar muito alto */
+        right: 15px; /* Mantém na direita */
+        width: 35px; /* Levemente menor para telas com pouca altura */
+        height: 25px;
+        padding: 3px; /* Reduz o padding do hambúrguer */
+    }
+
+    /* Ajustes para a sidebar (menu lateral) em modo paisagem */
+    .sidebar {
+        width: 200px; /* Reduz a largura da sidebar para telas mais estreitas */
+        height: 100vh; /* Garante que ocupe toda a altura da viewport */
+        padding-top: 15px; /* Reduz o padding top para economizar espaço */
+    }
+
+    /* Garante que o seletor de idioma esteja visível e na esquerda */
+    .language-selector {
+        display: block; /* Garante que esteja visível (caso alguma outra regra o esconda) */
+        position: fixed; /* Mantenha fixo */
+        top: 15px; /* Posição adequada para telas baixas */
+        left: 15px; /* Mantém na esquerda */
+        right: auto; /* Garante que não tenha regra de 'right' competindo */
+        z-index: 1001; /* Alta prioridade para estar acima de tudo */
+    }
+
+    .language-selector .globe-button svg {
+        width: 30px; /* Reduz o tamanho do globo */
+        height: 30px;
+    }
+
+    .language-dropdown {
+        top: 38px; /* Ajusta a posição do dropdown abaixo do globo reduzido */
+        left: 0; /* Alinha à esquerda */
+        right: auto;
+        min-width: 100px; /* Pode ser ainda menor se houver problema de espaço */
+        font-size: 0.75em; /* Reduz ainda mais a fonte dos idiomas */
+    }
+
+    .language-dropdown button {
+        padding: 5px 7px; /* Reduz o padding dos botões de idioma */
+        gap: 5px;
+    }
+
+    .language-dropdown button img {
+        width: 14px; /* Bandeira ainda menor */
+        height: 14px;
+    }
 }
+
 
 #page2 {
     background-color: #f0f0f0;
     color: #555;
-    padding: 20px;
+    padding: 20px; /* Garante um padding base para não grudar nas bordas */
     justify-content: flex-start;
     align-items: center;
     display: flex;
@@ -488,6 +656,12 @@ body {
     margin-top: 50px;
     margin-bottom: 30px;
     text-align: center;
+    max-width: 900px;
+    width: 95%; /* Continua com 95% para não ficar muito grudado nas laterais em telas médias/grandes */
+    margin-left: auto;
+    margin-right: auto;
+    word-break: break-word; /* Permite quebrar palavras longas */
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na width */
 }
 
 .education-item {
@@ -506,9 +680,8 @@ body {
 .education-logo {
     flex-shrink: 0;
     margin-right: 25px;
-    /* NOVO AUMENTO PARA TELAS MAIORES (Notebooks/Desktops) */
-    width: 110px; /* Aumentado de 100px para 110px */
-    height: 110px; /* Aumentado de 100px para 110px */
+    width: 110px;
+    height: 110px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -590,9 +763,8 @@ body {
     .education-logo {
         margin-right: 0;
         margin-bottom: 15px;
-        /* NOVO AUMENTO PARA TELAS ENTRE 768px E 480px (Tablets/Notebooks menores) */
-        width: 90px; /* Aumentado de 80px para 90px */
-        height: 90px; /* Aumentado de 80px para 90px */
+        width: 90px;
+        height: 90px;
     }
 
     .education-details {
@@ -622,7 +794,8 @@ body {
     }
 
     #page2 h2 {
-        font-size: 1.5em;
+        font-size: 1.6em; /* Reduzido um pouco mais para 768px */
+        width: 95%; /* Mantenho 95% para margens laterais adequadas */
     }
 }
 
@@ -632,9 +805,8 @@ body {
     }
 
     .education-logo {
-        /* NOVO AUMENTO PARA TELAS MENORES QUE 480px (Celulares) */
-        width: 85px; /* Aumentado de 75px para 85px */
-        height: 85px; /* Aumentado de 75px para 85px */
+        width: 85px;
+        height: 85px;
     }
 
     .education-details h3 {
@@ -655,7 +827,8 @@ body {
     }
 
     #page2 h2 {
-        font-size: 1.3em;
+        font-size: 1.2em; /* Reduzido significativamente para telas muito pequenas */
+        width: 98%; /* Ocupa quase toda a largura para não cortar */
     }
 }
 
@@ -665,9 +838,8 @@ body {
     }
 
     .education-logo {
-        /* NOVO AUMENTO PARA TELAS PAISAGEM (Celulares em modo paisagem) */
-        width: 85px; /* Aumentado de 75px para 85px */
-        height: 85px; /* Aumentado de 75px para 85px */
+        width: 85px;
+        height: 85px;
         margin-right: 15px;
     }
 
@@ -691,14 +863,16 @@ body {
     .location-details p {
         font-size: 0.8em;
     }
+
+    #page2 h2 {
+        font-size: 1.3em; /* Ajustado para paisagem */
+        width: 95%; /* Ajustado para paisagem */
+    }
 }
-
-
 
 /* ===================================== */
 /* --- Novas Seções (Page 3 e Page 4) --- */
 /* ===================================== */
-
 
 .content-wrapper {
     max-width: 800px;
