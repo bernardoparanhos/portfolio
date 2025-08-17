@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fechar o menu ao clicar fora dele
     document.addEventListener('click', (event) => {
-        // Verifica se o clique não foi no menu-toggle e nem dentro da sidebar
         if (!menuToggle.contains(event.target) && !sidebar.contains(event.target)) {
             if (sidebar.classList.contains('open')) {
                 sidebar.classList.remove('open');
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
 
     // --- Funcionalidade de Troca de Idiomas ---
 
@@ -49,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
             aboutMeButton: "Sobre mim",
             projectsButton: "Projetos",
             welcomeHeading: "Bem-vindo(a)!",
-            // CORREÇÃO AQUI: Usando <strong> para negrito
             welcomeText: "Olá! Seja bem-vindo(a) ao meu portfólio. Sou <strong>Bernardo Paranhos</strong>, graduando Engenharia de Produção com interesse nas áreas de <strong>Sistema, Gestão, Logística e Operações Offshore</strong>. Aqui, você encontrará um pouco da minha trajetória, aprendizados e projetos. Sinta-se à vontade para explorar!",
             
             educationTitle: "Educação",
@@ -70,19 +67,21 @@ document.addEventListener('DOMContentLoaded', () => {
             excelPowerBI: "Excel/Power BI (nível básico)",
             dataAnalysis: "Análise de dados (em desenvolvimento)",
             webFundamentals: "Fundamentos de HTML/CSS/Javascript",
-            // CORREÇÃO AQUI: Verifique se não há asteriscos aqui também, se precisar de negrito, use <strong>
             aboutMeP1: "Sou um universitário de Engenharia de Produção dedicado e curioso, com forte interesse por tecnologia, operações industriais e soluções logísticas. Acredito no poder da colaboração e na importância de uma comunicação clara para alcançar objetivos ambiciosos.",
             
             quoteText: "\"A confiança em si mesmo é o primeiro segredo do sucesso\" <br> Ralph Waldo Emerson",
 
             contactTitle: "Entre em contato comigo",
             contactSubtitle: "Estou sempre aberto a novas oportunidades e colaborações.",
-            emailContact: "beparanhosborges@gmail.com", // Mantenha o email fixo
+            emailContact: "beparanhosborges@gmail.com",
             linkedinContact: "LinkedIn",
             homeNavLink: "HOME",
             aboutMeNavLink: "SOBRE MIM",
             educationNavLink: "EDUCAÇÃO",
-            footerText: "&copy; 2025 Bernardo Paranhos. Todos os direitos reservados."
+            footerText: "&copy; 2025 Bernardo Paranhos. Todos os direitos reservados.",
+            // --- Mensagens de toast ---
+            emailCopiedToast: "E-mail copiado!",
+            copyErrorToast: "Não foi possível copiar o e-mail."
         },
         en: {
             menuTitle: "Menu",
@@ -100,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
             aboutMeButton: "About Me",
             projectsButton: "Projects",
             welcomeHeading: "Welcome!",
-            // CORREÇÃO AQUI: Usando <strong> para negrito
             welcomeText: "Hello! Welcome to my portfolio. I am <strong>Bernardo Paranhos</strong>, a graduating Production Engineer with an interest in <strong>Systems, Management, Logistics, and Offshore Operations</strong>. Here, you will find a bit of my journey, learnings, and projects. Feel free to explore!",
             
             educationTitle: "Education",
@@ -121,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
             excelPowerBI: "Excel/Power BI (basic level)",
             dataAnalysis: "Data Analysis (in development)",
             webFundamentals: "HTML/CSS/Javascript Fundamentals",
-            // CORREÇÃO AQUI: Verifique se não há asteriscos aqui também, se precisar de negrito, use <strong>
             aboutMeP1: "I am a dedicated and curious Production Engineering university student with a strong interest in technology, industrial operations, and logistics solutions. I believe in the power of collaboration and the importance of clear communication to achieve ambitious goals.",
 
             quoteText: "\"Self-confidence is the first secret of success\" <br> Ralph Waldo Emerson",
@@ -133,7 +130,10 @@ document.addEventListener('DOMContentLoaded', () => {
             homeNavLink: "HOME",
             aboutMeNavLink: "ABOUT ME",
             educationNavLink: "EDUCATION",
-            footerText: "&copy; 2025 Bernardo Paranhos. All rights reserved."
+            footerText: "&copy; 2025 Bernardo Paranhos. All rights reserved.",
+            // --- Mensagens de toast ---
+            emailCopiedToast: "Email copied!",
+            copyErrorToast: "Could not copy email."
         },
         es: {
             menuTitle: "Menú",
@@ -151,12 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
             aboutMeButton: "Sobre mí",
             projectsButton: "Proyectos",
             welcomeHeading: "¡Bienvenido(a)!",
-            // CORREÇÃO AQUI: Usando <strong> para negrito
             welcomeText: "¡Hola! Sea bienvenido(a) a mi portafolio. Soy <strong>Bernardo Paranhos</strong>, estudiante de Ingeniería de Producción con interés en las áreas de <strong>Sistemas, Gestión, Logística y Operaciones Offshore</strong>. Aquí encontrará un poco de mi trayectoria, aprendizajes y proyectos. ¡Siéntase libre de explorar!",
             
             educationTitle: "Educación",
             utfprDegree: "Universidad Tecnológica Federal de Paraná",
-            utfprProgram: "Bacharelado - Ingeniería de producción", // Ou "Bachillerato - Ingeniería de producción"
+            utfprProgram: "Bacharelado - Ingeniería de producción",
             utfprStart: "Inicio en el segundo semestre de 2025",
             utfprPeriod: "2025 - 2030",
             utfprLocation: "Medianeira, Brasil",
@@ -172,7 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
             excelPowerBI: "Excel/Power BI (nivel básico)",
             dataAnalysis: "Análisis de datos (en desarrollo)",
             webFundamentals: "Fundamentos de HTML/CSS/Javascript",
-            // CORREÇÃO AQUI: Verifique se não há asteriscos aqui também, se precisar de negrito, use <strong>
             aboutMeP1: "Soy un estudiante universitario de Ingeniería de Producción dedicado y curioso, con un fuerte interés en tecnología, operaciones industriales y soluciones logísticas. Creo en el poder de la colaboración y en la importancia de una comunicación clara para lograr objetivos ambiciosos.",
 
             quoteText: "\"La confianza en uno mismo es el primer secreto del éxito\" <br> Ralph Waldo Emerson",
@@ -184,26 +182,23 @@ document.addEventListener('DOMContentLoaded', () => {
             homeNavLink: "INICIO",
             aboutMeNavLink: "SOBRE MÍ",
             educationNavLink: "EDUCACIÓN",
-            footerText: "&copy; 2025 Bernardo Paranhos. Todos los derechos reservados."
+            footerText: "&copy; 2025 Bernardo Paranhos. Todos los derechos reservados.",
+            // --- Mensagens de toast ---
+            emailCopiedToast: "¡Correo electrónico copiado!",
+            copyErrorToast: "No se pudo copiar el correo electrónico."
         }
     };
 
-    const currentLang = localStorage.getItem('lang') || 'pt'; // Carrega o idioma salvo ou padrão para 'pt'
+    let currentLang = localStorage.getItem('lang') || 'pt';
 
     function setLanguage(lang) {
-        // Atualiza o atributo lang do HTML
         document.documentElement.lang = lang; 
-
-        // Itera sobre todos os elementos com data-lang-key
         document.querySelectorAll('[data-lang-key]').forEach(element => {
             const key = element.getAttribute('data-lang-key');
             if (translations[lang] && translations[lang][key]) {
-                // Usa innerHTML para permitir tags como <strong> e <br>
                 element.innerHTML = translations[lang][key]; 
             }
         });
-
-        // Atualiza os botões de idioma no dropdown para mostrar o ativo
         document.querySelectorAll('.language-dropdown button').forEach(button => {
             if (button.dataset.lang === lang) {
                 button.classList.add('active');
@@ -211,15 +206,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.classList.remove('active');
             }
         });
-
-        // Salva o idioma no localStorage
         localStorage.setItem('lang', lang);
+        // Atualiza a variável global do idioma
+        currentLang = lang; 
     }
 
-    // Criar o seletor de idiomas dinamicamente
     const languageSelector = document.getElementById('languageSelector');
 
-    // SVG do globo
     const globeSVG = `
         <svg width="35px" height="35px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
             <title>globe</title>
@@ -252,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const languageDropdown = document.getElementById('languageDropdown');
 
     globeButton.addEventListener('click', (event) => {
-        event.stopPropagation(); // Impede que o clique no botão feche o dropdown imediatamente
+        event.stopPropagation();
         languageDropdown.classList.toggle('open');
     });
 
@@ -260,17 +253,66 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', (event) => {
             const selectedLang = event.currentTarget.dataset.lang;
             setLanguage(selectedLang);
-            languageDropdown.classList.remove('open'); // Fecha o dropdown após a seleção
+            languageDropdown.classList.remove('open');
         });
     });
 
-    // Fechar o dropdown de idioma ao clicar fora dele
     document.addEventListener('click', (event) => {
         if (!languageSelector.contains(event.target) && languageDropdown.classList.contains('open')) {
             languageDropdown.classList.remove('open');
         }
     });
 
-    // Inicializa o idioma ao carregar a página
     setLanguage(currentLang);
+
+    const copyEmailBtn = document.getElementById("copyEmail");
+
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener("click", function (e) {
+            e.preventDefault(); 
+            const email = "beparanhosborges@gmail.com";
+            const lang = currentLang; // Pega o idioma atual
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(email).then(() => {
+                    showToast(translations[lang].emailCopiedToast);
+                }).catch(() => {
+                    fallbackCopy(email, lang);
+                });
+            } else {
+                fallbackCopy(email, lang);
+            }
+        });
+    }
+
+    function fallbackCopy(text, lang) {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed"; 
+        textArea.style.opacity = "0";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+            document.execCommand("copy");
+            showToast(translations[lang].emailCopiedToast);
+        } catch (err) {
+            console.error("Erro ao copiar:", err);
+            showToast(translations[lang].copyErrorToast);
+        }
+
+        document.body.removeChild(textArea);
+    }
+
+   
+    function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2500);
+    }
 });

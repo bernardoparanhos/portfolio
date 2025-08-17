@@ -657,11 +657,11 @@ body {
     margin-bottom: 30px;
     text-align: center;
     max-width: 900px;
-    width: 95%; /* Continua com 95% para não ficar muito grudado nas laterais em telas médias/grandes */
+    width: 95%; 
     margin-left: auto;
     margin-right: auto;
     word-break: break-word; /* Permite quebrar palavras longas */
-    box-sizing: border-box; /* Garante que padding e border sejam incluídos na width */
+    box-sizing: border-box; 
 }
 
 .education-item {
@@ -794,8 +794,8 @@ body {
     }
 
     #page2 h2 {
-        font-size: 1.6em; /* Reduzido um pouco mais para 768px */
-        width: 95%; /* Mantenho 95% para margens laterais adequadas */
+        font-size: 1.6em; 
+        width: 95%; 
     }
 }
 
@@ -827,8 +827,8 @@ body {
     }
 
     #page2 h2 {
-        font-size: 1.2em; /* Reduzido significativamente para telas muito pequenas */
-        width: 98%; /* Ocupa quase toda a largura para não cortar */
+        font-size: 1.2em; 
+        width: 98%; 
     }
 }
 
@@ -1677,4 +1677,45 @@ body {
 
 .site-footer {
     margin-top: 0;
+}
+
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(20px);
+    z-index: 2000;
+}
+
+/* Animação ao aparecer */
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    .toast {
+        left: 50%;
+        right: auto;
+        bottom: 100px; /* ⬆️ subimos mais */
+        transform: translateX(-50%) translateY(20px);
+        font-size: 12px; /* mais sutil */
+        padding: 6px 12px;
+        background: rgba(51, 51, 51, 0.9); /* levemente translúcido */
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* sombra suave */
+    }
+
+    .toast.show {
+        transform: translateX(-50%) translateY(0);
+    }
 }
