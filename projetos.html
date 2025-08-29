@@ -1,25 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Projetos - Bernardo Paranhos</title>
-    
-    <link rel="stylesheet" href="projetos.css"> 
-    
+    <title>Página de Portfólio</title>
+    <link rel="stylesheet" href="projetos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="projects-page-container">
-        <h1>Meus Projetos</h1>
-        <p>Esta página é dedicada aos meus projetos.</p>
-        <p>Em breve, mais detalhes e exemplos aqui!</p>
-        
-        <a href="index.html" class="back-to-home-button">Voltar para o Início</a>
-    </div>
 
-    <script src="projetos.js"></script>
+    <header class="header">
+        <h1 class="header-name">Bernardo Paranhos</h1>
+        <p class="header-projects">Projetos</p>
+    </header>
+
+    <main class="main-content">
+                        <a href="index.html" class="header-button">Voltar à Página Inicial</a>
+
+        <section class="project-card">
+            <div class="project-text-content">
+    <h2 class="project-title">Giro Literário</h2>
+    <p class="project-description">
+        Embora apresentado como uma estante virtual, o conceito pode ser facilmente aplicado a outros sistemas, processos e ideias que exigem organização e acesso eficiente a informações. 
+        O projeto demonstra habilidades em estruturação e otimização de dados, com frontend em HTML, CSS e JavaScript, backend em Node.js/Express e integração com MongoDB Atlas. 
+        Inclui pesquisa inteligente, endpoints REST e design responsivo, destacando a construção de uma solução completa e funcional.
+    </p>
+</div>
+
+           <div class="project-media-content">
+    <a href="https://giroliterario-website.onrender.com/" target="_blank">
+        <img src="image/Captura de tela 2025-08-29 143936.png" alt="Foto do projeto Estante Virtual" class="project-image">
+    </a>
+    <a href="https://giroliterario-website.onrender.com/" target="_blank" class="project-link">Acessar Projeto</a>
+</div>
+        </section>
+    </main>
+
 </body>
 </html>

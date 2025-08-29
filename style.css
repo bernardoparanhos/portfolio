@@ -404,8 +404,15 @@ body {
         width: 38px;
         height: 38px;
     }
-
+    
     .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .button-container [data-lang-key="curriculumButton"],
+    .button-container [data-lang-key="aboutMeButton"] {
         display: none;
     }
 
