@@ -143,3 +143,119 @@ body {
         max-width: 100%;
     }
 }
+
+
+/* ===================================== */
+/* --- Language Selector Styles --- */
+/* ===================================== */
+.language-selector {
+    position: fixed;
+    top: 100px; /* Posição para telas grandes (desktops/notebooks) */
+    right: 20px;
+    z-index: 1000;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff; /* Define a cor padrão do texto e ícone (branco) */
+}
+
+.language-selector .globe-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.language-selector .globe-button svg {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* GARANTE QUE O SVG DO GLOBO SEJA BRANCO POR PADRÃO */
+.language-selector .globe-button svg path,
+.language-selector .globe-button svg circle,
+.language-selector .globe-button svg line {
+    fill: none;
+    stroke: #fff; /* AQUI! Define explicitamente o traço como BRANCO */
+    transition: stroke 0.3s ease;
+}
+
+/* Efeito de hover */
+.language-selector .globe-button:hover svg path,
+.language-selector .globe-button:hover svg circle,
+.language-selector .globe-button:hover svg line {
+    stroke: #ccc; /* Cor no hover (cinza claro) */
+}
+
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    min-width: 130px;
+    z-index: 1001;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.language-dropdown.open {
+    display: block;
+}
+
+.language-dropdown button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-dropdown button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.language-dropdown button.active {
+    background-color: rgba(255, 255, 255, 0.3);
+    font-weight: 700;
+}
+
+.language-dropdown button img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* ===================================== */
+/* --- Responsividade do Seletor de Idioma --- */
+/* ===================================== */
+
+@media (max-width: 768px) {
+    .language-selector {
+        top: 140px; /* Posição para tablets e telas menores */
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .language-selector {
+        top: 150px; /* Posição para smartphones (desce ainda mais) */
+        right: 10px;
+    }
+}
