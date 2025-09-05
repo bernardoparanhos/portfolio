@@ -42,12 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
             portfolioTitle: "Portfólio Engenharia de Produção",
             name: "BERNARDO PARANHOS",
             role: "Engenheiro de Produção Graduando",
-            keywords: "SISTEMAS | ENGENHARIA | OPERAÇÕES | OFFSHORE",
+            keywords: "OPERAÇÕES | OFFSHORE | LOGÍSTICA | SEGURANÇA DO TRABALHO",
             curriculumButton: "Currículo",
             aboutMeButton: "Sobre mim",
             projectsButton: "Projetos",
-            welcomeHeading: "Bem-vindo(a)!",
-            welcomeText: "Olá! Seja bem-vindo(a) ao meu portfólio. Sou <strong>Bernardo Paranhos</strong>, graduando Engenharia de Produção com interesse nas áreas de <strong>Sistema, Gestão, Logística e Operações Offshore</strong>. Aqui, você encontrará um pouco da minha trajetória, aprendizados e projetos. Sinta-se à vontade para explorar!",
+            welcomeHeading: "Bem-vindo!",
+            welcomeText: "Olá! Sou <strong>Bernardo Paranhos</strong>, estudante de Engenharia de Produção focado em otimização de processos e gestão de riscos. Meu objetivo é aplicar conhecimentos em <strong>Logística, Operações Offshore e Segurança do Trabalho</strong> para criar ambientes industriais mais eficientes e seguros. Navegue pelo portfólio para conhecer meus projetos e competências.",
             
             educationTitle: "Educação",
             utfprDegree: "Universidade Tecnológica Federal do Paraná",
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             excelPowerBI: "Excel/Power BI (nível básico)",
             dataAnalysis: "Análise de dados (em desenvolvimento)",
             webFundamentals: "Fundamentos de HTML/CSS/Javascript",
-            aboutMeP1: "Sou um universitário de Engenharia de Produção dedicado e curioso, com forte interesse por tecnologia, operações industriais e soluções logísticas. Acredito no poder da colaboração e na importância de uma comunicação clara para alcançar objetivos ambiciosos.",
+    aboutMeP1: "Como futuro Engenheiro de Produção, minha missão é resolver problemas complexos através da união entre tecnologia e processos eficientes. Tenho um foco direcionado para as áreas de <strong>Logística, Operações Offshore, Industriais e Segurança do Trabalho</strong>, onde busco aplicar meu raciocínio analítico para criar soluções que sejam não apenas produtivas, mas também seguras e sustentáveis.",
             
             quoteText: "\"A confiança em si mesmo é o primeiro segredo do sucesso\" <br> Ralph Waldo Emerson",
 
@@ -94,12 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
             portfolioTitle: "Production Engineering Portfolio",
             name: "BERNARDO PARANHOS",
             role: "Graduating Production Engineer",
-            keywords: "SYSTEMS | ENGINEERING | OPERATIONS | OFFSHORE",
+            keywords: "OPERATIONS | OFFSHORE | LOGISTICS | OCCUPATIONAL SAFETY",
             curriculumButton: "Resume",
             aboutMeButton: "About Me",
             projectsButton: "Projects",
             welcomeHeading: "Welcome!",
-            welcomeText: "Hello! Welcome to my portfolio. I am <strong>Bernardo Paranhos</strong>, a graduating Production Engineer with an interest in <strong>Systems, Management, Logistics, and Offshore Operations</strong>. Here, you will find a bit of my journey, learnings, and projects. Feel free to explore!",
+            welcomeText: "Hello! I'm <strong>Bernardo Paranhos</strong>, a Production Engineering student focused on process optimization and risk management. My goal is to apply knowledge in <strong>Logistics, Offshore Operations, and Occupational Safety</strong> to create more efficient and secure industrial environments. Browse my portfolio to see my projects and skills.",
             
             educationTitle: "Education",
             utfprDegree: "Federal University of Technology - Paraná",
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             excelPowerBI: "Excel/Power BI (basic level)",
             dataAnalysis: "Data Analysis (in development)",
             webFundamentals: "HTML/CSS/Javascript Fundamentals",
-            aboutMeP1: "I am a dedicated and curious Production Engineering university student with a strong interest in technology, industrial operations, and logistics solutions. I believe in the power of collaboration and the importance of clear communication to achieve ambitious goals.",
+                aboutMeP1: "As a future Production Engineer, my mission is to solve complex problems by uniting technology and efficient processes. I have a direct focus on the areas of <strong>Logistics, Offshore Operations, Industrial Operations, and Occupational Safety</strong>, where I seek to apply my analytical reasoning to create solutions that are not only productive but also safe and sustainable.",
 
             quoteText: "\"Self-confidence is the first secret of success\" <br> Ralph Waldo Emerson",
 
@@ -143,19 +143,19 @@ document.addEventListener('DOMContentLoaded', () => {
             resumeSidebarButton: "Currículum",
             projectsSidebarButton: "Proyectos",
 
-            portfolioTitle: "Portafolio Ingeniería de Producción",
+            portfolioTitle: "Portafolio de Ingeniería de Producción",
             name: "BERNARDO PARANHOS",
             role: "Estudiante de Ingeniería de Producción",
-            keywords: "SISTEMAS | INGENIERÍA | OPERACIONES | OFFSHORE",
+            keywords: "OPERACIONES | OFFSHORE | LOGÍSTICA | SEGURIDAD LABORAL",
             curriculumButton: "Currículum",
             aboutMeButton: "Sobre mí",
             projectsButton: "Proyectos",
-            welcomeHeading: "¡Bienvenido(a)!",
-            welcomeText: "¡Hola! Sea bienvenido(a) a mi portafolio. Soy <strong>Bernardo Paranhos</strong>, estudiante de Ingeniería de Producción con interés en las áreas de <strong>Sistemas, Gestión, Logística y Operaciones Offshore</strong>. Aquí encontrará un poco de mi trayectoria, aprendizajes y proyectos. ¡Siéntase libre de explorar!",
+            welcomeHeading: "¡Bienvenido!",
+            welcomeText: "¡Hola! Soy <strong>Bernardo Paranhos</strong>, estudiante de Ingeniería de Producción enfocado en la optimización de procesos y gestión de riesgos. Mi objetivo es aplicar conocimientos en <strong>Logística, Operaciones Offshore y Seguridad Laboral</strong> para crear entornos industriales más eficientes y seguros. Navegue por el portafolio para conocer mis proyectos y competencias.",
             
             educationTitle: "Educación",
             utfprDegree: "Universidad Tecnológica Federal de Paraná",
-            utfprProgram: "Bacharelado - Ingeniería de producción",
+            utfprProgram: "Licenciatura - Ingeniería de Producción",
             utfprStart: "Inicio en el segundo semestre de 2025",
             utfprPeriod: "2025 - 2030",
             utfprLocation: "Medianeira, Brasil",
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
             excelPowerBI: "Excel/Power BI (nivel básico)",
             dataAnalysis: "Análisis de datos (en desarrollo)",
             webFundamentals: "Fundamentos de HTML/CSS/Javascript",
-            aboutMeP1: "Soy un estudiante universitario de Ingeniería de Producción dedicado y curioso, con un fuerte interés en tecnología, operaciones industriales y soluciones logísticas. Creo en el poder de la colaboración y en la importancia de una comunicación clara para lograr objetivos ambiciosos.",
+    aboutMeP1: "Como futuro Ingeniero de Producción, mi misión es resolver problemas complejos uniendo tecnología y procesos eficientes. Tengo un enfoque dirigido a las áreas de <strong>Logística, Operaciones Offshore, Industriales y Seguridad Laboral</strong>, donde busco aplicar mi razonamiento analítico para crear soluciones que no solo sean productivas, sino también seguras y sostenibles.",
 
             quoteText: "\"La confianza en uno mismo es el primer secreto del éxito\" <br> Ralph Waldo Emerson",
 
@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.removeChild(textArea);
     }
 
-   
+    
     function showToast(message) {
         const toast = document.getElementById("toast");
         toast.textContent = message;
