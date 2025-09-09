@@ -7,27 +7,18 @@ const translations = {
         name: "Bernardo Paranhos",
         projectsHeaderTitle: "Projetos",
         backButton: "Voltar à Página Inicial",
-        giroLiterarioTitle: "Giro Literário",
-        giroLiterarioDescription: "Embora apresentado como uma estante virtual, o conceito pode ser facilmente aplicado a outros sistemas, processos e ideias que exigem organização e acesso eficiente a informações. O projeto demonstra habilidades em estruturação e otimização de dados, com frontend em HTML, CSS e JavaScript, backend em Node.js/Express e integração com MongoDB Atlas. Inclui pesquisa inteligente, endpoints REST e design responsivo, destacando a construção de uma solução completa e funcional.",
-        accessProjectLink: "Acessar Projeto"
     },
     en: {
         projectsPageTitle: "Portfolio Page",
         name: "Bernardo Paranhos",
         projectsHeaderTitle: "Projects",
         backButton: "Back to Home Page",
-        giroLiterarioTitle: "Literary Shelf",
-        giroLiterarioDescription: "Although presented as a virtual bookshelf, the concept can be easily applied to other systems, processes, and ideas that require efficient organization and access to information. The project demonstrates skills in data structuring and optimization, with a frontend in HTML, CSS, and JavaScript, a backend in Node.js/Express, and integration with MongoDB Atlas. It includes intelligent search, REST endpoints, and responsive design, highlighting the construction of a complete and functional solution.",
-        accessProjectLink: "Access Project"
     },
     es: {
         projectsPageTitle: "Página de Portafolio",
         name: "Bernardo Paranhos",
         projectsHeaderTitle: "Proyectos",
         backButton: "Volver a la Página Principal",
-        giroLiterarioTitle: "Giro Literario",
-        giroLiterarioDescription: "Aunque se presenta como una estantería virtual, el concepto puede aplicarse fácilmente a otros sistemas, procesos e ideas que requieren una organización y un acceso eficiente a la información. El proyecto demuestra habilidades en la estructuración y optimización de datos, con frontend en HTML, CSS y JavaScript, backend en Node.js/Express e integración con MongoDB Atlas. Incluye búsqueda inteligente, endpoints REST y diseño responsivo, destacando la construcción de una solución completa y funcional.",
-        accessProjectLink: "Acceder al Proyecto"
     }
 };
 
