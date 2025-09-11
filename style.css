@@ -644,16 +644,16 @@ body {
     }
 }
 
-
 #page2 {
     background-color: #f0f0f0;
     color: #555;
-    padding: 20px; /* Garante um padding base para não grudar nas bordas */
+    padding: 20px;
     justify-content: flex-start;
     align-items: center;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative; /* Adicionado para que o posicionamento do certificado funcione corretamente */
 }
 
 #page2 h2 {
@@ -664,11 +664,11 @@ body {
     margin-bottom: 30px;
     text-align: center;
     max-width: 900px;
-    width: 95%; 
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
-    word-break: break-word; /* Permite quebrar palavras longas */
-    box-sizing: border-box; 
+    word-break: break-word;
+    box-sizing: border-box;
 }
 
 .education-item {
@@ -757,8 +757,63 @@ body {
     text-align: right;
 }
 
-/* --- Media Queries --- */
+/* --- Ajustes para o Link do Certificado (PDF) --- */
+.certificate-link-container {
+    position: absolute;
+    bottom: 30px;
+    left: 578px;
+    width: 345px; /* Aumentado o comprimento lateral em telas maiores */
+    height: auto;
+    z-index: 10;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.certificate-link-container img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.541);
+    border: 5px solid transparent;
+}
+
+.certificate-link-container:hover {
+    transform: translateY(-5px);
+}
+
+/* --- Media Queries para o Certificado --- */
+@media (max-width: 768px) {
+    .certificate-link-container {
+        position: static;
+        margin: 30px auto 0 auto;
+        width: 90%; /* Ajustado para 90% para telas menores */
+        max-width: 400px; /* Aumentado o max-width para o certificado não ficar muito pequeno */
+        bottom: auto;
+        left: auto;
+        display: block; /* Mudado para block */
+    }
+
+    .certificate-link-container img {
+        width: 100%;
+        height: auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (max-width: 480px) {
+    .certificate-link-container {
+        margin-top: 20px;
+        width: 95%;
+        max-width: 350px; /* Aumentado o max-width */
+    }
+}
+
+
+/* --- Media Queries Geral --- */
 @media (max-width: 768px) {
     .education-item {
         flex-direction: column;
@@ -799,10 +854,10 @@ body {
         text-align: center;
         max-width: none;
     }
-
+    
     #page2 h2 {
-        font-size: 1.6em; 
-        width: 95%; 
+        font-size: 1.6em;
+        width: 95%;
     }
 }
 
@@ -834,8 +889,8 @@ body {
     }
 
     #page2 h2 {
-        font-size: 1.2em; 
-        width: 98%; 
+        font-size: 1.2em;
+        width: 98%;
     }
 }
 
@@ -872,8 +927,8 @@ body {
     }
 
     #page2 h2 {
-        font-size: 1.3em; /* Ajustado para paisagem */
-        width: 95%; /* Ajustado para paisagem */
+        font-size: 1.3em;
+        width: 95%;
     }
 }
 
