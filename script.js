@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             problemSolvingSkill: "Resolução de Problemas",
             analyticalSkill: "Raciocínio Analítico e Inteligência Emocional",
             hardSkillsTitle: "Hard Skills",
-            excelPowerBI: "Excel/Power BI (nível básico)",
+            excelPowerBI: "Excel/Power BI (nível intermediário)",
             dataAnalysis: "Análise de dados (em desenvolvimento)",
             webFundamentals: "Fundamentos de HTML/CSS/Javascript",
     aboutMeP1: "Como futuro Engenheiro de Produção, minha missão é resolver problemas complexos através da união entre tecnologia e processos eficientes. Tenho um foco direcionado para as áreas de <strong>Logística, Operações Offshore, Industriais e Segurança do Trabalho</strong>, onde busco aplicar meu raciocínio analítico para criar soluções que sejam não apenas produtivas, mas também seguras e sustentáveis.",
