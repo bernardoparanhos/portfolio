@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
             problemSolvingSkill: "Resolução de Problemas",
             analyticalSkill: "Raciocínio Analítico e Inteligência Emocional",
             hardSkillsTitle: "Hard Skills",
-            excelPowerBI: "Excel/Power BI (nível intermediário)",
-            dataAnalysis: "Análise de dados (em desenvolvimento)",
+            excelPowerBI: "Excel (nível intermediário)",
+            dataAnalysis: "Autocad (em desenvolvimento)",
             webFundamentals: "Fundamentos de HTML/CSS/Javascript",
     aboutMeP1: "Como futuro Engenheiro de Produção, minha missão é resolver problemas complexos através da união entre tecnologia e processos eficientes. Tenho um foco direcionado para as áreas de <strong>Logística, Operações Offshore, Industriais e Segurança do Trabalho</strong>, onde busco aplicar meu raciocínio analítico para criar soluções que sejam não apenas produtivas, mas também seguras e sustentáveis.",
             
@@ -116,8 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
             problemSolvingSkill: "Problem Solving",
             analyticalSkill: "Analytical Thinking and Emotional Intelligence",
             hardSkillsTitle: "Hard Skills",
-            excelPowerBI: "Excel/Power BI (intermediary level)",
-            dataAnalysis: "Data Analysis (in development)",
+            excelPowerBI: "Excel (intermediary level)",
+            dataAnalysis: "Autocad (in development)",
             webFundamentals: "HTML/CSS/Javascript Fundamentals",
                 aboutMeP1: "As a future Production Engineer, my mission is to solve complex problems by uniting technology and efficient processes. I have a direct focus on the areas of <strong>Logistics, Offshore Operations, Industrial Operations, and Occupational Safety</strong>, where I seek to apply my analytical reasoning to create solutions that are not only productive but also safe and sustainable.",
 
@@ -168,8 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
             problemSolvingSkill: "Resolución de Problemas",
             analyticalSkill: "Pensamiento Analítico e Inteligencia Emocional",
             hardSkillsTitle: "Habilidades Duras",
-            excelPowerBI: "Excel/Power BI (nivel intermediario)",
-            dataAnalysis: "Análisis de datos (en desarrollo)",
+            excelPowerBI: "Excel (nivel intermediario)",
+            dataAnalysis: "Autocad (en desarrollo)",
             webFundamentals: "Fundamentos de HTML/CSS/Javascript",
     aboutMeP1: "Como futuro Ingeniero de Producción, mi misión es resolver problemas complejos uniendo tecnología y procesos eficientes. Tengo un enfoque dirigido a las áreas de <strong>Logística, Operaciones Offshore, Industriales y Seguridad Laboral</strong>, donde busco aplicar mi razonamiento analítico para crear soluciones que no solo sean productivas, sino también seguras y sostenibles.",
 

@@ -653,7 +653,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    position: relative; /* Adicionado para que o posicionamento do certificado funcione corretamente */
+    position: relative;
 }
 
 #page2 h2 {
@@ -759,16 +759,16 @@ body {
 
 /* --- Ajustes para o Link do Certificado (PDF) --- */
 .certificate-link-container {
-    position: absolute;
-    bottom: 30px;
-    left: 578px;
-    width: 345px; /* Aumentado o comprimento lateral em telas maiores */
+    margin-top: 50px; 
+    margin-bottom: 50px;
+    width: 345px; 
     height: auto;
     z-index: 10;
     text-decoration: none;
     display: block;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-self: center;
 }
 
 .certificate-link-container img {
@@ -790,11 +790,11 @@ body {
     .certificate-link-container {
         position: static;
         margin: 30px auto 0 auto;
-        width: 90%; /* Ajustado para 90% para telas menores */
-        max-width: 400px; /* Aumentado o max-width para o certificado não ficar muito pequeno */
+        width: 90%; 
+        max-width: 400px;
         bottom: auto;
         left: auto;
-        display: block; /* Mudado para block */
+        display: block; 
     }
 
     .certificate-link-container img {
@@ -808,7 +808,7 @@ body {
     .certificate-link-container {
         margin-top: 20px;
         width: 95%;
-        max-width: 350px; /* Aumentado o max-width */
+        max-width: 350px; 
     }
 }
 
@@ -1781,3 +1781,27 @@ body {
         transform: translateX(-50%) translateY(0);
     }
 }
+
+
+.footer-icons {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    gap: 15px; 
+}
+
+.footer-svg {
+    /* O tamanho agora é definido individualmente no HTML (30px ou 35px), esta regra se aplica a todos */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.footer-svg:hover {
+    transform: scale(1.1);
+}
+
