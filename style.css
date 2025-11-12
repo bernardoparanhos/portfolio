@@ -203,6 +203,8 @@ body {
     font-weight: 400;
     margin-top: 10px;
     margin-bottom: 30px;
+    /* Aplica nowrap na base (telas grandes/desktop) */
+    white-space: nowrap; 
 }
 
 .social-icons {
@@ -391,6 +393,8 @@ body {
         font-size: 1.2em;
         margin-top: 10px;
         margin-bottom: 30px;
+        /* Permite quebra de linha em telas pequenas */
+        white-space: normal; 
     }
 
     .social-icons {
@@ -488,11 +492,14 @@ body {
         font-size: 1em;
         margin-top: 10px;
         margin-bottom: 25px;
+         /* Permite quebra de linha em telas menores */
+        white-space: normal; 
     }
 
     .social-icons {
         gap: 20px;
         margin-bottom: 25px;
+        justify-content: center;
     }
 
     .social-icons svg {
@@ -568,6 +575,8 @@ body {
         font-size: 0.9em;
         margin-top: 5px;
         margin-bottom: 15px;
+        /* Permite quebra de linha (se for o caso de tela pequena/baixa) */
+        white-space: normal;
     }
 
     .social-icons {
