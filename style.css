@@ -680,7 +680,8 @@ body {
     box-sizing: border-box;
 }
 
-.education-item {
+/* RENOMEADO: De .education-item para .experience-item para incluir cursos */
+.experience-item {
     display: flex;
     align-items: center;
     background-color: #ffffff;
@@ -693,7 +694,8 @@ body {
     box-sizing: border-box;
 }
 
-.education-logo {
+/* RENOMEADO: De .education-logo para .experience-logo */
+.experience-logo {
     flex-shrink: 0;
     margin-right: 25px;
     width: 110px;
@@ -703,18 +705,19 @@ body {
     align-items: center;
 }
 
-.education-logo img {
+.experience-logo img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 }
 
-.education-details {
+/* RENOMEADO: De .education-details para .experience-details */
+.experience-details {
     flex-grow: 1;
     text-align: left;
 }
 
-.education-details h3 {
+.experience-details h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.3em;
     color: #333;
@@ -722,7 +725,7 @@ body {
     font-weight: 700;
 }
 
-.education-details p {
+.experience-details p {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.95em;
     color: #666;
@@ -730,15 +733,19 @@ body {
     line-height: 1.4;
 }
 
-.education-location {
+/* RENOMEADO: De .education-location para .experience-location */
+.experience-location {
     flex-shrink: 0;
     margin-left: 25px;
     display: flex;
     align-items: center;
     gap: 10px;
+    /* Adicionado para centralizar o botão de certificado */
+    min-width: 150px; 
+    justify-content: flex-end;
 }
 
-.education-location svg {
+.experience-location svg {
     width: 40px;
     height: 40px;
     flex-shrink: 0;
@@ -766,92 +773,87 @@ body {
     text-align: right;
 }
 
-/* --- Ajustes para o Link do Certificado (PDF) --- */
-.certificate-link-container {
-    margin-top: 50px; 
-    margin-bottom: 50px;
-    width: 345px; 
-    height: auto;
-    z-index: 10;
+/* NOVO: Estilo para o link/botão do certificado */
+.certificate-action {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    display: block;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    align-self: center;
+    color: #555;
+    font-weight: 600;
+    font-size: 0.95em;
+    padding: 8px 15px;
+    border: 2px solid #555;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    gap: 8px;
 }
 
-.certificate-link-container img {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.541);
-    border: 5px solid transparent;
+.certificate-action:hover {
+    background-color: #555;
+    color: white;
 }
 
-.certificate-link-container:hover {
-    transform: translateY(-5px);
+.certificate-action:hover svg path {
+    fill: white;
 }
 
-/* --- Media Queries para o Certificado --- */
-@media (max-width: 768px) {
-    .certificate-link-container {
-        position: static;
-        margin: 30px auto 0 auto;
-        width: 90%; 
-        max-width: 400px;
-        bottom: auto;
-        left: auto;
-        display: block; 
-    }
-
-    .certificate-link-container img {
-        width: 100%;
-        height: auto;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-}
-
-@media (max-width: 480px) {
-    .certificate-link-container {
-        margin-top: 20px;
-        width: 95%;
-        max-width: 350px; 
-    }
+.certificate-action svg {
+    width: 20px;
+    height: 20px;
+    fill: #555;
+    transition: fill 0.2s ease;
 }
 
 
 /* --- Media Queries Geral --- */
+
+/* REGRA ANTERIOR: .certificate-link-container e suas media queries foram removidas daqui */
+
+
 @media (max-width: 768px) {
-    .education-item {
+    /* ... (outras regras de media query) ... */
+    
+    /* === RESPONSIVIDADE DA SEÇÃO 2 === */
+    /* Antigo .education-item */
+    .experience-item {
         flex-direction: column;
         align-items: center;
         padding: 20px;
         margin-bottom: 30px;
     }
 
-    .education-logo {
+    /* Antigo .education-logo */
+    .experience-logo {
         margin-right: 0;
         margin-bottom: 15px;
         width: 90px;
         height: 90px;
     }
 
-    .education-details {
+    /* Antigo .education-details */
+    .experience-details {
         text-align: center;
         margin-bottom: 15px;
     }
+    
+    .experience-details p {
+        white-space: normal;
+    }
 
-    .education-location {
+    /* Antigo .education-location */
+    .experience-location {
         margin-left: 0;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 5px;
+        gap: 15px; /* Aumenta o gap para o botão de certificado */
+        min-width: unset; /* Remove min-width */
     }
 
-    .education-location svg {
+    /* Regra específica para o ícone de localização da UTFPR, se houver */
+    .education-location svg { 
+        width: 40px; 
+        height: 40px;
         margin-bottom: 5px;
     }
 
@@ -868,27 +870,35 @@ body {
         font-size: 1.6em;
         width: 95%;
     }
+
+    .certificate-action {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+        padding: 10px 15px;
+    }
 }
 
 @media (max-width: 480px) {
-    .education-item {
+    /* ... (outras regras de media query) ... */
+    .experience-item {
         padding: 15px;
     }
 
-    .education-logo {
+    .experience-logo {
         width: 85px;
         height: 85px;
     }
 
-    .education-details h3 {
+    .experience-details h3 {
         font-size: 1.1em;
     }
 
-    .education-details p {
+    .experience-details p {
         font-size: 0.85em;
     }
 
-    .education-location svg {
+    .experience-location svg {
         width: 30px;
         height: 30px;
     }
@@ -901,32 +911,39 @@ body {
         font-size: 1.2em;
         width: 98%;
     }
+    
+    .certificate-action {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
 }
 
 @media (max-height: 480px) and (orientation: landscape) {
-    .education-item {
+    /* ... (outras regras de media query) ... */
+    .experience-item {
         padding: 15px 20px;
     }
 
-    .education-logo {
+    .experience-logo {
         width: 85px;
         height: 85px;
         margin-right: 15px;
     }
 
-    .education-details h3 {
+    .experience-details h3 {
         font-size: 1.1em;
     }
 
-    .education-details p {
+    .experience-details p {
         font-size: 0.85em;
     }
 
-    .education-location {
+    .experience-location {
         margin-left: 15px;
+        min-width: 120px;
     }
 
-    .education-location svg {
+    .experience-location svg {
         width: 30px;
         height: 30px;
     }
@@ -938,6 +955,11 @@ body {
     #page2 h2 {
         font-size: 1.3em;
         width: 95%;
+    }
+    
+    .certificate-action {
+        font-size: 0.85em;
+        padding: 7px 10px;
     }
 }
 

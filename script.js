@@ -52,10 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
             educationTitle: "Educação",
             utfprDegree: "Universidade Tecnológica Federal do Paraná",
             utfprProgram: "Bacharelado - Engenharia de produção",
-            utfprStart: "Inicio no segundo semestre de 2025",
+            utfprStart: "Início no segundo semestre de 2025",
             utfprPeriod: "2025 - 2030",
             utfprLocation: "Medianeira, Brasil",
+
             coursesTitle: "Cursos/Especializações",
+            // NOVO CURSO UDEMY
+            udemyCourseTitle: "Pacote Office 365 - Microsoft Office Essencial",
+            udemyCoursePlatform: "Udemy",
+            udemyCourseDuration: "30h",
+            viewCertificateAction: "Ver Certificado",
 
             aboutMeTitle: "Sobre mim",
             softSkillsTitle: "Soft Skills",
@@ -67,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             excelPowerBI: "Excel (nível intermediário)",
             dataAnalysis: "Análise de dados (em desenvolvimento; power bi, python)",
             webFundamentals: "Fundamentos de HTML/CSS/Javascript",
-    aboutMeP1: "Como futuro Engenheiro de Produção, minha missão é resolver desafios industriais por meio da integração entre tecnologia, eficiência e segurança. Tenho foco em <strong>processos industriais, segurança do trabalho e melhoria contínua</strong>, aplicando meu raciocínio analítico para desenvolver soluções produtivas, seguras e sustentáveis.",
+            aboutMeP1: "Como futuro Engenheiro de Produção, minha missão é resolver desafios industriais por meio da integração entre tecnologia, eficiência e segurança. Tenho foco em <strong>processos industriais, segurança do trabalho e melhoria contínua</strong>, aplicando meu raciocínio analítico para desenvolver soluções produtivas, seguras e sustentáveis.",
             
             quoteText: "\"A confiança em si mesmo é o primeiro segredo do sucesso\" <br> Ralph Waldo Emerson",
 
@@ -107,7 +113,13 @@ document.addEventListener('DOMContentLoaded', () => {
             utfprStart: "Starting in the second semester of 2025",
             utfprPeriod: "2025 - 2030",
             utfprLocation: "Medianeira, Brazil",
+
             coursesTitle: "Courses/Specializations",
+            // NOVO CURSO UDEMY
+            udemyCourseTitle: "Office 365 Package - Microsoft Essential Office",
+            udemyCoursePlatform: "Udemy",
+            udemyCourseDuration: "30h",
+            viewCertificateAction: "View Certificate",
 
             aboutMeTitle: "About Me",
             softSkillsTitle: "Soft Skills",
@@ -119,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
             excelPowerBI: "Excel (intermediary level)",
             dataAnalysis: "Data Analysis (in development; power bi, python)",
             webFundamentals: "HTML/CSS/Javascript Fundamentals",
-                aboutMeP1: "As a future Production Engineer, my mission is to solve industrial challenges through the integration of technology, efficiency, and safety. I focus on <strong>industrial processes, occupational safety, and continuous improvement</strong>, applying my analytical reasoning to develop solutions that are productive, safe, and sustainable.",
+            aboutMeP1: "As a future Production Engineer, my mission is to solve industrial challenges through the integration of technology, efficiency, and safety. I focus on <strong>industrial processes, occupational safety, and continuous improvement</strong>, applying my analytical reasoning to develop solutions that are productive, safe, and sustainable.",
 
             quoteText: "\"Self-confidence is the first secret of success\" <br> Ralph Waldo Emerson",
 
@@ -159,7 +171,13 @@ document.addEventListener('DOMContentLoaded', () => {
             utfprStart: "Inicio en el segundo semestre de 2025",
             utfprPeriod: "2025 - 2030",
             utfprLocation: "Medianeira, Brasil",
+
             coursesTitle: "Cursos/Especializaciones",
+            // NOVO CURSO UDEMY
+            udemyCourseTitle: "Paquete Office 365 - Microsoft Office Esencial",
+            udemyCoursePlatform: "Udemy",
+            udemyCourseDuration: "30h",
+            viewCertificateAction: "Ver Certificado",
 
             aboutMeTitle: "Sobre mí",
             softSkillsTitle: "Habilidades Blandas",
@@ -171,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
             excelPowerBI: "Excel (nivel intermediario)",
             dataAnalysis: "Análisis de Datos (en desarrollo; power bi, python)",
             webFundamentals: "Fundamentos de HTML/CSS/Javascript",
-    aboutMeP1: "Como futuro Ingeniero de Producción, mi misión es resolver desafíos industriales mediante la integración de tecnología, eficiencia y seguridad. Me enfoco en <strong>procesos industriales, seguridad laboral y mejora continua</strong>, aplicando mi razonamiento analítico para desarrollar soluciones productivas, seguras y sostenibles.",
+            aboutMeP1: "Como futuro Ingeniero de Producción, mi misión es resolver desafíos industriales mediante la integración de tecnología, eficiencia y seguridad. Me enfoco en <strong>procesos industriales, seguridad laboral y mejora continua</strong>, aplicando mi razonamiento analítico para desarrollar soluciones productivas, seguras y sostenibles.",
 
             quoteText: "\"La confianza en uno mismo es el primer secreto del éxito\" <br> Ralph Waldo Emerson",
 
