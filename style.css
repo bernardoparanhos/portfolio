@@ -492,7 +492,7 @@ body {
         font-size: 1em;
         margin-top: 10px;
         margin-bottom: 25px;
-         /* Permite quebra de linha em telas menores */
+         /* Permite a quebra de linha em telas menores aq */
         white-space: normal; 
     }
 
@@ -680,10 +680,10 @@ body {
     box-sizing: border-box;
 }
 
-/* RENOMEADO: De .education-item para .experience-item para incluir cursos */
+/* RENOMEADO: De .education-item para .experience-item para poder incluir cursos e trabalhos */
 .experience-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Feito para alinhar no topo p/ acomodar mais texto (Atividades) */
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -715,6 +715,8 @@ body {
 .experience-details {
     flex-grow: 1;
     text-align: left;
+    /* NOVO AQUI: Adiciona um pequeno padding para separar o logo em telas grandes */
+    padding-top: 5px; 
 }
 
 .experience-details h3 {
@@ -731,7 +733,16 @@ body {
     color: #666;
     margin: 0 0 3px 0;
     line-height: 1.4;
+    word-break: break-word; /* Garante que longas descrições quebrem da maneira correta */
 }
+
+/* Estilo específico para o título "Atividades:" */
+.experience-details p:nth-child(3) {
+    font-weight: 600; /* Destaca o título Atividades */
+    margin-top: 10px; /* Separa visualmente o bloco de atividades */
+    margin-bottom: 0px;
+}
+
 
 /* RENOMEADO: De .education-location para .experience-location */
 .experience-location {
@@ -755,6 +766,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    /* NOVO: Alinha com o topo do bloco quando há um pouco mais de detalhes */
+    padding-top: 5px; 
 }
 
 .location-details p {
@@ -800,26 +813,23 @@ body {
 .certificate-action svg {
     width: 20px;
     height: 20px;
-    fill: #555;
-    transition: fill 0.2s ease;
+    color: #555; 
+    transition: color 0.2s ease;
 }
 
 
 /* --- Media Queries Geral --- */
-
-/* REGRA ANTERIOR: .certificate-link-container e suas media queries foram removidas daqui */
-
-
 @media (max-width: 768px) {
     /* ... (outras regras de media query) ... */
     
     /* === RESPONSIVIDADE DA SEÇÃO 2 === */
-    /* Antigo .education-item */
+    /* Antigo .education-item AQUI e nos PROXIMOS */
     .experience-item {
         flex-direction: column;
         align-items: center;
         padding: 20px;
         margin-bottom: 30px;
+        align-items: center; /* Volta a centralizar no modo coluna */
     }
 
     /* Antigo .education-logo */
@@ -834,12 +844,13 @@ body {
     .experience-details {
         text-align: center;
         margin-bottom: 15px;
+        padding-top: 0; /* Remove padding-top */
     }
     
     .experience-details p {
         white-space: normal;
     }
-
+    
     /* Antigo .education-location */
     .experience-location {
         margin-left: 0;
@@ -848,10 +859,11 @@ body {
         align-items: center;
         gap: 15px; /* Aumenta o gap para o botão de certificado */
         min-width: unset; /* Remove min-width */
+        padding-top: 0; /* Remove padding-top */
     }
 
     /* Regra específica para o ícone de localização da UTFPR, se houver */
-    .education-location svg { 
+    .experience-location svg { 
         width: 40px; 
         height: 40px;
         margin-bottom: 5px;
@@ -859,6 +871,7 @@ body {
 
     .location-details {
         align-items: center;
+        padding-top: 0; /* Remove padding-top */
     }
 
     .location-details p:nth-child(2) {
@@ -880,7 +893,7 @@ body {
 }
 
 @media (max-width: 480px) {
-    /* ... (outras regras de media query) ... */
+    /* ... (outras regras de media query NECESSÁRIAS) ... */
     .experience-item {
         padding: 15px;
     }
