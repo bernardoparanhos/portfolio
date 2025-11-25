@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // 💥 CHAVES DE TRADUÇÃO: EXPERIÊNCIA PROFISSIONAL FRIELLA 💥
             workExperienceTitle: "Experiências Profissionais",
             friellaCompany: "Friella Alimentos",
-            friellaRole: "Jovem Aprendiz – Auxiliar de Produção (Setor Abate)",
+            friellaRole: "Aprendiz – Auxiliar de Produção (Setor Abate)",
             friellaActivitiesTitle: "Atividades:",
             friellaActivities: "Apoio em linhas de produção, controle de processos e boas práticas de segurança no trabalho (área limpa).",
             friellaPeriod: "2025 – atual",
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // CHAVES DE TRADUÇÃO: EXPERIÊNCIA PROFISSIONAL FRIELLA
             workExperienceTitle: "Professional Experience",
             friellaCompany: "Friella Alimentos",
-            friellaRole: "Young Apprentice – Production Assistant (Slaughter Sector)",
+            friellaRole: "Apprentice – Production Assistant (Slaughtering Department)",
             friellaActivitiesTitle: "Activities:",
             friellaActivities: "Support in production lines, process control, and good safety practices at work (clean area).",
             friellaPeriod: "2025 – current",
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // CHAVES DE TRADUÇÃO: EXPERIÊNCIA PROFISSIONAL FRIELLA 
             workExperienceTitle: "Experiencia Profesional",
             friellaCompany: "Friella Alimentos",
-            friellaRole: "Joven Aprendiz – Auxiliar de Producción (Sector Sacrificio)",
+            friellaRole: "Aprendiz – Auxiliar de Producción (Sector Sacrificio)",
             friellaActivitiesTitle: "Actividades:",
             friellaActivities: "Apoyo en líneas de producción, control de procesos y buenas prácticas de seguridad laboral (área limpia).",
             friellaPeriod: "2025 – actual",
