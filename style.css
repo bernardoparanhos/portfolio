@@ -1,10 +1,47 @@
+/* ========================================= */
+/* 1. CONFIGURAÇÃO DOS TEMAS (CLARO E ESCURO) */
+/* ========================================= */
+
+/* Variáveis Padrão (Light Mode - Tema Claro) */
+:root {
+    --fundo-principal: #f4f4f9; /* Fundo geral do site (cinza bem claro/quase branco) */
+    --fundo-secundario: #ffffff; /* Fundo de cartões/seções (branco puro) */
+    --cor-texto-principal: #222; /* Texto dos títulos e cabeçalhos (Preto/Cinza escuro) */
+    --cor-texto-secundario: #555; /* Texto principal do corpo e parágrafos */
+    --cor-acento: #3498db; /* Cor de destaque (pode ser usado em botões/hover) */
+    --cor-acento-hover: #2980b9;
+    --cor-sombra: rgba(0, 0, 0, 0.1); /* Sombra padrão de elementos */
+    --cor-borda: #bdc3c7; /* Cor de bordas sutis */
+    --cor-svg-icon-claro: white; /* Cor dos SVGs na área escura (imagem de fundo) */
+    --cor-svg-icon-escuro: #2c3e50; /* Cor dos SVGs na área clara (rodapé, contato) */
+}
+
+/* Variáveis para Dark Mode (Tema Escuro) */
+body.dark-mode {
+    --fundo-principal: #1f2a36; /* Fundo geral escuro */
+    --fundo-secundario: #2a3743; /* Fundo de cartões/seções (azul/cinza escuro) */
+    --cor-texto-principal: #ecf0f1; /* Branco/Cinza bem claro */
+    --cor-texto-secundario: #bdc3c7; /* Cinza claro */
+    --cor-acento: #3498db; 
+    --cor-acento-hover: #2980b9;
+    --cor-sombra: rgba(0, 0, 0, 0.4);
+    --cor-borda: #4e6377;
+    --cor-svg-icon-claro: #bdc3c7; 
+    --cor-svg-icon-escuro: #ecf0f1; 
+}
+
+/* ===================================== */
+/* --- Base Styles (APLICANDO VARIÁVEIS) --- */
+/* ===================================== */
+
 /* --- Base Styles --- */
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: #ffffff;
-    color: #333;
+    background-color: var(--fundo-principal); /* APLICAÇÃO */
+    color: var(--cor-texto-secundario); /* APLICAÇÃO */
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave de tema */
 }
 
 .page-section {
@@ -17,7 +54,7 @@ body {
 }
 
 .menu-toggle {
-    display: none; /* Escondido por padrão, será flex apenas em telas menores */
+    display: none; 
     position: fixed;
     top: 20px;
     right: 20px;
@@ -34,7 +71,7 @@ body {
 .hamburger {
     width: 100%;
     height: 4px;
-    background-color: white;
+    background-color: white; /* Mantido branco */
     border-radius: 2px;
     transition: all 0.3s ease;
 }
@@ -56,8 +93,8 @@ body {
     top: 0;
     right: -300px;
     width: 280px;
-    height: 100%; /* Ocupa a altura total da viewport */
-    background-color: rgba(0, 0, 0, 0.9);
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.9); /* Mantido escuro e opaco */
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     transition: right 0.3s ease-in-out;
@@ -65,7 +102,7 @@ body {
     flex-direction: column;
     padding: 20px;
     box-sizing: border-box;
-    overflow-y: auto; /* Adicionado para permitir scroll se o conteúdo for longo */
+    overflow-y: auto; 
 }
 
 .sidebar.open {
@@ -97,6 +134,10 @@ body {
     box-sizing: border-box;
 }
 
+/* ===================================== */
+/* --- PAGE 1 --- */
+/* ===================================== */
+
 #page1 {
     padding: 0;
     justify-content: flex-start;
@@ -107,19 +148,20 @@ body {
     text-align: center;
     line-height: 1.6;
     width: 100%;
-    background-color: #ffffff;
+    background-color: var(--fundo-secundario); /* APLICAÇÃO */
     flex-grow: 1;
     margin-top: -40px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: background-color 0.3s ease; 
 }
 
 .welcome-heading {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.8em;
     font-weight: 700;
-    color: #222;
+    color: var(--cor-texto-principal); /* APLICAÇÃO */
     margin-bottom: 15px;
     letter-spacing: -0.5px;
     animation: fadeInSlideUp 1.2s ease-out forwards;
@@ -130,7 +172,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1em;
     font-weight: 400;
-    color: #555;
+    color: var(--cor-texto-secundario); /* APLICAÇÃO */
     max-width: 600px;
     margin: 0 auto 20px auto;
     line-height: 1.5;
@@ -141,6 +183,7 @@ body {
 
 .welcome-text strong {
     font-weight: 700;
+    color: var(--cor-texto-principal);
 }
 
 .image-container {
@@ -157,6 +200,12 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: filter 0.5s ease; /* Transição para o filtro de Dark Mode */
+}
+
+/* Filtro para escurecer a imagem no Dark Mode */
+body.dark-mode .image-container img {
+    filter: brightness(0.6) contrast(1.1);
 }
 
 .image-text {
@@ -164,7 +213,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: white; /* Cor do texto no banner é sempre clara */
     text-align: center;
     z-index: 1;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -203,7 +252,6 @@ body {
     font-weight: 400;
     margin-top: 10px;
     margin-bottom: 30px;
-    /* Aplica nowrap na base (telas grandes/desktop) */
     white-space: nowrap; 
 }
 
@@ -219,6 +267,12 @@ body {
     align-items: center;
     justify-content: center;
     text-decoration: none;
+}
+
+/* CORREÇÃO: Força os ícones sociais (LinkedIn/GitHub) a serem brancos. */
+.social-icons svg path {
+    fill: white !important; /* CORREÇÃO */
+    transition: fill 0.3s ease;
 }
 
 .button-container {
@@ -266,6 +320,39 @@ body {
     }
 }
 
+/* --- Theme Switcher Styles (NOVO) --- */
+.theme-switcher {
+    position: absolute;
+    top: 20px;
+    left: 20px; /* Posição para telas grandes */
+    z-index: 1001; 
+    display: flex;
+    gap: 10px;
+}
+
+.theme-toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    color: var(--cor-svg-icon-claro); /* Ícone claro na imagem de fundo */
+    transition: all 0.2s ease;
+}
+
+.theme-toggle-button svg {
+    /* CORREÇÃO: Aumenta o tamanho dos ícones Sol/Lua */
+    width: 35px; 
+    height: 35px;
+    fill: currentColor; 
+    stroke: currentColor;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+}
+
 /* --- Language Selector Styles --- */
 .language-selector {
     position: absolute;
@@ -292,7 +379,7 @@ body {
 }
 
 .language-selector .globe-button svg path {
-    fill: white;
+    fill: var(--cor-svg-icon-claro); /* APLICAÇÃO: Icone claro na imagem de fundo */
     transition: fill 0.3s ease;
 }
 
@@ -304,7 +391,7 @@ body {
     display: none;
     position: absolute;
     top: 45px;
-    right: 0; /* Alinha o dropdown à direita do botão do globo por padrão */
+    right: 0; 
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -352,7 +439,676 @@ body {
 }
 
 /* ===================================== */
-/* --- Responsividade para Telas Menores --- */
+/* --- PAGE 2: EDUCAÇÃO E EXPERIÊNCIA (APLICANDO VARIÁVEIS) --- */
+/* ===================================== */
+/* ===================================== */
+/* --- PAGE 2: EDUCAÇÃO E EXPERIÊNCIA (APLICANDO VARIÁVEIS) --- */
+/* ===================================== */
+
+#page2 {
+    background-color: var(--fundo-principal); /* APLICAÇÃO: Fundo geral (Cinza claro ou escuro) */
+    color: var(--cor-texto-secundario); /* APLICAÇÃO: Cor do texto secundário */
+    padding: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+}
+
+#page2 h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    color: var(--cor-texto-principal); /* APLICAÇÃO: Títulos principais */
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+    max-width: 900px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    word-break: break-word;
+    box-sizing: border-box;
+}
+
+.experience-item {
+    display: flex;
+    align-items: flex-start; 
+    background-color: var(--fundo-secundario); /* APLICAÇÃO: Fundo dos cartões (Branco ou escuro) */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px var(--cor-sombra); /* APLICAÇÃO: Sombra que muda com o tema */
+    padding: 20px 30px;
+    margin-bottom: 40px;
+    max-width: 800px;
+    width: 90%;
+    box-sizing: border-box;
+    border: 1px solid var(--cor-borda); /* Borda sutil que muda no Dark Mode */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.experience-logo {
+    flex-shrink: 0;
+    margin-right: 25px;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Necessário para o background-image */
+    border-radius: 10px; 
+    transition: all 0.3s ease;
+}
+
+.experience-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease; /* Para sumir/aparecer suavemente */
+}
+
+/* ------------------------------------------- */
+/* NOVO: REGRAS ESPECÍFICAS PARA TROCA DE LOGO NO DARK MODE */
+/* ------------------------------------------- */
+
+/* 1. Troca do Logo da Friella */
+body.dark-mode .experience-logo img[src*="friella_logo"] {
+    opacity: 0; /* Esconde a imagem colorida original */
+}
+
+body.dark-mode .experience-logo:has(img[src*="friella_logo"]) {
+    /* Exibe a imagem branca como background */
+    background-image: url('image/friellalogo-branca.png'); 
+    background-size: 230%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* Fundo branco justinho */
+    padding: 3px; 
+    border-radius: 8px;
+}
+
+/* 2. Troca do Logo da Udemy (Se precisar de um tratamento diferente, adicione aqui) */
+/* Exemplo para Udemy, se a logo for preta e precisar de um ajuste de cor no Dark Mode:
+body.dark-mode .experience-logo img[src*="udemy"] {
+    filter: invert(1); 
+}
+*/
+/* ------------------------------------------- */
+
+
+.experience-details {
+    flex-grow: 1;
+    text-align: left;
+    padding-top: 5px; 
+}
+
+.experience-details h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em;
+    color: var(--cor-texto-principal); /* APLICAÇÃO: Título da Instituição/Empresa */
+    margin: 0 0 5px 0;
+    font-weight: 700;
+}
+
+.experience-details p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95em;
+    color: var(--cor-texto-secundario); /* APLICAÇÃO: Detalhes e descrição */
+    margin: 0 0 3px 0;
+    line-height: 1.4;
+    word-break: break-word; 
+}
+
+/* Estilo específico para o título "Atividades:" */
+.experience-details p:nth-child(3) {
+    font-weight: 600; 
+    margin-top: 10px; 
+    margin-bottom: 0px;
+    color: var(--cor-texto-principal); /* Garante que o destaque também mude */
+}
+
+.experience-location {
+    flex-shrink: 0;
+    margin-left: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 150px; 
+    justify-content: flex-end;
+}
+
+.experience-location svg {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.location-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 5px; 
+}
+
+.location-details p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    color: var(--cor-texto-secundario); /* APLICAÇÃO: Cor do período/localização */
+    margin: 0;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+.location-details p:nth-child(2) {
+    white-space: normal;
+    word-break: break-word;
+    max-width: 120px;
+    text-align: right;
+}
+
+/* Estilo para o link/botão do certificado */
+.certificate-action {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cor-texto-secundario); /* APLICAÇÃO: Cor do texto no tema atual */
+    font-weight: 600;
+    font-size: 0.95em;
+    padding: 8px 15px;
+    border: 2px solid var(--cor-texto-secundario); /* APLICAÇÃO: Borda com a cor do texto */
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    gap: 8px;
+}
+
+.certificate-action:hover {
+    /* HOVER - TEMA CLARO: Mantém o azul de acento (Cor de Destaque) */
+    background-color: var(--cor-acento); 
+    color: var(--fundo-secundario); 
+    border-color: var(--cor-acento);
+}
+
+/* NOVO BLOCO ESSENCIAL: Sobrescreve o hover para TEMA ESCURO (Neutro) */
+body.dark-mode .certificate-action:hover {
+    /* HOVER - TEMA ESCURO: Fundo com a cor principal (mais escuro que o cartão) */
+    background-color: var(--fundo-principal); 
+    color: var(--cor-texto-principal); /* Texto claro */
+    border-color: var(--cor-texto-secundario); /* Borda cinza claro */
+}
+
+.certificate-action:hover svg path {
+    /* Ícone no hover (Tema Claro) - Branco */
+    fill: var(--fundo-secundario); 
+}
+
+/* NOVO: Garante que o ícone do SVG seja claro no hover do Dark Mode */
+body.dark-mode .certificate-action:hover svg path {
+    /* Ícone no hover (Tema Escuro) - Cor do texto principal */
+    fill: var(--cor-texto-principal); 
+}
+
+.certificate-action svg {
+    width: 20px;
+    height: 20px;
+    color: var(--cor-texto-secundario); /* APLICAÇÃO: Cor do ícone no tema atual */
+    transition: color 0.2s ease;
+}
+
+/* ===================================== */
+/* --- SEÇÃO 3: SOBRE MIM E HABILIDADES --- */
+/* ===================================== */
+
+.content-wrapper {
+    max-width: 800px;
+    width: 90%;
+    margin: 30px auto 0;
+    padding: 20px;
+    background-color: var(--fundo-secundario); /* APLICAÇÃO */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px var(--cor-sombra); /* APLICAÇÃO */
+    border: 1px solid var(--cor-borda);
+    text-align: left;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.content-wrapper p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: var(--cor-texto-secundario); /* APLICAÇÃO */
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.content-wrapper ul {
+    list-style: disc;
+    margin-left: 25px;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--cor-texto-secundario); /* APLICAÇÃO */
+}
+
+.content-wrapper ul li {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+
+#page3 {
+    background-color: var(--fundo-principal); /* APLICAÇÃO */
+    color: var(--cor-texto-principal); /* APLICAÇÃO */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#page3 h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.5em;
+    color: var(--cor-texto-principal); /* APLICAÇÃO */
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    width: 90%;
+}
+
+
+.skill-category {
+    background-color: var(--fundo-secundario); /* APLICAÇÃO (Cartões de Habilidade) */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px var(--cor-sombra); /* APLICAÇÃO */
+    border: 1px solid var(--cor-borda);
+    padding: 25px 30px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-category h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    color: var(--cor-texto-principal); /* APLICAÇÃO (Títulos Soft/Hard Skills) */
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+
+.skill-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+.skill-row.single-item-center {
+    justify-content: center;
+    margin-top: 10px;
+}
+
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: var(--cor-texto-secundario); /* APLICAÇÃO */
+    flex-shrink: 0;
+    padding: 5px 0;
+    flex: 1 1 45%;
+    max-width: 50%;
+}
+
+
+.skill-image {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+
+.about-me-text-container {
+    background-color: var(--fundo-secundario); /* APLICAÇÃO (Box de texto) */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px var(--cor-sombra); /* APLICAÇÃO */
+    border: 1px solid var(--cor-borda);
+    padding: 25px 30px;
+    margin-top: 40px;
+    max-width: 900px;
+    width: 90%;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.about-me-text-container p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: var(--cor-texto-secundario); /* APLICAÇÃO */
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.about-me-text-container p strong {
+    color: var(--cor-texto-principal); /* Destaque em texto principal */
+}
+
+
+/* ===================================== */
+/* --- SEÇÃO 4: CONTATO --- */
+/* ===================================== */
+
+#page4 {
+    background-color: var(--fundo-principal); /* APLICAÇÃO */
+    color: var(--cor-texto-principal); /* APLICAÇÃO */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding-top: 100px; 
+    padding-bottom: 100px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+#page4 h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.0em;
+    color: var(--cor-texto-principal); /* APLICAÇÃO */
+    margin-top: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.page-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    color: var(--cor-texto-secundario); /* APLICAÇÃO */
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-align: center;
+    display: block;
+}
+
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 30px;
+    background-color: var(--fundo-secundario); /* APLICAÇÃO (Cartão de Contato) */
+    border: 1px solid var(--cor-borda);
+    border-radius: 25px;
+    margin-top: 15px;
+    width: fit-content;
+    max-width: 90%;
+    box-shadow: 0 4px 12px var(--cor-sombra); /* APLICAÇÃO */
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    color: var(--cor-texto-principal); /* APLICAÇÃO */
+    text-decoration: none;
+    margin: 0 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    fill: currentColor; 
+    stroke: currentColor;
+    transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+/* CORREÇÃO: Garante que o ícone de e-mail (baseado em STROKE) seja visível no Dark Mode. */
+.contact-icon.email-icon {
+    fill: none; 
+    stroke: var(--cor-texto-principal); 
+}
+
+/* CORREÇÃO: Garante que o ícone do LinkedIn (baseado em FILL) seja visível no Dark Mode. */
+.contact-icon.linkedin-icon path {
+    fill: var(--cor-texto-principal); 
+    stroke: none;
+}
+
+
+.page4-nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    width: 100%;
+}
+
+.page4-nav-link {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1em;
+    color: var(--cor-texto-secundario); /* APLICAÇÃO */
+    text-decoration: none;
+    margin: 0 25px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.page4-nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--cor-texto-secundario); /* APLICAÇÃO */
+    transition: width 0.3s ease;
+}
+
+.page4-nav-link:hover {
+    color: var(--cor-texto-principal); /* APLICAÇÃO */
+}
+
+.page4-nav-link:hover::after {
+    width: 100%;
+    background-color: var(--cor-texto-principal);
+}
+
+/* ===================================== */
+/* --- RODAPÉ, ÍCONES E BANNER DE CITAÇÃO --- */
+/* ===================================== */
+
+.site-footer {
+    background-color: var(--fundo-principal); /* APLICAÇÃO */
+    color: var(--cor-texto-secundario); /* APLICAÇÃO */
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-icons {
+    background-color: var(--fundo-principal); /* APLICAÇÃO */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    gap: 15px; 
+    transition: background-color 0.3s ease;
+}
+
+.footer-svg {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.footer-svg:hover {
+    transform: scale(1.1);
+}
+
+.quote-banner {
+    background-image: url('image/pexels-vladbagacian-1260372.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 130px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff; 
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    transition: filter 0.5s ease;
+}
+
+/* FILTRO DARK MODE PARA A IMAGEM DE FUNDO DO BANNER DE CITAÇÃO */
+body.dark-mode .quote-banner {
+    filter: brightness(0.7) contrast(1.1);
+}
+
+.quote-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+}
+
+.quote-banner p {
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 1.5em; 
+    font-weight: 500;
+    line-height: 1.5;
+    max-width: 800px; 
+    margin: 0;
+    position: relative;
+    z-index: 2; 
+    color: white; 
+}
+
+@media (max-width: 768px) {
+    .quote-banner {
+        height: 150px;
+    }
+    .quote-banner p {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .quote-banner {
+        height: 120px;
+    }
+    .quote-banner p {
+        font-size: 1em;
+    }
+}
+
+/* --- TOAST (APLICANDO VARIÁVEIS) --- */
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /* FUNDO: Escuro no Light Mode, Claro no Dark Mode (mas será corrigido abaixo) */
+    background: var(--cor-texto-principal); 
+    /* TEXTO: Incorreto no Dark Mode (dá cor escura) */
+    color: var(--fundo-secundario); 
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(20px);
+    z-index: 2000;
+}
+
+/* Animação ao aparecer */
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* NOVO: REGRAS PARA O TEMA ESCURO (Dark Mode) */
+body.dark-mode .toast {
+    /* CORREÇÃO: Força o texto para BRANCO PURO no tema escuro para contraste */
+    color: white; 
+    /* Garante que o fundo seja uma cor escura sólida (pode ser #333 ou var(--fundo-secundario)) */
+    background: var(--fundo-secundario); 
+}
+
+@media (max-width: 600px) {
+    .toast {
+        left: 50%;
+        right: auto;
+        bottom: 100px;
+        transform: translateX(-50%) translateY(20px);
+        font-size: 12px;
+        padding: 6px 12px;
+        /* Mantém a cor sólida para evitar problemas de transparência com fundos não variáveis */
+        background: #333; 
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* CORREÇÃO DE RESPONSIVIDADE: Garante que o texto seja branco também no mobile dark mode */
+    body.dark-mode .toast {
+        color: white; 
+    }
+
+    .toast.show {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* ===================================== */
+/* --- RESPONSIVIDADE GERAL --- */
 /* ===================================== */
 
 @media (max-width: 768px) {
@@ -393,7 +1149,6 @@ body {
         font-size: 1.2em;
         margin-top: 10px;
         margin-bottom: 30px;
-        /* Permite quebra de linha em telas pequenas */
         white-space: normal; 
     }
 
@@ -421,7 +1176,7 @@ body {
     }
 
     .menu-toggle {
-        display: flex; /* EXIBE O HAMBÚRGUER EM TELAS < 768px */
+        display: flex; 
     }
 
     .content-below {
@@ -439,16 +1194,26 @@ body {
         margin: 0 auto 20px auto;
     }
 
-    /* AJUSTES DO LANGUAGE SELECTOR PARA TELAS < 768px */
+    /* AJUSTES DO LANGUAGE SELECTOR E THEME SWITCHER */
     .language-selector {
-        top: 20px; /* Mantém a posição top */
-        left: 20px; /* Move para a esquerda */
-        right: auto; /* Remove a regra de right */
-        z-index: 1001; /* Aumenta o z-index para garantir visibilidade com o menu-toggle */
+        top: 20px; 
+        left: 20px; 
+        right: auto; 
+        z-index: 1001; 
+    }
+
+    .theme-switcher {
+        top: 20px;
+        left: 80px; 
+        right: auto;
+    }
+    .theme-toggle-button svg {
+        width: 30px; 
+        height: 30px;
     }
 
     .language-dropdown {
-        left: 0; /* Alinha o dropdown com o botão do globo na esquerda */
+        left: 0; 
         right: auto;
         top: 45px;
         min-width: 120px;
@@ -463,6 +1228,140 @@ body {
     .language-selector .globe-button svg {
         width: 35px;
         height: 35px;
+    }
+    
+    /* REGRAS DA SEÇÃO 2 */
+    .experience-item {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    .experience-logo {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 90px;
+        height: 90px;
+    }
+    .experience-details {
+        text-align: center;
+        margin-bottom: 15px;
+        padding-top: 0; 
+    }
+    .experience-details p {
+        white-space: normal;
+    }
+    .experience-location {
+        margin-left: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px; 
+        min-width: unset; 
+        padding-top: 0; 
+    }
+    .experience-location svg { 
+        width: 40px; 
+        height: 40px;
+        margin-bottom: 5px;
+    }
+    .location-details {
+        align-items: center;
+        padding-top: 0; 
+    }
+    .location-details p:nth-child(2) {
+        text-align: center;
+        max-width: none;
+    }
+    #page2 h2 {
+        font-size: 1.6em;
+        width: 95%;
+    }
+    .certificate-action {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+        padding: 10px 15px;
+    }
+    
+    /* REGRAS DA SEÇÃO 3 */
+    .skills-container {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+    .skill-category {
+        min-width: unset;
+        max-width: 90%;
+        margin: 0 auto;
+        align-items: center;
+    }
+    .skill-category h3 {
+        font-size: 1.5em;
+    }
+    .skill-row {
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+    .skill-item {
+        font-size: 0.95em;
+        flex: unset;
+        max-width: unset;
+    }
+    .skill-image {
+        width: 20px;
+        height: 20px;
+    }
+    .about-me-text-container {
+        padding: 20px;
+        margin-top: 30px;
+        width: 90%;
+    }
+    .about-me-text-container p {
+        font-size: 0.9em;
+    }
+    
+    /* REGRAS DA SEÇÃO 4/RODAPÉ */
+    #page4 {
+        padding-top: 190px;
+        padding-bottom: 70px;
+    }
+    .content-wrapper {
+        padding: 15px;
+        margin-top: 20px;
+    }
+    .contact-info {
+        flex-direction: column;
+        padding: 20px 25px;
+        margin-top: 10px;
+        width: auto;
+        max-width: 90%;
+    }
+    .contact-link {
+        margin: 10px 0;
+        font-size: 0.85em;
+    }
+    .contact-icon {
+        width: 20px;
+        height: 20px;
+    }
+    .page4-nav-links {
+        flex-direction: column;
+        margin-top: 60px;
+    }
+    .page4-nav-link {
+        margin: 10px 0;
+        font-size: 1em;
+    }
+    .quote-banner {
+        height: 150px;
+    }
+    .quote-banner p {
+        font-size: 1.2em;
+    }
+    .site-footer {
+        padding: 15px 0;
     }
 }
 
@@ -492,14 +1391,7 @@ body {
         font-size: 1em;
         margin-top: 10px;
         margin-bottom: 25px;
-         /* Permite a quebra de linha em telas menores aq */
         white-space: normal; 
-    }
-
-    .social-icons {
-        gap: 20px;
-        margin-bottom: 25px;
-        justify-content: center;
     }
 
     .social-icons svg {
@@ -516,10 +1408,19 @@ body {
         max-width: 95%;
     }
 
-    /* AJUSTES DO LANGUAGE SELECTOR PARA TELAS < 480px */
+    /* AJUSTES DO LANGUAGE SELECTOR E THEME SWITCHER */
     .language-selector {
-        top: 20px; /* Levemente ajustado */
-        left: 15px; /* Mais para a esquerda */
+        top: 20px; 
+        left: 15px; 
+    }
+
+    .theme-switcher {
+        top: 18px;
+        left: 70px; 
+    }
+    .theme-toggle-button svg {
+        width: 28px; 
+        height: 28px;
     }
 
     .language-dropdown {
@@ -537,11 +1438,101 @@ body {
         width: 16px;
         height: 16px;
     }
+    
+    /* REGRAS DA SEÇÃO 2 */
+    .experience-item {
+        padding: 15px;
+    }
+    .experience-logo {
+        width: 85px;
+        height: 85px;
+    }
+    .experience-details h3 {
+        font-size: 1.1em;
+    }
+    .experience-details p {
+        font-size: 0.85em;
+    }
+    .experience-location svg {
+        width: 30px;
+        height: 30px;
+    }
+    .location-details p {
+        font-size: 0.8em;
+    }
+    #page2 h2 {
+        font-size: 1.2em;
+        width: 98%;
+    }
+    .certificate-action {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+    
+    /* REGRAS DA SEÇÃO 3 */
+    .skill-category {
+        padding: 20px;
+    }
+    .skill-category h3 {
+        font-size: 1.3em;
+    }
+    .skill-item {
+        font-size: 0.9em;
+    }
+    .about-me-text-container {
+        padding: 15px;
+    }
+    .about-me-text-container p {
+        font-size: 0.85em;
+    }
+    
+    /* REGRAS DA SEÇÃO 4/RODAPÉ */
+    #page4 {
+        padding-top: 160px;
+        padding-bottom: 60px;
+    }
+    .content-wrapper {
+        padding: 10px;
+    }
+    #page3 h2, #page4 h2 {
+        font-size: 2.5em;
+        margin-top: 40px;
+    }
+    .page-subtitle {
+        font-size: 0.9em;
+        margin-top: 0;
+    }
+    .contact-info {
+        padding: 15px 20px;
+        border-radius: 20px;
+    }
+    .contact-link {
+        font-size: 0.8em;
+    }
+    .contact-icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 5px;
+    }
+    .page4-nav-links {
+        margin-top: 40px;
+    }
+    .page4-nav-link {
+        font-size: 0.9em;
+        margin: 8px 0;
+    }
+    .quote-banner {
+        height: 120px;
+    }
+    .quote-banner p {
+        font-size: 1em;
+    }
+    .site-footer {
+        font-size: 0.8em;
+        padding: 15px 0;
+    }
 }
 
-/* ===================================== */
-/* --- Média Query para Orientação Paisagem (Landscape) --- */
-/* ===================================== */
 @media (max-height: 480px) and (orientation: landscape) {
     .image-container {
         height: 85vh;
@@ -575,7 +1566,6 @@ body {
         font-size: 0.9em;
         margin-top: 5px;
         margin-bottom: 15px;
-        /* Permite quebra de linha (se for o caso de tela pequena/baixa) */
         white-space: normal;
     }
 
@@ -600,1087 +1590,101 @@ body {
         font-size: 1.8em;
     }
 
-    /* --- AJUSTES ESPECÍFICOS PARA LANDSCAPE --- */
-
-    /* Garante que o menu-toggle esteja visível e na direita */
+    /* AJUSTES DO MENU E SIDEBAR */
     .menu-toggle {
-        display: flex; /* Sobrescreve 'display: none' do base */
-        top: 15px; /* Ajusta a posição para não ficar muito alto */
-        right: 15px; /* Mantém na direita */
-        width: 35px; /* Levemente menor para telas com pouca altura */
+        display: flex; 
+        top: 15px; 
+        right: 15px; 
+        width: 35px; 
         height: 25px;
-        padding: 3px; /* Reduz o padding do hambúrguer */
+        padding: 3px; 
     }
 
-    /* Ajustes para a sidebar (menu lateral) em modo paisagem */
     .sidebar {
-        width: 200px; /* Reduz a largura da sidebar para telas mais estreitas */
-        height: 100vh; /* Garante que ocupe toda a altura da viewport */
-        padding-top: 15px; /* Reduz o padding top para economizar espaço */
+        width: 200px; 
+        height: 100vh; 
+        padding-top: 15px; 
     }
 
-    /* Garante que o seletor de idioma esteja visível e na esquerda */
+    /* AJUSTES DO LANGUAGE SELECTOR E THEME SWITCHER */
     .language-selector {
-        display: block; /* Garante que esteja visível (caso alguma outra regra o esconda) */
-        position: fixed; /* Mantenha fixo */
-        top: 15px; /* Posição adequada para telas baixas */
-        left: 15px; /* Mantém na esquerda */
-        right: auto; /* Garante que não tenha regra de 'right' competindo */
-        z-index: 1001; /* Alta prioridade para estar acima de tudo */
+        display: block; 
+        position: fixed; 
+        top: 15px; 
+        left: 15px; 
+        right: auto; 
+        z-index: 1001; 
+    }
+
+    .theme-switcher {
+        top: 15px;
+        left: 60px; 
+        right: auto;
+    }
+    .theme-toggle-button svg {
+        width: 28px; 
+        height: 28px;
     }
 
     .language-selector .globe-button svg {
-        width: 30px; /* Reduz o tamanho do globo */
+        width: 30px; 
         height: 30px;
     }
 
     .language-dropdown {
-        top: 38px; /* Ajusta a posição do dropdown abaixo do globo reduzido */
-        left: 0; /* Alinha à esquerda */
+        top: 38px; 
+        left: 0; 
         right: auto;
-        min-width: 100px; /* Pode ser ainda menor se houver problema de espaço */
-        font-size: 0.75em; /* Reduz ainda mais a fonte dos idiomas */
+        min-width: 100px; 
+        font-size: 0.75em; 
     }
 
     .language-dropdown button {
-        padding: 5px 7px; /* Reduz o padding dos botões de idioma */
+        padding: 5px 7px; 
         gap: 5px;
     }
 
     .language-dropdown button img {
-        width: 14px; /* Bandeira ainda menor */
+        width: 14px; 
         height: 14px;
     }
-}
-
-#page2 {
-    background-color: #f0f0f0;
-    color: #555;
-    padding: 20px;
-    justify-content: flex-start;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    position: relative;
-}
-
-#page2 h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2em;
-    color: #808080;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    text-align: center;
-    max-width: 900px;
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    word-break: break-word;
-    box-sizing: border-box;
-}
-
-/* RENOMEADO: De .education-item para .experience-item para poder incluir cursos e trabalhos */
-.experience-item {
-    display: flex;
-    align-items: flex-start; /* Feito para alinhar no topo p/ acomodar mais texto (Atividades) */
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px 30px;
-    margin-bottom: 40px;
-    max-width: 800px;
-    width: 90%;
-    box-sizing: border-box;
-}
-
-/* RENOMEADO: De .education-logo para .experience-logo */
-.experience-logo {
-    flex-shrink: 0;
-    margin-right: 25px;
-    width: 110px;
-    height: 110px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.experience-logo img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-/* RENOMEADO: De .education-details para .experience-details */
-.experience-details {
-    flex-grow: 1;
-    text-align: left;
-    /* NOVO AQUI: Adiciona um pequeno padding para separar o logo em telas grandes */
-    padding-top: 5px; 
-}
-
-.experience-details h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.3em;
-    color: #333;
-    margin: 0 0 5px 0;
-    font-weight: 700;
-}
-
-.experience-details p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95em;
-    color: #666;
-    margin: 0 0 3px 0;
-    line-height: 1.4;
-    word-break: break-word; /* Garante que longas descrições quebrem da maneira correta */
-}
-
-/* Estilo específico para o título "Atividades:" */
-.experience-details p:nth-child(3) {
-    font-weight: 600; /* Destaca o título Atividades */
-    margin-top: 10px; /* Separa visualmente o bloco de atividades */
-    margin-bottom: 0px;
-}
-
-
-/* RENOMEADO: De .education-location para .experience-location */
-.experience-location {
-    flex-shrink: 0;
-    margin-left: 25px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    /* Adicionado para centralizar o botão de certificado */
-    min-width: 150px; 
-    justify-content: flex-end;
-}
-
-.experience-location svg {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-}
-
-.location-details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    /* NOVO: Alinha com o topo do bloco quando há um pouco mais de detalhes */
-    padding-top: 5px; 
-}
-
-.location-details p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9em;
-    color: #666;
-    margin: 0;
-    line-height: 1.3;
-    white-space: nowrap;
-}
-
-.location-details p:nth-child(2) {
-    white-space: normal;
-    word-break: break-word;
-    max-width: 120px;
-    text-align: right;
-}
-
-/* NOVO: Estilo para o link/botão do certificado */
-.certificate-action {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #555;
-    font-weight: 600;
-    font-size: 0.95em;
-    padding: 8px 15px;
-    border: 2px solid #555;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    gap: 8px;
-}
-
-.certificate-action:hover {
-    background-color: #555;
-    color: white;
-}
-
-.certificate-action:hover svg path {
-    fill: white;
-}
-
-.certificate-action svg {
-    width: 20px;
-    height: 20px;
-    color: #555; 
-    transition: color 0.2s ease;
-}
-
-
-/* --- Media Queries Geral --- */
-@media (max-width: 768px) {
-    /* ... (outras regras de media query) ... */
     
-    /* === RESPONSIVIDADE DA SEÇÃO 2 === */
-    /* Antigo .education-item AQUI e nos PROXIMOS */
-    .experience-item {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        margin-bottom: 30px;
-        align-items: center; /* Volta a centralizar no modo coluna */
-    }
-
-    /* Antigo .education-logo */
-    .experience-logo {
-        margin-right: 0;
-        margin-bottom: 15px;
-        width: 90px;
-        height: 90px;
-    }
-
-    /* Antigo .education-details */
-    .experience-details {
-        text-align: center;
-        margin-bottom: 15px;
-        padding-top: 0; /* Remove padding-top */
-    }
-    
-    .experience-details p {
-        white-space: normal;
-    }
-    
-    /* Antigo .education-location */
-    .experience-location {
-        margin-left: 0;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 15px; /* Aumenta o gap para o botão de certificado */
-        min-width: unset; /* Remove min-width */
-        padding-top: 0; /* Remove padding-top */
-    }
-
-    /* Regra específica para o ícone de localização da UTFPR, se houver */
-    .experience-location svg { 
-        width: 40px; 
-        height: 40px;
-        margin-bottom: 5px;
-    }
-
-    .location-details {
-        align-items: center;
-        padding-top: 0; /* Remove padding-top */
-    }
-
-    .location-details p:nth-child(2) {
-        text-align: center;
-        max-width: none;
-    }
-    
-    #page2 h2 {
-        font-size: 1.6em;
-        width: 95%;
-    }
-
-    .certificate-action {
-        width: 100%;
-        max-width: 250px;
-        justify-content: center;
-        padding: 10px 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* ... (outras regras de media query NECESSÁRIAS) ... */
-    .experience-item {
-        padding: 15px;
-    }
-
-    .experience-logo {
-        width: 85px;
-        height: 85px;
-    }
-
-    .experience-details h3 {
-        font-size: 1.1em;
-    }
-
-    .experience-details p {
-        font-size: 0.85em;
-    }
-
-    .experience-location svg {
-        width: 30px;
-        height: 30px;
-    }
-
-    .location-details p {
-        font-size: 0.8em;
-    }
-
-    #page2 h2 {
-        font-size: 1.2em;
-        width: 98%;
-    }
-    
-    .certificate-action {
-        font-size: 0.9em;
-        padding: 8px 12px;
-    }
-}
-
-@media (max-height: 480px) and (orientation: landscape) {
-    /* ... (outras regras de media query) ... */
+    /* REGRAS DA SEÇÃO 2 */
     .experience-item {
         padding: 15px 20px;
     }
-
     .experience-logo {
         width: 85px;
         height: 85px;
         margin-right: 15px;
     }
-
     .experience-details h3 {
         font-size: 1.1em;
     }
-
     .experience-details p {
         font-size: 0.85em;
     }
-
     .experience-location {
         margin-left: 15px;
         min-width: 120px;
     }
-
     .experience-location svg {
         width: 30px;
         height: 30px;
     }
-
     .location-details p {
         font-size: 0.8em;
     }
-
     #page2 h2 {
         font-size: 1.3em;
         width: 95%;
     }
-    
     .certificate-action {
         font-size: 0.85em;
         padding: 7px 10px;
     }
-}
-
-/* ===================================== */
-/* --- Novas Seções (Page 3 e Page 4) --- */
-/* ===================================== */
-
-.content-wrapper {
-    max-width: 800px;
-    width: 90%;
-    margin: 30px auto 0;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    text-align: left;
-}
-
-.content-wrapper p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1em;
-    color: #444;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.content-wrapper ul {
-    list-style: disc;
-    margin-left: 25px;
-    margin-bottom: 15px;
-    font-family: 'Montserrat', sans-serif;
-    color: #444;
-}
-
-.content-wrapper ul li {
-    margin-bottom: 8px;
-    font-size: 0.95em;
-}
-
-
-#page3 {
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-}
-
-#page3 h2 {
-    font-family: 'Outfit', sans-serif;
-    font-size: 2.5em;
-    color: #000000;
-    margin-top: 60px;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-
-.skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    max-width: 1000px;
-    width: 90%;
-}
-
-
-.skill-category {
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    padding: 25px 30px;
-    flex: 1;
-    min-width: 300px;
-    max-width: 450px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.skill-category h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.8em;
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 20px;
-    text-align: center;
-    width: 100%;
-}
-
-
-.skill-row {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-
-.skill-row.single-item-center {
-    justify-content: center;
-    margin-top: 10px;
-}
-
-
-.skill-item {
-    display: flex;
-    align-items: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1em;
-    color: #555;
-    flex-shrink: 0;
-    padding: 5px 0;
-    flex: 1 1 45%;
-    max-width: 50%;
-}
-
-
-.skill-image {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-
-.about-me-text-container {
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    padding: 25px 30px;
-    margin-top: 40px;
-    max-width: 900px;
-    width: 90%;
-    text-align: center;
-}
-
-.about-me-text-container p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1em;
-    color: #444;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-
-#page4 {
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    padding-top: 100px; /* Mantido para telas maiores */
-    padding-bottom: 100px;
-}
-
-
-#page4 h2 {
-    font-family: 'Outfit', sans-serif;
-    font-size: 3.0em;
-    color: #000000;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-
-.page-subtitle {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em;
-    color: #808080;
-    margin-top: 0;
-    margin-bottom: 5px;
-    text-align: center;
-    display: block;
-}
-
-
-.contact-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 25px 30px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-    margin-top: 15px;
-    width: fit-content;
-    max-width: 90%;
-}
-
-.contact-link {
-    display: flex;
-    align-items: center;
-    color: #333;
-    text-decoration: none;
-    margin: 0 20px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9em;
-    white-space: nowrap;
-}
-
-.contact-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-}
-
-
-.page4-nav-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    width: 100%;
-}
-
-.page4-nav-link {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.1em;
-    color: #808080;
-    text-decoration: none;
-    margin: 0 25px;
-    position: relative;
-    padding-bottom: 5px;
-    transition: color 0.3s ease;
-}
-
-.page4-nav-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: #808080;
-    transition: width 0.3s ease;
-}
-
-.page4-nav-link:hover {
-    color: #555;
-}
-
-.page4-nav-link:hover::after {
-    width: 100%;
-}
-
-
-
-.site-footer {
-    background-color: #f0f0f0;
-    color: #808080;
-    text-align: center;
-    padding: 20px 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9em;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-}
-
-
-.quote-banner {
-    background-image: url('URL_DA_SUA_IMAGEM_AQUI.png'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 200px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff; 
-    padding: 20px;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 0;
-    overflow: hidden;
-}
-
-.quote-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); 
-    z-index: 1;
-}
-
-.quote-banner p {
-    font-family: 'Montserrat', sans-serif; 
-    font-size: 1.5em; 
-    font-weight: 500;
-    line-height: 1.5;
-    max-width: 800px; 
-    margin: 0;
-    position: relative;
-    z-index: 2; 
-}
-
-
-#page2 {
-    background-color: #f0f0f0;
-    color: #555;
-    padding: 20px;
-    justify-content: flex-start;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-#page2 h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2em;
-    color: #808080;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-
-.education-item {
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px 30px;
-    margin-bottom: 40px;
-    max-width: 800px;
-    width: 90%;
-    box-sizing: border-box;
-}
-
-.education-logo {
-    flex-shrink: 0;
-    margin-right: 25px;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.education-logo img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.education-details {
-    flex-grow: 1;
-    text-align: left;
-}
-
-.education-details h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.3em;
-    color: #333;
-    margin: 0 0 5px 0;
-    font-weight: 700;
-}
-
-.education-details p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95em;
-    color: #666;
-    margin: 0 0 3px 0;
-    line-height: 1.4;
-}
-
-.education-location {
-    flex-shrink: 0;
-    margin-left: 25px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.education-location svg {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-}
-
-
-.location-details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.location-details p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9em;
-    color: #666;
-    margin: 0;
-    line-height: 1.3;
-    white-space: nowrap;
-}
-
-
-.location-details p:nth-child(2) {
-    white-space: normal;
-    word-break: break-word;
-    max-width: 120px;
-    text-align: right;
-}
-
-
-/* ===================================== */
-/* --- Responsividade Geral --- */
-/* ===================================== */
-
-/* Adicionado para telas de notebooks */
-@media (min-width: 992px) and (max-width: 1200px) {
-    #page4 {
-        padding-top: 130px; 
-    }
-}
-
-@media (max-width: 768px) {
-    #page4 {
-        padding-top: 190px;
-        padding-bottom: 70px;
-    }
-
-    .content-wrapper {
-        padding: 15px;
-        margin-top: 20px;
-    }
-
-    .content-wrapper h2 {
-        font-size: 2em;
-    }
-
-    .content-wrapper p {
-        font-size: 0.9em;
-    }
-
-    .content-wrapper ul {
-        margin-left: 20px;
-    }
-
-    .content-wrapper ul li {
-        font-size: 0.9em;
-    }
-
-
-    .contact-info {
-        flex-direction: column;
-        padding: 20px 25px;
-        margin-top: 10px;
-        width: auto;
-        max-width: 90%;
-    }
-
-    .contact-link {
-        margin: 10px 0;
-        font-size: 0.85em;
-    }
-
-    .contact-icon {
-        width: 20px;
-        height: 20px;
-    }
-
-
-    .page4-nav-links {
-        flex-direction: column;
-        margin-top: 60px;
-    }
-
-    .page4-nav-link {
-        margin: 10px 0;
-        font-size: 1em;
-    }
-
-    .quote-banner {
-        height: 150px;
-    }
-    .quote-banner p {
-        font-size: 1.2em;
-    }
-
-    .site-footer {
-        padding: 15px 0;
-    }
-
-
-    .education-item {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        margin-bottom: 30px;
-    }
-
-    .education-logo {
-        margin-right: 0;
-        margin-bottom: 15px;
-    }
-
-    .education-details {
-        text-align: center;
-        margin-bottom: 15px;
-    }
-
-    .education-location {
-        margin-left: 0;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-    }
-
-    .education-location svg {
-        margin-bottom: 5px;
-    }
-
-    .location-details {
-        align-items: center;
-    }
-
-    .location-details p:nth-child(2) {
-        text-align: center;
-        max-width: none;
-    }
-
-
-    .skills-container {
-        flex-direction: column;
-        gap: 20px;
-        width: 100%;
-    }
-
-    .skill-category {
-        min-width: unset;
-        max-width: 90%;
-        margin: 0 auto;
-        align-items: center;
-    }
-
-    .skill-category h3 {
-        font-size: 1.5em;
-    }
-
-    .skill-row {
-        flex-direction: column;
-        gap: 5px;
-        margin-bottom: 10px;
-    }
-
-    .skill-item {
-        font-size: 0.95em;
-        flex: unset;
-        max-width: unset;
-    }
-
-
-    .skill-image {
-        width: 20px;
-        height: 20px;
-    }
-
-
-    .about-me-text-container {
-        padding: 20px;
-        margin-top: 30px;
-        width: 90%;
-    }
-
-    .about-me-text-container p {
-        font-size: 0.9em;
-    }
-}
-
-@media (max-width: 480px) {
-    #page4 {
-        padding-top: 160px;
-        padding-bottom: 60px;
-    }
-    .content-wrapper {
-        padding: 10px;
-    }
-
-    #page3 h2, #page4 h2 {
-        font-size: 2.5em;
-        margin-top: 40px;
-    }
-
-    .page-subtitle {
-        font-size: 0.9em;
-        margin-top: 0;
-    }
-
-    .content-wrapper p, .content-wrapper ul li {
-        font-size: 0.85em;
-    }
-
-    .contact-info {
-        padding: 15px 20px;
-        border-radius: 20px;
-    }
-
-    .contact-link {
-        font-size: 0.8em;
-    }
-
-    .contact-icon {
-        width: 18px;
-        height: 18px;
-        margin-right: 5px;
-    }
-
-    .page4-nav-links {
-        margin-top: 40px;
-    }
-
-    .page4-nav-link {
-        font-size: 0.9em;
-        margin: 8px 0;
-    }
-
-    .quote-banner {
-        height: 120px;
-    }
-    .quote-banner p {
-        font-size: 1em;
-    }
-
-    .site-footer {
-        font-size: 0.8em;
-        padding: 15px 0;
-    }
-
-
-    .skill-category {
-        padding: 20px;
-    }
-    .skill-category h3 {
-        font-size: 1.3em;
-    }
-    .skill-item {
-        font-size: 0.9em;
-    }
-
-    .about-me-text-container {
-        padding: 15px;
-    }
-    .about-me-text-container p {
-        font-size: 0.85em;
-    }
-}
-
-@media (max-height: 480px) and (orientation: landscape) {
-    #page4 {
-        padding-top: 120px;
-        padding-bottom: 50px;
-    }
-
-    .content-wrapper {
-        padding: 15px 20px;
-    }
-
-    .page-subtitle {
-        margin-top: 0;
-    }
-
-    .contact-info {
-        flex-direction: row;
-        padding: 15px 20px;
-        margin-top: 10px;
-    }
-    .contact-link {
-        margin: 0 15px;
-        font-size: 0.85em;
-    }
-
-    .page4-nav-links {
-        flex-direction: row;
-        margin-top: 30px;
-    }
-    .page4-nav-link {
-        margin: 0 15px;
-        font-size: 1em;
-    }
-
-    .quote-banner {
-        height: 100px;
-    }
-    .quote-banner p {
-        font-size: 0.9em;
-    }
-
+    
+    /* REGRAS DA SEÇÃO 3 */
     .skills-container {
         flex-direction: row;
         gap: 20px;
@@ -1698,8 +1702,6 @@ body {
         font-size: 0.9em;
         margin-bottom: 8px;
     }
-
-
     .skill-image {
         width: 20px;
         height: 20px;
@@ -1712,140 +1714,45 @@ body {
     .skill-row.single-item-center {
         justify-content: center;
     }
-
     .about-me-text-container {
         padding: 15px 20px;
     }
     .about-me-text-container p {
         font-size: 0.9em;
     }
-}
-
-
-
-.quote-banner {
-    background-image: url('image/pexels-vladbagacian-1260372.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 130px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
-    padding: 20px;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 0;
-    overflow: hidden;
-}
-
-.quote-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-}
-
-.quote-banner p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5em;
-    font-weight: 500;
-    line-height: 1.5;
-    max-width: 800px;
-    margin: 0;
-    position: relative;
-    z-index: 2;
-}
-
-@media (max-width: 768px) {
-    .quote-banner {
-        height: 150px;
+    
+    /* REGRAS DA SEÇÃO 4/RODAPÉ */
+    #page4 {
+        padding-top: 120px;
+        padding-bottom: 50px;
     }
-    .quote-banner p {
-        font-size: 1.2em;
+    .content-wrapper {
+        padding: 15px 20px;
     }
-}
-
-@media (max-width: 480px) {
-    .quote-banner {
-        height: 120px;
+    .page-subtitle {
+        margin-top: 0;
     }
-    .quote-banner p {
+    .contact-info {
+        flex-direction: row;
+        padding: 15px 20px;
+        margin-top: 10px;
+    }
+    .contact-link {
+        margin: 0 15px;
+        font-size: 0.85em;
+    }
+    .page4-nav-links {
+        flex-direction: row;
+        margin-top: 30px;
+    }
+    .page4-nav-link {
+        margin: 0 15px;
         font-size: 1em;
     }
-}
-
-.site-footer {
-    margin-top: 0;
-}
-
-
-.toast {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #333;
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-size: 14px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateY(20px);
-    z-index: 2000;
-}
-
-/* Animação ao aparecer */
-.toast.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@media (max-width: 600px) {
-    .toast {
-        left: 50%;
-        right: auto;
-        bottom: 100px; /* ⬆️ subimos mais */
-        transform: translateX(-50%) translateY(20px);
-        font-size: 12px; /* mais sutil */
-        padding: 6px 12px;
-        background: rgba(51, 51, 51, 0.9); /* levemente translúcido */
-        border-radius: 6px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* sombra suave */
+    .quote-banner {
+        height: 100px;
     }
-
-    .toast.show {
-        transform: translateX(-50%) translateY(0);
+    .quote-banner p {
+        font-size: 0.9em;
     }
 }
-
-
-.footer-icons {
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-    width: 100%;
-    z-index: 1;
-    position: relative;
-    gap: 15px; 
-}
-
-.footer-svg {
-    /* O tamanho agora é definido individualmente no HTML (30px ou 35px), esta regra se aplica a todos */
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.footer-svg:hover {
-    transform: scale(1.1);
-}
-
