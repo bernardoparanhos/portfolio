@@ -12,7 +12,7 @@
     --cor-acento-hover: #2980b9;
     --cor-sombra: rgba(255, 255, 255, 0.1);
     --cor-borda: #444;
-    --cor-svg-icon-claro: #fff;
+    --cor-svg-icon-claro: #fff; /* Ícone CLARO no tema ESCURO */
     --cor-svg-icon-escuro: #222; 
 }
 
@@ -26,7 +26,7 @@ body.light-mode {
     --cor-acento-hover: #2980b9;
     --cor-sombra: rgba(0, 0, 0, 0.1);
     --cor-borda: #bdc3c7;
-    --cor-svg-icon-claro: #222; 
+    --cor-svg-icon-claro: #222; /* Ícone ESCURO no tema CLARO */
     --cor-svg-icon-escuro: #fff;
 }
 
@@ -148,6 +148,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* AJUSTE PARA FORÇAR A HERANÇA DE COR CORRETA NO BOTÃO */
+    color: var(--cor-svg-icon-claro); 
 }
 
 .language-selector .globe-button svg {
@@ -156,6 +158,7 @@ body {
     transition: transform 0.2s ease-in-out;
 }
 
+/* ESTA REGRA É CRUCIAL PARA FAZER O GLOBO E OS OUTROS ÍCONES SEGUIR A VARIÁVEL DE TEMA */
 .language-selector .globe-button svg path,
 .language-selector .globe-button svg circle,
 .language-selector .globe-button svg line {
