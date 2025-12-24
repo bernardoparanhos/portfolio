@@ -1,0 +1,17 @@
+# Configurações do VS Code (contêm caminhos locais e extensões)
+.vscode/
+
+# Logs de erros (caso você use algum bundler no futuro)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos temporários do Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# Pastas de dependências (se você decidir usar Node.js no futuro)
+node_modules/
+
+# Arquivos de ambiente com chaves/senhas (nunca devem subir)
+.env

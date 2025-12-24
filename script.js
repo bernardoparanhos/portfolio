@@ -128,15 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
             udemyCourseDuration: "20h",
             viewCertificateAction: "Ver Certificado",
 
-            // 💥 CHAVES DE TRADUÇÃO: EXPERIÊNCIA PROFISSIONAL FRIELLA 💥
-            workExperienceTitle: "Experiências Profissionais",
-            friellaCompany: "Friella Alimentos",
-            friellaRole: "Aprendiz – Auxiliar de Produção (Setor Abate)",
-            friellaActivitiesTitle: "Atividades:",
-            friellaActivities: "Apoio em linhas de produção, controle de processos e boas práticas de segurança no trabalho (área limpa).",
-            friellaPeriod: "2025 – atual",
-            friellaLocation: "Medianeira, PR",
-
             aboutMeTitle: "Sobre mim",
             softSkillsTitle: "Soft Skills",
             communicationSkill: "Comunicação Clara e Técnica",
@@ -195,15 +186,6 @@ document.addEventListener('DOMContentLoaded', () => {
             udemyCourseDuration: "20h",
             viewCertificateAction: "View Certificate",
 
-            // CHAVES DE TRADUÇÃO: EXPERIÊNCIA PROFISSIONAL FRIELLA
-            workExperienceTitle: "Professional Experience",
-            friellaCompany: "Friella Alimentos",
-            friellaRole: "Apprentice – Production Assistant (Slaughtering Department)",
-            friellaActivitiesTitle: "Activities:",
-            friellaActivities: "Support in production lines, process control, and good safety practices at work (clean area).",
-            friellaPeriod: "2025 – current",
-            friellaLocation: "Medianeira, Brazil",
-
             aboutMeTitle: "About Me",
             softSkillsTitle: "Soft Skills",
             communicationSkill: "Clear and Technical Communication",
@@ -261,15 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
             udemyCoursePlatform: "Udemy",
             udemyCourseDuration: "20h",
             viewCertificateAction: "Ver Certificado",
-            
-            // CHAVES DE TRADUÇÃO: EXPERIÊNCIA PROFISSIONAL FRIELLA 
-            workExperienceTitle: "Experiencia Profesional",
-            friellaCompany: "Friella Alimentos",
-            friellaRole: "Aprendiz – Auxiliar de Producción (Sector Sacrificio)",
-            friellaActivitiesTitle: "Actividades:",
-            friellaActivities: "Apoyo en líneas de producción, control de procesos y buenas prácticas de seguridad laboral (área limpia).",
-            friellaPeriod: "2025 – actual",
-            friellaLocation: "Medianeira, Brasil",
 
             aboutMeTitle: "Sobre mí",
             softSkillsTitle: "Habilidades Blandas",

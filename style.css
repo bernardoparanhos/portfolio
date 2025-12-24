@@ -292,8 +292,9 @@ body.dark-mode .image-container img {
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(8px);
+    /* Invertido: Prefixo primeiro, padrão depois */
     -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -398,10 +399,10 @@ body.dark-mode .image-container img {
     overflow: hidden;
     min-width: 130px;
     z-index: 101;
-    backdrop-filter: blur(5px);
+    /* A ordem correta é o prefixo primeiro: */
     -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
 }
-
 .language-dropdown.open {
     display: block;
 }
@@ -507,36 +508,6 @@ body.dark-mode .image-container img {
     object-fit: contain;
     transition: opacity 0.3s ease; /* Para sumir/aparecer suavemente */
 }
-
-/* ------------------------------------------- */
-/* NOVO: REGRAS ESPECÍFICAS PARA TROCA DE LOGO NO DARK MODE */
-/* ------------------------------------------- */
-
-/* 1. Troca do Logo da Friella */
-body.dark-mode .experience-logo img[src*="friella_logo"] {
-    opacity: 0; /* Esconde a imagem colorida original */
-}
-
-body.dark-mode .experience-logo:has(img[src*="friella_logo"]) {
-    /* Exibe a imagem branca como background */
-    background-image: url('image/friellalogo-branca.png'); 
-    background-size: 230%; 
-    background-repeat: no-repeat;
-    background-position: center;
-    
-    /* Fundo branco justinho */
-    padding: 3px; 
-    border-radius: 8px;
-}
-
-/* 2. Troca do Logo da Udemy (Se precisar de um tratamento diferente, adicione aqui) */
-/* Exemplo para Udemy, se a logo for preta e precisar de um ajuste de cor no Dark Mode:
-body.dark-mode .experience-logo img[src*="udemy"] {
-    filter: invert(1); 
-}
-*/
-/* ------------------------------------------- */
-
 
 .experience-details {
     flex-grow: 1;
@@ -1755,4 +1726,20 @@ body.dark-mode .toast {
     .quote-banner p {
         font-size: 0.9em;
     }
+}
+
+/* Cores do ícone do Excel */
+.svg-fill-dark-green { fill: #185c37; }
+.svg-fill-medium-green { fill: #21a366; }
+.svg-fill-deep-green { fill: #107c41; }
+.svg-fill-bright-green { fill: #33c481; }
+.svg-fill-white { fill: #fff; }
+
+/* Efeitos de isolamento e opacidade */
+.svg-opacity-10 { opacity: 0.1; isolation: isolate; }
+.svg-opacity-20 { opacity: 0.2; isolation: isolate; }
+
+/* Classe para remover o estilo inline da máscara do SVG */
+.svg-mask-alpha {
+    mask-type: alpha;
 }
