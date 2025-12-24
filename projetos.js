@@ -1,4 +1,4 @@
-// Objeto de traduções para a página de projetos (MANTIDO)
+// Objeto de traduções para a página de projetos
 const translations = {
     pt: {
         projectsPageTitle: "Página de Portfólio",
@@ -20,7 +20,7 @@ const translations = {
     }
 };
 
-// --- FUNÇÃO DE IDIOMA (MANTIDA) ---
+// --- FUNÇÃO DE IDIOMA ---
 function setLanguage(lang) {
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-lang-key]').forEach(element => {
@@ -38,17 +38,14 @@ function setLanguage(lang) {
     });
 }
 
-// =========================================
-// NOVO: LÓGICA DE TEMA CLARO/ESCURO
-// =========================================
-
+// --- LÓGICA DE TEMA CLARO/ESCURO (REFATORADA) ---
 const THEME_KEY = 'portfolioTheme';
 const LIGHT_MODE_CLASS = 'light-mode';
 const LIGHT_MODE = 'light';
 const DARK_MODE = 'dark';
 
 /**
- * Aplica o tema ao body e salva no localStorage
+ * Aplica o tema ao body e sincroniza os botões usando classes CSS
  * @param {string} theme - 'light' ou 'dark'
  */
 function applyTheme(theme) {
@@ -58,32 +55,36 @@ function applyTheme(theme) {
 
     if (theme === LIGHT_MODE) {
         body.classList.add(LIGHT_MODE_CLASS);
-        darkModeToggle.style.display = 'block'; 
-        lightModeToggle.style.display = 'none'; 
+        // Remove o estilo inline e usa classes para evitar avisos do VS Code
+        darkModeToggle.classList.remove('hidden'); 
+        lightModeToggle.classList.add('hidden'); 
         localStorage.setItem(THEME_KEY, LIGHT_MODE);
     } else {
         body.classList.remove(LIGHT_MODE_CLASS);
-        darkModeToggle.style.display = 'none';  
-        lightModeToggle.style.display = 'block';
+        // Remove o estilo inline e usa classes para evitar avisos do VS Code
+        darkModeToggle.classList.add('hidden');  
+        lightModeToggle.classList.remove('hidden');
         localStorage.setItem(THEME_KEY, DARK_MODE);
     }
 }
 
 /**
- * Inicializa o tema ao carregar a página (Sincroniza com a página principal)
+ * Inicializa o tema ao carregar a página
  */
 function initTheme() {
-    const savedTheme = localStorage.getItem(THEME_KEY) || DARK_MODE; // Padrão desta página é Dark
+    const savedTheme = localStorage.getItem(THEME_KEY) || DARK_MODE;
     applyTheme(savedTheme);
 }
-
 
 // --- DOMContentLoaded ---
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. SINCRONIZAÇÃO DO TEMA
+    // 1. Inicialização de Tema e Idioma
     initTheme();
+    const currentLang = localStorage.getItem('lang') || 'pt';
+    setLanguage(currentLang);
 
+    // 2. Listeners de Tema
     const lightModeToggle = document.getElementById('lightModeToggle');
     const darkModeToggle = document.getElementById('darkModeToggle');
 
@@ -95,32 +96,28 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTheme(DARK_MODE);
     });
 
-
-    // 2. SINCRONIZAÇÃO DO IDIOMA
-    const currentLang = localStorage.getItem('lang') || 'pt';
-    setLanguage(currentLang);
-
+    // 3. Lógica do Seletor de Idioma
     const languageToggle = document.getElementById('language-toggle');
     const languageDropdown = document.getElementById('language-dropdown');
 
-    // Listener para o botão do globo
-    languageToggle.addEventListener('click', () => {
-        languageDropdown.classList.toggle('open');
-    });
+    if (languageToggle) {
+        languageToggle.addEventListener('click', () => {
+            languageDropdown.classList.toggle('open');
+        });
+    }
 
-    // Listener para cada opção de idioma
     document.querySelectorAll('.lang-option').forEach(button => {
         button.addEventListener('click', () => {
             const selectedLang = button.getAttribute('data-lang');
             setLanguage(selectedLang);
-            localStorage.setItem('lang', selectedLang); // Salva no localStorage para sincronizar
+            localStorage.setItem('lang', selectedLang);
             languageDropdown.classList.remove('open');
         });
     });
 
-    // Fecha o dropdown se o usuário clicar fora dele
+    // Fecha o dropdown ao clicar fora
     document.addEventListener('click', (event) => {
-        if (!languageToggle.contains(event.target) && !languageDropdown.contains(event.target)) {
+        if (languageToggle && !languageToggle.contains(event.target) && !languageDropdown.contains(event.target)) {
             languageDropdown.classList.remove('open');
         }
     });
