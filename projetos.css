@@ -1,35 +1,32 @@
 /* ========================================= */
-/* 1. CONFIGURAÇÃO DOS TEMAS (COPIADO DA PÁGINA PRINCIPAL) */
-/* OBS: O tema inicial desta página é ESCURO, então definimos ele como padrão */
+/* 1. CONFIGURAÇÃO DOS TEMAS */
 /* ========================================= */
 
 :root {
-    --fundo-principal: #1a1a1a; /* Fundo geral do site (Escuro) */
-    --fundo-secundario: #222; /* Fundo do cabeçalho (Escuro) */
-    --cor-texto-principal: #f0f0f0; /* Texto principal (Claro) */
-    --cor-texto-secundario: #ccc; /* Texto secundário (Cinza Claro) */
+    --fundo-principal: #1a1a1a;
+    --fundo-secundario: #222;
+    --cor-texto-principal: #f0f0f0;
+    --cor-texto-secundario: #ccc;
     --cor-acento: #3498db; 
     --cor-acento-hover: #2980b9;
     --cor-sombra: rgba(255, 255, 255, 0.1);
     --cor-borda: #444;
-    --cor-svg-icon-claro: #fff; /* Ícone CLARO no tema ESCURO */
+    --cor-svg-icon-claro: #fff;
     --cor-svg-icon-escuro: #222; 
 }
 
-/* Variáveis para Light Mode (Tema Claro) */
 body.light-mode {
-    --fundo-principal: #f4f4f9; /* Fundo geral claro */
-    --fundo-secundario: #ffffff; /* Fundo do cabeçalho claro */
+    --fundo-principal: #f4f4f9;
+    --fundo-secundario: #ffffff;
     --cor-texto-principal: #222; 
     --cor-texto-secundario: #555; 
     --cor-acento: #3498db; 
     --cor-acento-hover: #2980b9;
     --cor-sombra: rgba(0, 0, 0, 0.1);
     --cor-borda: #bdc3c7;
-    --cor-svg-icon-claro: #222; /* Ícone ESCURO no tema CLARO */
+    --cor-svg-icon-claro: #222;
     --cor-svg-icon-escuro: #fff;
 }
-
 
 /* --- Base Styles --- */
 body {
@@ -38,16 +35,19 @@ body {
     background-color: var(--fundo-principal);
     color: var(--cor-texto-secundario);
     transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 40px;
     border-bottom: 0.5px solid var(--cor-borda);
     padding-bottom: 15px;
     background-color: var(--fundo-secundario);
+    position: relative;
+    z-index: 10;
 }
 
 .header-name {
@@ -68,6 +68,8 @@ body {
     padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .header-button {
@@ -76,18 +78,21 @@ body {
     font-size: 1.2em;
     color: var(--cor-texto-secundario);
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: 1px solid var(--cor-borda);
-    border-radius: 5px;
+    border-radius: 8px;
     transition: all 0.3s ease;
     display: inline-block; 
     margin-bottom: 40px; 
+    background-color: transparent;
 }
 
 .header-button:hover {
-    background-color: var(--cor-borda); 
-    color: var(--cor-texto-principal);
-    border-color: var(--cor-texto-principal);
+    background-color: var(--cor-acento); 
+    color: white;
+    border-color: var(--cor-acento);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
 }
 
 /* ===================================== */
@@ -95,166 +100,143 @@ body {
 /* ===================================== */
 
 .header-controls {
-    position: fixed;
-    top: 125px; /* CORREÇÃO FINAL: Desce os controles para não cobrir o título (Desktop) */
-    right: 20px;
+    position: absolute; 
+    top: 130px; 
+    right: 40px;
     z-index: 1000;
     display: flex;
     gap: 15px; 
-}
-
-
-/* --- Theme Switcher Styles --- */
-.theme-switcher {
-    display: flex; 
     align-items: center;
 }
 
-.theme-toggle-button {
+.theme-toggle-button, .globe-button {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
     border-radius: 50%;
     color: var(--cor-svg-icon-claro); 
     transition: all 0.2s ease;
-}
-
-.theme-toggle-button svg {
-    width: 30px; 
-    height: 30px;
-    fill: currentColor; 
-    stroke: currentColor;
-}
-
-.theme-toggle-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-
-/* --- Language Selector Styles --- */
-.language-selector {
-    position: static; 
-    z-index: 1000;
-    font-family: 'Outfit', sans-serif;
-    color: var(--cor-svg-icon-claro); 
-}
-
-.language-selector .globe-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* AJUSTE PARA FORÇAR A HERANÇA DE COR CORRETA NO BOTÃO */
-    color: var(--cor-svg-icon-claro); 
 }
 
-.language-selector .globe-button svg {
-    width: 35px;
-    height: 35px;
-    transition: transform 0.2s ease-in-out;
+.theme-toggle-button svg, .globe-button svg {
+    width: 30px; 
+    height: 30px;
 }
 
-/* ESTA REGRA É CRUCIAL PARA FAZER O GLOBO E OS OUTROS ÍCONES SEGUIR A VARIÁVEL DE TEMA */
-.language-selector .globe-button svg path,
-.language-selector .globe-button svg circle,
-.language-selector .globe-button svg line {
+/* Garante que o globo simplificado use apenas contornos */
+.globe-button svg {
     fill: none;
-    stroke: currentColor; 
-    transition: stroke 0.3s ease;
+    stroke: currentColor;
 }
 
-.language-selector .globe-button:hover svg path,
-.language-selector .globe-button:hover svg circle,
-.language-selector .globe-button:hover svg line {
-    stroke: var(--cor-texto-secundario);
+.theme-toggle-button:hover, .globe-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.language-selector {
+    position: relative;
 }
 
 .language-dropdown {
     display: none;
     position: absolute;
-    top: 45px;
+    top: calc(100% + 10px);
     right: 0;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.85);
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    min-width: 130px;
+    min-width: 140px;
     z-index: 1001;
-    /* Correção: Prefixo vem ANTES da propriedade padrão */
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light-mode .language-dropdown {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .language-dropdown.open {
     display: block;
+    animation: fadeIn 0.2s ease;
 }
 
 .language-dropdown button {
     background: none;
     border: none;
     color: white;
-    padding: 8px 12px;
+    padding: 10px 15px;
     width: 100%;
     text-align: left;
     cursor: pointer;
-    font-size: 0.95em;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light-mode .language-dropdown button {
+    color: #333;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .language-dropdown button:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.language-dropdown button.active {
-    background-color: rgba(255, 255, 255, 0.3);
-    font-weight: 700;
-}
-
 .language-dropdown button img {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    object-fit: cover;
 }
 
+/* ===================================== */
+/* --- CONTAINER DE PROJETOS (GRID) --- */
+/* ===================================== */
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.no-projects {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px;
+    color: var(--cor-texto-secundario);
+    font-style: italic;
+}
 
 /* ===================================== */
-/* --- Responsividade do Seletor de Idioma e Tema --- */
+/* --- ANIMAÇÕES E RESPONSIVIDADE --- */
 /* ===================================== */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 @media (max-width: 768px) {
-    .header-controls {
-        top: 80px; /* Ajuste para o tablet */
-        right: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header-controls {
-        top: 182px; /* Ajuste para smartphones */
-        right: 25px;
-        gap: 10px;
-    }
+    .header { padding: 20px; flex-direction: column; align-items: flex-start; }
+    .header-name, .header-projects { font-size: 2em; }
     
-    .theme-toggle-button svg {
-        width: 28px;
-        height: 28px;
+    /* Reposiciona controles no mobile */
+    .header-controls { top: 155px; right: 20px; }
+    
+    /* Missão: Subir levemente o botão de voltar no mobile */
+    .header-button { 
+        margin-top: -8px; 
+        margin-bottom: 30px;
     }
 
-    .language-selector .globe-button svg {
-        width: 30px;
-        height: 30px;
-    }
+    .projects-container { grid-template-columns: 1fr; }
 }
 
-.hidden {
-    display: none !important;
-}
+.hidden { display: none !important; }

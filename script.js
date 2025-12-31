@@ -61,39 +61,76 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
 
     // =========================================
-    // B. LÓGICA DO MENU (EXISTENTE)
+    // B. LÓGICA DO MENU - MELHORADA (ACESSIBILIDADE)
     // =========================================
     const menuToggle = document.getElementById('menuToggle');
     const sidebar = document.getElementById('sidebar');
 
+    // Configuração inicial de acessibilidade
+    menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-controls', 'sidebar');
+    sidebar.setAttribute('aria-hidden', 'true');
+
     menuToggle.addEventListener('click', () => {
+        const isNowOpen = !sidebar.classList.contains('open');
+        
+        // Alterna classes visuais
         sidebar.classList.toggle('open');
         menuToggle.classList.toggle('open');
-    });
-
-    // Fechar o menu ao clicar fora dele
-    document.addEventListener('click', (event) => {
-        if (!menuToggle.contains(event.target) && !sidebar.contains(event.target)) {
-            if (sidebar.classList.contains('open')) {
-                sidebar.classList.remove('open');
-                menuToggle.classList.remove('open');
-            }
+        
+        // Atualiza atributos de acessibilidade
+        menuToggle.setAttribute('aria-expanded', isNowOpen);
+        sidebar.setAttribute('aria-hidden', !isNowOpen);
+        
+        // Foco no primeiro botão quando o menu abre
+        if (isNowOpen) {
+            setTimeout(() => {
+                const firstButton = sidebar.querySelector('button');
+                if (firstButton) firstButton.focus();
+            }, 100);
         }
     });
 
-    // Fechar o menu ao clicar em um item da sidebar (para navegação)
+    // Fechar o menu com a tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+            sidebar.classList.remove('open');
+            menuToggle.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            sidebar.setAttribute('aria-hidden', 'true');
+            menuToggle.focus(); // Retorna o foco para o botão do menu
+        }
+    });
+
+    // Fechar o menu ao clicar fora dele (melhorado)
+    document.addEventListener('click', (event) => {
+        const isClickInsideMenu = sidebar.contains(event.target);
+        const isClickOnToggle = menuToggle.contains(event.target);
+        
+        if (!isClickInsideMenu && !isClickOnToggle && sidebar.classList.contains('open')) {
+            sidebar.classList.remove('open');
+            menuToggle.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            sidebar.setAttribute('aria-hidden', 'true');
+        }
+    });
+
+    // Fechar o menu ao clicar em um item da sidebar
     const sidebarButtons = document.querySelectorAll('.sidebar-button');
     sidebarButtons.forEach(button => {
         button.addEventListener('click', () => {
             if (sidebar.classList.contains('open')) {
                 sidebar.classList.remove('open');
                 menuToggle.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                sidebar.setAttribute('aria-hidden', 'true');
             }
         });
     });
 
     // =========================================
-    // C. LÓGICA DE TRADUÇÃO (EXISTENTE)
+    // C. LÓGICA DE TRADUÇÃO - OTIMIZADA (COM LOADING)
     // =========================================
     const translations = {
         pt: {
@@ -152,7 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
             footerText: "&copy; 2025 Bernardo Paranhos — Portfólio acadêmico. Todos os direitos reservados.",
             // --- Mensagens de toast ---
             emailCopiedToast: "E-mail copiado!",
-            copyErrorToast: "Não foi possível copiar o e-mail."
+            copyErrorToast: "Não foi possível copiar o e-mail.",
+            languageLoading: "Alterando idioma..."
         },
         en: {
             menuTitle: "Menu",
@@ -210,7 +248,8 @@ document.addEventListener('DOMContentLoaded', () => {
             footerText: "&copy; 2025 Bernardo Paranhos — Academic Portfolio. All rights reserved.",
             // --- Mensagens de toast ---
             emailCopiedToast: "Email copied!",
-            copyErrorToast: "Could not copy email."
+            copyErrorToast: "Could not copy email.",
+            languageLoading: "Changing language..."
         },
         es: {
             menuTitle: "Menú",
@@ -223,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
             portfolioTitle: "Portafolio de Ingeniería de Producción",
             name: "BERNARDO PARANHOS",
             role: "Estudiante de Ingeniería de Producción",
-            keywords: "PROCESOS INDUSTRIALES | SEGURIDAD LABORAL | TECNOLOGÍA",
+            keywords: "PROCESOS INDUSTRIAES | SEGURIDAD LABORAL | TECNOLOGÍA",
             curriculumButton: "Currículum",
             aboutMeButton: "Sobre mí",
             projectsButton: "Proyectos",
@@ -268,32 +307,177 @@ document.addEventListener('DOMContentLoaded', () => {
             footerText: "&copy; 2025 Bernardo Paranhos — Portafolio académico. Todos los derechos reservados.",
             // --- Mensagens de toast ---
             emailCopiedToast: "¡Correo electrónico copiado!",
-            copyErrorToast: "No se pudo copiar el correo electrónico."
+            copyErrorToast: "No se pudo copiar el correo electrónico.",
+            languageLoading: "Cambiando idioma..."
         }
     };
 
     let currentLang = localStorage.getItem('lang') || 'pt';
+    
+    // CACHE para elementos traduzíveis (Performance)
+    let translatableElementsCache = null;
+    let lastAppliedLang = null;
+    let languageLoadingTimeout = null;
 
-    function setLanguage(lang) {
-        document.documentElement.lang = lang; 
-        document.querySelectorAll('[data-lang-key]').forEach(element => {
-            const key = element.getAttribute('data-lang-key');
-            if (translations[lang] && translations[lang][key]) {
-                element.innerHTML = translations[lang][key]; 
-            }
+    // =========================================
+    // FUNÇÕES DE LOADING PARA TROCA DE IDIOMA
+    // =========================================
+    
+    /**
+     * Mostra indicador de carregamento durante troca de idioma
+     * @param {string} lang - Idioma sendo carregado
+     */
+    function showLanguageLoading(lang) {
+        const globeButton = document.getElementById('globeButton');
+        if (!globeButton) return;
+        
+        // Salva conteúdo original
+        if (!globeButton.dataset.originalContent) {
+            globeButton.dataset.originalContent = globeButton.innerHTML;
+        }
+        
+        // Spinner SVG animado
+        globeButton.innerHTML = `
+            <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor">
+                <style>
+                    @keyframes lang-spin { to { transform: rotate(360deg); } }
+                </style>
+                <path d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z" 
+                      style="animation: lang-spin 0.75s linear infinite; transform-origin: center;">
+                </path>
+            </svg>
+        `;
+        
+        // Desabilita interações durante carregamento
+        globeButton.style.pointerEvents = 'none';
+        
+        // Fecha dropdown se estiver aberto
+        const dropdown = document.getElementById('languageDropdown');
+        if (dropdown && dropdown.classList.contains('open')) {
+            dropdown.classList.remove('open');
+        }
+        
+        // Desabilita botões do dropdown
+        document.querySelectorAll('.language-dropdown button').forEach(btn => {
+            btn.style.pointerEvents = 'none';
+            btn.style.opacity = '0.6';
         });
-        document.querySelectorAll('.language-dropdown button').forEach(button => {
-            if (button.dataset.lang === lang) {
-                button.classList.add('active');
-            } else {
-                button.classList.remove('active');
-            }
+        
+        // Timeout de segurança (remove loading se travar)
+        clearTimeout(languageLoadingTimeout);
+        languageLoadingTimeout = setTimeout(() => {
+            hideLanguageLoading();
+            console.warn("Timeout na troca de idioma");
+        }, 10000); // 10 segundos máximo
+    }
+    
+    /**
+     * Esconde indicador de carregamento
+     */
+    function hideLanguageLoading() {
+        clearTimeout(languageLoadingTimeout);
+        
+        const globeButton = document.getElementById('globeButton');
+        if (globeButton && globeButton.dataset.originalContent) {
+            globeButton.innerHTML = globeButton.dataset.originalContent;
+            delete globeButton.dataset.originalContent;
+            globeButton.style.pointerEvents = 'auto';
+        }
+        
+        // Reabilita botões do dropdown
+        document.querySelectorAll('.language-dropdown button').forEach(btn => {
+            btn.style.pointerEvents = 'auto';
+            btn.style.opacity = '1';
         });
-        localStorage.setItem('lang', lang);
-        // Atualiza a variável global do idioma
-        currentLang = lang; 
+    }
+    
+    /**
+     * Função assíncrona para trocar idioma com feedback visual
+     * @param {string} lang - Idioma para trocar
+     */
+    async function setLanguage(lang) {
+        // Verifica se já está no mesmo idioma
+        if (lastAppliedLang === lang) {
+            const dropdown = document.getElementById('languageDropdown');
+            if (dropdown && dropdown.classList.contains('open')) {
+                dropdown.classList.remove('open');
+            }
+            return;
+        }
+        
+        // Validação do idioma
+        if (!translations[lang]) {
+            console.warn(`Idioma "${lang}" não suportado. Usando Português como fallback.`);
+            lang = 'pt';
+        }
+        
+        // Mostra loading
+        showLanguageLoading(lang);
+        
+        try {
+            // Pequeno delay para melhor UX (o usuário vê o clique)
+            await new Promise(resolve => setTimeout(resolve, 150));
+            
+            // Atualiza o atributo lang do documento
+            document.documentElement.lang = lang;
+            
+            // Cache de elementos (uma única busca)
+            if (!translatableElementsCache) {
+                translatableElementsCache = document.querySelectorAll('[data-lang-key]');
+            }
+            
+            // Atualiza traduções em batch (mais eficiente)
+            const updatePromises = [];
+            translatableElementsCache.forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                const translation = translations[lang][key];
+                
+                if (translation) {
+                    // Otimização: textContent para texto puro, innerHTML para HTML
+                    if (translation.includes('<')) {
+                        updatePromises.push(Promise.resolve().then(() => {
+                            element.innerHTML = translation;
+                        }));
+                    } else {
+                        updatePromises.push(Promise.resolve().then(() => {
+                            element.textContent = translation;
+                        }));
+                    }
+                }
+            });
+            
+            // Aguarda todas as atualizações
+            await Promise.all(updatePromises);
+            
+            // Atualiza botões ativos no dropdown
+            document.querySelectorAll('.language-dropdown button').forEach(button => {
+                if (button.dataset.lang === lang) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+            
+            // Salva preferência e atualiza cache
+            localStorage.setItem('lang', lang);
+            currentLang = lang;
+            lastAppliedLang = lang;
+            
+            // Pequeno delay para o usuário perceber a mudança
+            await new Promise(resolve => setTimeout(resolve, 300));
+            
+        } catch (error) {
+            console.error("Erro na troca de idioma:", error);
+            // Poderia mostrar um toast de erro aqui
+        } finally {
+            // Esconde loading
+            hideLanguageLoading();
+        }
     }
 
+    // =========================================
+    // CONFIGURAÇÃO DO SELECTOR DE IDIOMA
+    // =========================================
     const languageSelector = document.getElementById('languageSelector');
 
     const globeSVG = `
@@ -335,7 +519,6 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', (event) => {
             const selectedLang = event.currentTarget.dataset.lang;
             setLanguage(selectedLang);
-            languageDropdown.classList.remove('open');
         });
     });
 
@@ -345,54 +528,69 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Inicializa com o idioma salvo
     setLanguage(currentLang);
 
     // =========================================
-    // D. LÓGICA DE CÓPIA DE E-MAIL (EXISTENTE)
+    // D. LÓGICA DE CÓPIA DE E-MAIL - MELHORADA (ROBUSTEZ)
     // =========================================
     const copyEmailBtn = document.getElementById("copyEmail");
 
     if (copyEmailBtn) {
-        copyEmailBtn.addEventListener("click", function (e) {
+        copyEmailBtn.addEventListener("click", async function (e) {
             e.preventDefault(); 
             const email = "beparanhosborges@gmail.com";
-            const lang = currentLang; // Pega o idioma atual
+            const lang = currentLang;
 
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(email).then(() => {
+            try {
+                // TENTATIVA 1: Método moderno (Clipboard API)
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(email);
                     showToast(translations[lang].emailCopiedToast);
-                }).catch(() => {
-                    fallbackCopy(email, lang);
-                });
-            } else {
-                fallbackCopy(email, lang);
+                    return; // Sucesso, para aqui
+                }
+                
+                // TENTATIVA 2: Método antigo (document.execCommand)
+                const textArea = document.createElement("textarea");
+                textArea.value = email;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-999999px"; // Mais confiável que opacity: 0
+                document.body.appendChild(textArea);
+                textArea.select();
+                
+                const success = document.execCommand("copy");
+                document.body.removeChild(textArea);
+                
+                if (success) {
+                    showToast(translations[lang].emailCopiedToast);
+                } else {
+                    throw new Error("execCommand falhou");
+                }
+                
+            } catch (error) {
+                console.error("Erro ao copiar e-mail:", error);
+                
+                // TENTATIVA 3: Fallback amigável
+                showToast(`${translations[lang].copyErrorToast}: ${email}`);
+                
+                // Opcional: Seleciona o texto para o usuário copiar manualmente
+                if (copyEmailBtn.querySelector('span')) {
+                    const range = document.createRange();
+                    range.selectNode(copyEmailBtn.querySelector('span'));
+                    window.getSelection().removeAllRanges();
+                    window.getSelection().addRange(range);
+                }
             }
         });
     }
 
-    function fallbackCopy(text, lang) {
-        const textArea = document.createElement("textarea");
-        textArea.value = text;
-        textArea.style.position = "fixed"; 
-        textArea.style.opacity = "0";
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-
-        try {
-            document.execCommand("copy");
-            showToast(translations[lang].emailCopiedToast);
-        } catch (err) {
-            console.error("Erro ao copiar:", err);
-            showToast(translations[lang].copyErrorToast);
-        }
-
-        document.body.removeChild(textArea);
-    }
-
-    
     function showToast(message) {
         const toast = document.getElementById("toast");
+        if (!toast) {
+            console.warn("Elemento toast não encontrado");
+            return;
+        }
+        
         toast.textContent = message;
         toast.classList.add("show");
 

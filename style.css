@@ -1743,3 +1743,51 @@ body.dark-mode .toast {
 .svg-mask-alpha {
     mask-type: alpha;
 }
+
+/* ========================================= */
+/* ANIMAÇÕES DE LOADING PARA TROCA DE IDIOMA */
+/* ========================================= */
+
+/* Animação do spinner no botão do globo */
+@keyframes lang-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estado dos botões durante loading */
+.language-dropdown.loading button {
+    opacity: 0.6 !important;
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+}
+
+/* Feedback visual durante troca */
+.globe-button.loading {
+    opacity: 0.8;
+    cursor: wait;
+}
+
+/* Transição suave para opacidade */
+.language-dropdown button,
+.globe-button {
+    transition: opacity 0.2s ease;
+}
+
+/* Responsividade para o estado de loading */
+@media (max-width: 768px) {
+    .globe-button.loading svg {
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .globe-button.loading svg {
+        width: 28px !important;
+        height: 28px !important;
+    }
+}
