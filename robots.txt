@@ -1,2 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /private/
+Disallow: /tmp/
+
+# Indica ao Google onde está o mapa do seu site
+Sitemap: https://engenheiroparanhos.com.br/sitemap.xml
