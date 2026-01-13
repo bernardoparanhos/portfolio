@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             homeNavLink: "HOME",
             aboutMeNavLink: "SOBRE MIM",
             educationNavLink: "EDUCAÇÃO",
-            footerText: "&copy; 2025 Bernardo Paranhos — Portfólio acadêmico. Todos os direitos reservados.",
+            footerText: "© 2025 Bernardo Paranhos — Portfólio acadêmico. Todos os direitos reservados.",
             // --- Mensagens de toast ---
             emailCopiedToast: "E-mail copiado!",
             copyErrorToast: "Não foi possível copiar o e-mail.",
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
             homeNavLink: "HOME",
             aboutMeNavLink: "ABOUT ME",
             educationNavLink: "EDUCATION",
-            footerText: "&copy; 2025 Bernardo Paranhos — Academic Portfolio. All rights reserved.",
+            footerText: "© 2025 Bernardo Paranhos — Academic Portfolio. All rights reserved.",
             // --- Mensagens de toast ---
             emailCopiedToast: "Email copied!",
             copyErrorToast: "Could not copy email.",
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
             homeNavLink: "INICIO",
             aboutMeNavLink: "SOBRE MÍ",
             educationNavLink: "EDUCACIÓN",
-            footerText: "&copy; 2025 Bernardo Paranhos — Portafolio académico. Todos los derechos reservados.",
+            footerText: "© 2025 Bernardo Paranhos — Portafolio académico. Todos los derechos reservados.",
             // --- Mensagens de toast ---
             emailCopiedToast: "¡Correo electrónico copiado!",
             copyErrorToast: "No se pudo copiar el correo electrónico.",
