@@ -3,19 +3,21 @@
 /* ========================================= */
 
 :root {
-    --fundo-principal: #1a1a1a;
-    --fundo-secundario: #222;
-    --cor-texto-principal: #f0f0f0;
-    --cor-texto-secundario: #ccc;
+    /* --- PALETA TEMA ESCURO (AZULADO - igual Home) --- */
+    --fundo-principal: #1f2a36; /* Azul Petróleo Escuro */
+    --fundo-secundario: #2a3743; /* Azul um pouco mais claro para Headers/Cards */
+    --cor-texto-principal: #ecf0f1; /* Branco Gelo */
+    --cor-texto-secundario: #bdc3c7; /* Cinza azulado claro */
     --cor-acento: #3498db; 
     --cor-acento-hover: #2980b9;
-    --cor-sombra: rgba(255, 255, 255, 0.1);
-    --cor-borda: #444;
-    --cor-svg-icon-claro: #fff;
-    --cor-svg-icon-escuro: #222; 
+    --cor-sombra: rgba(0, 0, 0, 0.4); /* Sombra mais forte para o fundo escuro */
+    --cor-borda: #4e6377; /* Borda azulada sutil */
+    --cor-svg-icon-claro: #ecf0f1;
+    --cor-svg-icon-escuro: #2c3e50; 
 }
 
 body.light-mode {
+    /* --- PALETA TEMA CLARO --- */
     --fundo-principal: #f4f4f9;
     --fundo-secundario: #ffffff;
     --cor-texto-principal: #222; 
@@ -24,7 +26,7 @@ body.light-mode {
     --cor-acento-hover: #2980b9;
     --cor-sombra: rgba(0, 0, 0, 0.1);
     --cor-borda: #bdc3c7;
-    --cor-svg-icon-claro: #222;
+    --cor-svg-icon-claro: #222; /* No light mode, ícones "claros" viram escuros */
     --cor-svg-icon-escuro: #fff;
 }
 
@@ -45,7 +47,7 @@ body {
     padding: 20px 40px;
     border-bottom: 0.5px solid var(--cor-borda);
     padding-bottom: 15px;
-    background-color: var(--fundo-secundario);
+    background-color: var(--fundo-principal); /* Alterado para fundo principal para continuidade */
     position: relative;
     z-index: 10;
 }
@@ -115,7 +117,7 @@ body {
     cursor: pointer;
     padding: 8px;
     border-radius: 50%;
-    color: var(--cor-svg-icon-claro); 
+    color: var(--cor-texto-principal); /* Usa cor do texto principal para ícones */
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
@@ -138,6 +140,12 @@ body {
     transform: scale(1.1);
 }
 
+/* Ajuste do hover no modo claro */
+body.light-mode .theme-toggle-button:hover, 
+body.light-mode .globe-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
 .language-selector {
     position: relative;
 }
@@ -147,18 +155,13 @@ body {
     position: absolute;
     top: calc(100% + 10px);
     right: 0;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: var(--fundo-secundario); /* Fundo do dropdown segue o tema */
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     min-width: 140px;
     z-index: 1001;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.light-mode .language-dropdown {
-    background-color: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--cor-borda);
 }
 
 .language-dropdown.open {
@@ -169,7 +172,7 @@ body {
 .language-dropdown button {
     background: none;
     border: none;
-    color: white;
+    color: var(--cor-texto-principal); /* Texto do botão segue o tema */
     padding: 10px 15px;
     width: 100%;
     text-align: left;
@@ -177,16 +180,16 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--cor-borda);
 }
 
-.light-mode .language-dropdown button {
-    color: #333;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+.language-dropdown button:last-child {
+    border-bottom: none;
 }
 
 .language-dropdown button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--cor-acento); /* Destaque azul ao passar o mouse */
+    color: white; /* Texto fica branco no hover */
 }
 
 .language-dropdown button img {
