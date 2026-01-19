@@ -1791,3 +1791,11 @@ body.dark-mode .toast {
         height: 28px !important;
     }
 }
+
+/* Adicione no seu style.css */
+.action-button {
+    text-decoration: none; /* Remove o sublinhado padrão de links */
+    display: inline-flex;  /* Centraliza melhor o texto */
+    justify-content: center;
+    align-items: center;
+}

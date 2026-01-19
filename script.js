@@ -598,4 +598,38 @@ document.addEventListener('DOMContentLoaded', () => {
             toast.classList.remove("show");
         }, 2500);
     }
+
+    // =========================================
+    // E. NAVEGAÇÃO SUAVE E LIMPEZA DE URL
+    // =========================================
+    // Seleciona QUALQUER link que comece com # (Menu, Botões e Rodapé)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                // 1. Impede que a URL mude e fique suja
+                e.preventDefault();
+
+                // 2. Rola suavemente
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+                // 3. Fecha o menu mobile se estiver aberto (UX)
+                const sidebar = document.getElementById('sidebar');
+                const menuToggle = document.getElementById('menuToggle');
+                if (sidebar && sidebar.classList.contains('open')) {
+                    sidebar.classList.remove('open');
+                    menuToggle.classList.remove('open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    sidebar.setAttribute('aria-hidden', 'true');
+                }
+            }
+        });
+    });
+
 });
