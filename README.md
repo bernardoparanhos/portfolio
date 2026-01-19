@@ -302,19 +302,20 @@ font-family: 'Josefin Sans', sans-serif;/* Accent */
 
 ## 📈 **Roadmap & Futuras Implementações**
 
-### **Short-term (Q1 2024)**
+
+### **Short-term (Q1 2026)**
 - [ ] **PWA Implementation** - Service Worker, offline support
 - [ ] **Contact Form** - Backend integration
 - [ ] **Analytics** - Google Analytics 4
 - [ ] **Performance Monitoring** - Real User Monitoring
 
-### **Mid-term (Q2 2024)**
+### **Mid-term (Q2 2026)**
 - [ ] **Blog Integration** - Technical articles
 - [ ] **Project Gallery** - Filterable portfolio
 - [ ] **Dark Mode** refinements
 - [ ] **Animations** - GSAP integration
 
-### **Long-term (H2 2024)**
+### **Long-term (H2 2026)**
 - [ ] **API Integration** - Dynamic content
 - [ ] **Authentication** - Admin panel
 - [ ] **CDN Implementation** - Global delivery
