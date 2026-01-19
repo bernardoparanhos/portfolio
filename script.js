@@ -599,35 +599,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2500);
     }
 
+// =========================================
+    // E. NAVEGAÇÃO SUAVE E LIMPEZA DE URL (CORRIGIDO)
     // =========================================
-    // E. NAVEGAÇÃO SUAVE E LIMPEZA DE URL
-    // =========================================
-    // Seleciona QUALQUER link que comece com # (Menu, Botões e Rodapé)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             
             const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
 
-            if (targetElement) {
-                // 1. Impede que a URL mude e fique suja
+            // CORREÇÃO: Se o link for apenas "#" (como o botão de e-mail),
+            // paramos a execução aqui para não dar erro no console.
+            if (targetId === '#') {
                 e.preventDefault();
+                return;
+            }
 
-                // 2. Rola suavemente
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            // Tenta encontrar o elemento na página
+            try {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
 
-                // 3. Fecha o menu mobile se estiver aberto (UX)
-                const sidebar = document.getElementById('sidebar');
-                const menuToggle = document.getElementById('menuToggle');
-                if (sidebar && sidebar.classList.contains('open')) {
-                    sidebar.classList.remove('open');
-                    menuToggle.classList.remove('open');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    sidebar.setAttribute('aria-hidden', 'true');
+                    // Fecha o menu mobile se estiver aberto
+                    const sidebar = document.getElementById('sidebar');
+                    const menuToggle = document.getElementById('menuToggle');
+                    if (sidebar && sidebar.classList.contains('open')) {
+                        sidebar.classList.remove('open');
+                        menuToggle.classList.remove('open');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        sidebar.setAttribute('aria-hidden', 'true');
+                    }
                 }
+            } catch (error) {
+                // Se der algum outro erro de seletor, ele cai aqui silenciosamente
+                console.warn("Elemento de destino não encontrado:", targetId);
             }
         });
     });
