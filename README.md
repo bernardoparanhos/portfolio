@@ -20,7 +20,7 @@
 
 | Métrica | Status | Detalhes |
 |---------|--------|----------|
-| **Performance** | ⭐⭐⭐⭐⭐ | Lighthouse Score: 95+ |
+| **Performance** | ⭐⭐⭐⭐⭐ | Lighthouse Score: 99 |
 | **SEO** | ⭐⭐⭐⭐⭐ | Schema.org, Open Graph, Meta Tags |
 | **Acessibilidade** | ⭐⭐⭐⭐⭐ | ARIA, Keyboard Navigation, Screen Reader |
 | **Responsividade** | ⭐⭐⭐⭐⭐ | Mobile-First, 3 Breakpoints |
