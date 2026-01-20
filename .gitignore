@@ -15,3 +15,6 @@ node_modules/
 
 # Arquivos de ambiente com chaves/senhas (nunca devem subir)
 .env
+
+# Currículo (dados pessoais)
+cv-bernardo-2026.pdf
