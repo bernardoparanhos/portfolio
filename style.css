@@ -933,6 +933,20 @@ body.dark-mode .certificate-action:hover svg path {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Adicione logo abaixo de .site-footer */
+
+.site-footer a {
+    color: inherit; /* Herda a cor do texto do rodapé (muda automático com o tema) */
+    text-decoration: underline; /* Sublinhado discreto para indicar que é link */
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: opacity 0.3s ease;
+}
+
+.site-footer a:hover {
+    opacity: 0.7; /* Efeito suave ao passar o mouse */
+}
+
 .footer-icons {
     background-color: var(--fundo-principal); /* APLICAÇÃO */
     display: flex;

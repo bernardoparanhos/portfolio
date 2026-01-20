@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             homeNavLink: "HOME",
             aboutMeNavLink: "SOBRE MIM",
             educationNavLink: "EDUCAÇÃO",
-            footerText: "© 2025 Bernardo Paranhos — Portfólio acadêmico. Todos os direitos reservados.",
+            footerText: "&copy; 2026 Bernardo Paranhos — Portfólio acadêmico. <a href='https://github.com/bernardoparanhos/portfolio/blob/main/LICENSE' target='_blank' class='footer-license-link'>Licenciado sob MIT</a>",
             // --- Mensagens de toast ---
             emailCopiedToast: "E-mail copiado!",
             copyErrorToast: "Não foi possível copiar o e-mail.",
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
             homeNavLink: "HOME",
             aboutMeNavLink: "ABOUT ME",
             educationNavLink: "EDUCATION",
-            footerText: "© 2025 Bernardo Paranhos — Academic Portfolio. All rights reserved.",
+            footerText: "&copy; 2026 Bernardo Paranhos — Academic Portfolio. <a href='https://github.com/bernardoparanhos/portfolio/blob/main/LICENSE' target='_blank' class='footer-license-link'>Licensed under MIT</a>",
             // --- Mensagens de toast ---
             emailCopiedToast: "Email copied!",
             copyErrorToast: "Could not copy email.",
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
             homeNavLink: "INICIO",
             aboutMeNavLink: "SOBRE MÍ",
             educationNavLink: "EDUCACIÓN",
-            footerText: "© 2025 Bernardo Paranhos — Portafolio académico. Todos los derechos reservados.",
+            footerText: "&copy; 2026 Bernardo Paranhos — Portafolio académico. <a href='https://github.com/bernardoparanhos/portfolio/blob/main/LICENSE' target='_blank' class='footer-license-link'>Licenciado bajo MIT</a>",
             // --- Mensagens de toast ---
             emailCopiedToast: "¡Correo electrónico copiado!",
             copyErrorToast: "No se pudo copiar el correo electrónico.",
