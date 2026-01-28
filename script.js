@@ -144,17 +144,17 @@ document.addEventListener('DOMContentLoaded', () => {
             portfolioTitle: "Portfólio Engenharia de Produção",
             name: "BERNARDO PARANHOS",
             role: "Engenheiro de Produção Graduando",
-            keywords: "PROCESSOS INDUSTRIAIS | SEGURANÇA DO TRABALHO | TECNOLOGIA",
+            keywords: "ENGENHARIA DE PRODUÇÃO | GESTÃO INDUSTRIAL | OTIMIZAÇÃO",
             curriculumButton: "Currículo",
             aboutMeButton: "Sobre mim",
             projectsButton: "Projetos",
             welcomeHeading: "Bem-vindo!",
-            welcomeText: "Olá! Sou <strong>Bernardo Paranhos</strong>, estudante de Engenharia de Produção com foco em processos industriais, segurança do trabalho e melhoria contínua. Busco aplicar <strong>tecnologia e análise de dados</strong> para otimizar operações e promover ambientes de trabalho mais seguros e eficientes. Navegue pelo portfólio para conhecer meus projetos e competências.",
+            welcomeText: "Olá! Sou <strong>Bernardo Paranhos</strong>, graduando em Engenharia de Produção pela UTFPR. Meu foco é integrar a organização dos <strong>processos industriais</strong> com ferramentas tecnológicas de controle. Busco oportunidades para aplicar raciocínio lógico e gestão administrativa na melhoria da rotina produtiva.</p>",
             
             educationTitle: "Educação",
             utfprDegree: "Universidade Tecnológica Federal do Paraná",
             utfprProgram: "Bacharelado - Engenharia de produção",
-            utfprStart: "Início no segundo semestre de 2025",
+            utfprStart: "Graduação em andamento",
             utfprPeriod: "2025 - 2030",
             utfprLocation: "Medianeira, Brasil",
 
@@ -165,17 +165,28 @@ document.addEventListener('DOMContentLoaded', () => {
             udemyCourseDuration: "20h",
             viewCertificateAction: "Ver Certificado",
 
+            // --- NOVO: CURSO EXCEL HASHTAG ---
+            hashtagExcelTitle: "Excel Impressionador (Expert)",
+            hashtagProvider: "Hashtag Treinamentos",
+            hashtagExcelDetails: "Foco: Dashboards, VBA e Gestão de Dados",
+            statusInProgress: "Em Andamento",
+
+            // --- NOVO: CURSO SQL HASHTAG ---
+            hashtagSqlTitle: "SQL Impressionador",
+            hashtagSqlDetails: "SQL para analisar dados com precisão e tomar decisões melhores.",
+            statusComingSoon: "Em Breve",
+
             aboutMeTitle: "Sobre mim",
             softSkillsTitle: "Soft Skills",
-            communicationSkill: "Comunicação Clara e Técnica",
-            teamworkSkill: "Trabalho em Equipe",
-            problemSolvingSkill: "Resolução de Problemas",
-            analyticalSkill: "Raciocínio Analítico e Inteligência Emocional",
+            communicationSkill: "Organização e Método",
+            teamworkSkill: "Perfil Analítico",
+            problemSolvingSkill: "Proatividade",
+            analyticalSkill: "Trabalho em Equipe",
             hardSkillsTitle: "Hard Skills",
-            excelPowerBI: "Excel (nível intermediário)",
-            dataAnalysis: "Análise de dados (em desenvolvimento; power bi, python)",
-            webFundamentals: "Fundamentos de HTML/CSS/Javascript",
-            aboutMeP1: "Como futuro Engenheiro de Produção, minha missão é resolver desafios industriais por meio da integração entre tecnologia, eficiência e segurança. Tenho foco em <strong>processos industriais, segurança do trabalho e melhoria contínua</strong>, aplicando meu raciocínio analítico para desenvolver soluções produtivas, seguras e sustentáveis.",
+            excelPowerBI: "Excel e Power BI",
+            dataAnalysis: "Tecnologia e Automação",
+            webFundamentals: "Planejamento e Controle",
+            aboutMeP1: "Meu objetivo é atuar na <strong>melhoria contínua e na segurança do trabalho</strong>, utilizando a tecnologia não como fim, mas como meio para tornar processos mais ágeis e confiáveis. Estou preparado para aprender e contribuir com organização desde o primeiro dia.",
             
             quoteText: "\"A confiança em si mesmo é o primeiro segredo do sucesso\" <br> Ralph Waldo Emerson",
 
@@ -203,17 +214,17 @@ document.addEventListener('DOMContentLoaded', () => {
             portfolioTitle: "Production Engineering Portfolio",
             name: "BERNARDO PARANHOS",
             role: "Graduating Production Engineer",
-            keywords: "INDUSTRIAL PROCESSES | OCCUPATIONAL SAFETY | TECHNOLOGY",
+            keywords: "PRODUCTION ENGINEERING | INDUSTRIAL MANAGEMENT | OPTIMIZATION",
             curriculumButton: "Resume",
             aboutMeButton: "About Me",
             projectsButton: "Projects",
             welcomeHeading: "Welcome!",
-            welcomeText: "Hello! I'm <strong>Bernardo Paranhos</strong>, a Production Engineering student focused on industrial processes, occupational safety, and continuous improvement. I seek to apply <strong>technology and data analysis</strong> to optimize operations and promote safer and more efficient work environments. Browse the portfolio to learn about my projects and skills.",
+            welcomeText: "Hello! I'm <strong>Bernardo Paranhos</strong>, a Production Engineering undergraduate at UTFPR. My focus is on integrating the organization of <strong>industrial processes</strong> with technological control tools. I seek opportunities to apply logical reasoning and administrative management to improve production routines.</p>",
             
             educationTitle: "Education",
             utfprDegree: "Federal University of Technology - Paraná",
             utfprProgram: "Bachelor's Degree - Production Engineering",
-            utfprStart: "Starting in the second semester of 2025",
+            utfprStart: "Graduation in progress",
             utfprPeriod: "2025 - 2030",
             utfprLocation: "Medianeira, Brazil",
 
@@ -224,16 +235,27 @@ document.addEventListener('DOMContentLoaded', () => {
             udemyCourseDuration: "20h",
             viewCertificateAction: "View Certificate",
 
+            // --- NOVO: CURSO EXCEL HASHTAG (TRADUÇÃO) ---
+            hashtagExcelTitle: "Excel Impressionador (Expert)",
+            hashtagProvider: "Hashtag Treinamentos",
+            hashtagExcelDetails: "Focus: Dashboards, VBA and Data Management",
+            statusInProgress: "In Progress",
+
+            // --- NOVO: CURSO SQL HASHTAG (TRADUÇÃO) ---
+            hashtagSqlTitle: "SQL Impressionador",
+            hashtagSqlDetails: "SQL to analyze data accurately and make better decisions.",
+            statusComingSoon: "Coming Soon",
+
             aboutMeTitle: "About Me",
             softSkillsTitle: "Soft Skills",
-            communicationSkill: "Clear and Technical Communication",
-            teamworkSkill: "Teamwork",
-            problemSolvingSkill: "Problem Solving",
-            analyticalSkill: "Analytical Thinking and Emotional Intelligence",
+            communicationSkill: "Organization and Method",
+            teamworkSkill: "Analytical Profile",
+            problemSolvingSkill: "Proactivity",
+            analyticalSkill: "Teamwork",
             hardSkillsTitle: "Hard Skills",
-            excelPowerBI: "Excel (intermediary level)",
-            dataAnalysis: "Data Analysis (in development; power bi, python)",
-            webFundamentals: "HTML/CSS/Javascript Fundamentals",
+            excelPowerBI: "Excel and Power BI",
+            dataAnalysis: "Technology and Automation",
+            webFundamentals: "Planning and Control",
             aboutMeP1: "As a future Production Engineer, my mission is to solve industrial challenges through the integration of technology, efficiency, and safety. I focus on <strong>industrial processes, occupational safety, and continuous improvement</strong>, applying my analytical reasoning to develop solutions that are productive, safe, and sustainable.",
 
             quoteText: "\"Self-confidence is the first secret of success\" <br> Ralph Waldo Emerson",
@@ -262,17 +284,17 @@ document.addEventListener('DOMContentLoaded', () => {
             portfolioTitle: "Portafolio de Ingeniería de Producción",
             name: "BERNARDO PARANHOS",
             role: "Estudiante de Ingeniería de Producción",
-            keywords: "PROCESOS INDUSTRIAES | SEGURIDAD LABORAL | TECNOLOGÍA",
+            keywords: "INGENIERÍA DE PRODUCCIÓN | GESTIÓN INDUSTRIAL | OPTIMIZACIÓN",
             curriculumButton: "Currículum",
             aboutMeButton: "Sobre mí",
             projectsButton: "Proyectos",
             welcomeHeading: "¡Bienvenido!",
-            welcomeText: "¡Hola! Soy <strong>Bernardo Paranhos</strong>, estudiante de Ingeniería de Producción con enfoque en procesos industriales, seguridad laboral y mejora continua. Busco aplicar <strong>tecnología y análisis de datos</strong> para optimizar operaciones y promover ambientes de trabajo más seguros y eficientes. Navega por el portafolio para conocer mis proyectos y habilidades.",
+            welcomeText: "¡Hola! Soy <strong>Bernardo Paranhos</strong>, graduando en Ingeniería de Producción por la UTFPR. Mi enfoque es integrar la organización de los <strong>procesos industriales</strong> con herramientas tecnológicas de control. Busco oportunidades para aplicar razonamiento lógico y gestión administrativa en la mejora de la rutina productiva.</p>",
             
             educationTitle: "Educación",
             utfprDegree: "Universidad Tecnológica Federal de Paraná",
             utfprProgram: "Licenciatura - Ingeniería de Producción",
-            utfprStart: "Inicio en el segundo semestre de 2025",
+            utfprStart: "Graduación en curso",
             utfprPeriod: "2025 - 2030",
             utfprLocation: "Medianeira, Brasil",
 
@@ -283,16 +305,27 @@ document.addEventListener('DOMContentLoaded', () => {
             udemyCourseDuration: "20h",
             viewCertificateAction: "Ver Certificado",
 
+            // --- NOVO: CURSO EXCEL HASHTAG (TRADUÇÃO) ---
+            hashtagExcelTitle: "Excel Impressionador (Experto)",
+            hashtagProvider: "Hashtag Treinamentos",
+            hashtagExcelDetails: "Enfoque: Dashboards, VBA y Gestión de Datos",
+            statusInProgress: "En Curso",
+
+            // --- NOVO: CURSO SQL HASHTAG (TRADUÇÃO) ---
+            hashtagSqlTitle: "SQL Impressionador",
+            hashtagSqlDetails: "SQL para analizar datos con precisión y tomar mejores decisiones.",
+            statusComingSoon: "Próximamente",
+
             aboutMeTitle: "Sobre mí",
             softSkillsTitle: "Habilidades Blandas",
-            communicationSkill: "Comunicación Clara y Técnica",
-            teamworkSkill: "Trabajo en Equipo",
-            problemSolvingSkill: "Resolución de Problemas",
-            analyticalSkill: "Pensamiento Analítico e Inteligencia Emocional",
+            communicationSkill: "Organización y Método",
+            teamworkSkill: "Perfil Analítico",
+            problemSolvingSkill: "Proactividad",
+            analyticalSkill: "Trabajo en Equipo",
             hardSkillsTitle: "Habilidades Duras",
-            excelPowerBI: "Excel (nivel intermediario)",
-            dataAnalysis: "Análisis de Datos (en desarrollo; power bi, python)",
-            webFundamentals: "Fundamentos de HTML/CSS/Javascript",
+            excelPowerBI: "Excel e Power BI",
+            dataAnalysis: "Tecnología y Automação",
+            webFundamentals: "Planejamento e Controle",
             aboutMeP1: "Como futuro Ingeniero de Producción, mi misión es resolver desafíos industriales mediante la integración de tecnología, eficiencia y seguridad. Me enfoco en <strong>procesos industriales, seguridad laboral y mejora continua</strong>, aplicando mi razonamiento analítico para desarrollar soluciones productivas, seguras y sostenibles.",
 
             quoteText: "\"La confianza en uno mismo es el primer secreto del éxito\" <br> Ralph Waldo Emerson",
@@ -640,5 +673,80 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // =========================================
+    // F. LÓGICA DO CARROSSEL (SLIDER DE CURSOS)
+    // =========================================
+    const track = document.querySelector('.carousel-track');
+    
+    // Verificação de segurança: só roda se o carrossel existir na página
+    if (track) {
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector('.next-btn');
+        const prevButton = document.querySelector('.prev-btn');
+        const dotsNav = document.querySelector('.carousel-nav');
+        const dots = Array.from(dotsNav.children);
+
+        // Índice atual (começa no 0)
+        let currentIndex = 0;
+
+        /**
+         * Move o carrossel para o slide desejado
+         * @param {number} index - O número do slide (0, 1, 2...)
+         */
+        const updateSlidePosition = (index) => {
+            // Move o track para a esquerda baseado na porcentagem (0%, -100%, -200%)
+            // Isso garante que funcione perfeitamente no celular ou desktop
+            track.style.transform = `translateX(-${index * 100}%)`;
+
+            // Atualiza as bolinhas (dots)
+            dots.forEach(d => d.classList.remove('current-slide')); // Remove classe de todos
+            dots[index].classList.add('current-slide'); // Adiciona no atual
+            
+            // Atualiza o índice global
+            currentIndex = index;
+        };
+
+        // --- Event Listener: Botão Próximo (Seta Direita) ---
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                const nextIndex = currentIndex + 1;
+                
+                // Se chegar no fim, volta para o começo (Loop Infinito)
+                if (nextIndex >= slides.length) {
+                    updateSlidePosition(0);
+                } else {
+                    updateSlidePosition(nextIndex);
+                }
+            });
+        }
+
+        // --- Event Listener: Botão Anterior (Seta Esquerda) ---
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                const prevIndex = currentIndex - 1;
+
+                // Se estiver no primeiro e voltar, vai para o último
+                if (prevIndex < 0) {
+                    updateSlidePosition(slides.length - 1);
+                } else {
+                    updateSlidePosition(prevIndex);
+                }
+            });
+        }
+
+        // --- Event Listener: Navegação pelas Bolinhas ---
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                updateSlidePosition(index);
+            });
+        });
+        
+        // (Opcional) Navegação por teclado (Setas Esquerda/Direita) se o carrossel estiver focado
+        track.parentElement.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevButton.click();
+            if (e.key === 'ArrowRight') nextButton.click();
+        });
+    }
 
 });
