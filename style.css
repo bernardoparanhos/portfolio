@@ -1299,11 +1299,16 @@ body.dark-mode .toast {
         z-index: 1001; 
     }
 
-    .theme-switcher {
-        top: 20px;
-        left: 80px; 
-        right: auto;
-    }
+    /* --- Theme Switcher Styles (AJUSTADO: lado direito, abaixo do hamburger) --- */
+.theme-switcher {
+    position: absolute; /* Mudado de absolute para fixed para manter posição relativa à viewport */
+    top: 80px; /* Posicionado abaixo do menu hamburger (que tem top: 20px) */
+    right: 20px; /* Lado direito */
+    z-index: 1001; 
+    display: flex;
+    gap: 10px;
+}
+
     .theme-toggle-button svg {
         width: 30px; 
         height: 30px;
@@ -1539,9 +1544,11 @@ body.dark-mode .toast {
     }
 
     .theme-switcher {
-        top: 18px;
-        left: 70px; 
-    }
+    top: 80px; /* Mantém abaixo do hamburger mesmo no mobile */
+    right: 20px; /* Lado direito */
+    left: auto; /* Remove o left: 80px que existia */
+}
+
     .theme-toggle-button svg {
         width: 28px; 
         height: 28px;

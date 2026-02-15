@@ -47,7 +47,7 @@ body {
     padding: 20px 40px;
     border-bottom: 0.5px solid var(--cor-borda);
     padding-bottom: 15px;
-    background-color: var(--fundo-principal); /* Alterado para fundo principal para continuidade */
+    background-color: var(--fundo-principal);
     position: relative;
     z-index: 10;
 }
@@ -117,7 +117,7 @@ body {
     cursor: pointer;
     padding: 8px;
     border-radius: 50%;
-    color: var(--cor-texto-principal); /* Usa cor do texto principal para ícones */
+    color: var(--cor-texto-principal);
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
@@ -129,7 +129,6 @@ body {
     height: 30px;
 }
 
-/* Garante que o globo simplificado use apenas contornos */
 .globe-button svg {
     fill: none;
     stroke: currentColor;
@@ -140,7 +139,6 @@ body {
     transform: scale(1.1);
 }
 
-/* Ajuste do hover no modo claro */
 body.light-mode .theme-toggle-button:hover, 
 body.light-mode .globe-button:hover {
     background-color: rgba(0, 0, 0, 0.05);
@@ -155,7 +153,7 @@ body.light-mode .globe-button:hover {
     position: absolute;
     top: calc(100% + 10px);
     right: 0;
-    background-color: var(--fundo-secundario); /* Fundo do dropdown segue o tema */
+    background-color: var(--fundo-secundario);
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -172,7 +170,7 @@ body.light-mode .globe-button:hover {
 .language-dropdown button {
     background: none;
     border: none;
-    color: var(--cor-texto-principal); /* Texto do botão segue o tema */
+    color: var(--cor-texto-principal);
     padding: 10px 15px;
     width: 100%;
     text-align: left;
@@ -188,8 +186,8 @@ body.light-mode .globe-button:hover {
 }
 
 .language-dropdown button:hover {
-    background-color: var(--cor-acento); /* Destaque azul ao passar o mouse */
-    color: white; /* Texto fica branco no hover */
+    background-color: var(--cor-acento);
+    color: white;
 }
 
 .language-dropdown button img {
@@ -204,9 +202,255 @@ body.light-mode .globe-button:hover {
 
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: minmax(0, 1fr); /* Força única coluna alinhada à esquerda */
     gap: 30px;
     margin-top: 30px;
+    max-width: 900px; /* Controla a largura máxima do card */
+    margin-left: 0; /* Garante alinhamento à esquerda */
+    margin-right: auto; /* Empurra para esquerda */
+}
+
+/* ===================================== */
+/* --- CARD DO PROJETO (HORIZONTAL CONTROLADO) --- */
+/* ===================================== */
+
+.project-card {
+    background-color: var(--fundo-secundario);
+    border-radius: 16px;
+    padding: 28px 32px; /* Mais padding horizontal */
+    border: 1px solid var(--cor-borda);
+    box-shadow: 0 4px 12px var(--cor-sombra);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(52, 152, 219, 0.2);
+    border-color: var(--cor-acento);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.project-title {
+    font-size: 1.5em; /* Levemente maior */
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+    margin: 0;
+    line-height: 1.3;
+    flex: 1;
+}
+
+.project-date {
+    font-size: 0.9em;
+    color: var(--cor-texto-secundario);
+    background-color: rgba(52, 152, 219, 0.1);
+    padding: 6px 14px;
+    border-radius: 30px;
+    white-space: nowrap;
+    border: 1px solid var(--cor-borda);
+    font-weight: 500;
+}
+
+.project-institution {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: var(--cor-texto-principal);
+    background-color: rgba(52, 152, 219, 0.05);
+    padding: 8px 16px;
+    border-radius: 30px;
+    width: fit-content;
+}
+
+.project-institution svg {
+    stroke: currentColor;
+    flex-shrink: 0;
+}
+
+.project-description {
+    font-size: 1em;
+    line-height: 1.5;
+    color: var(--cor-texto-secundario);
+    margin: 0 0 20px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Reduzido para 2 linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 95%;
+}
+
+.project-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.feature-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+    color: var(--cor-texto-secundario);
+    background-color: var(--fundo-principal);
+    padding: 8px 16px;
+    border-radius: 30px;
+    border: 1px solid var(--cor-borda);
+    transition: all 0.2s ease;
+}
+
+.feature-tag svg {
+    stroke: currentColor;
+    width: 14px;
+    height: 14px;
+}
+
+.feature-tag:hover {
+    border-color: var(--cor-acento);
+    color: var(--cor-acento);
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tech-badge {
+    font-size: 0.85em;
+    font-weight: 500;
+    color: var(--cor-acento);
+    background-color: rgba(52, 152, 219, 0.1);
+    padding: 6px 14px;
+    border-radius: 30px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.tech-badge:hover {
+    background-color: var(--cor-acento);
+    color: white;
+    transform: scale(1.05);
+}
+
+.project-outputs {
+    margin-bottom: 20px;
+    border-top: 1px solid var(--cor-borda);
+    padding-top: 16px;
+}
+
+.outputs-details {
+    width: 100%;
+}
+
+.outputs-summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--cor-texto-principal);
+    font-weight: 500;
+    font-size: 0.95em;
+    list-style: none;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+}
+
+.outputs-summary::-webkit-details-marker {
+    display: none;
+}
+
+.outputs-summary:hover {
+    color: var(--cor-acento);
+}
+
+.outputs-summary .chevron {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+.outputs-details[open] .chevron {
+    transform: rotate(180deg);
+}
+
+.outputs-list {
+    margin: 12px 0 0 0;
+    padding: 0 0 0 28px;
+    list-style: none;
+}
+
+.outputs-list li {
+    font-size: 0.9em;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.outputs-list li::before {
+    content: "📄";
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+.outputs-list code {
+    background-color: var(--fundo-principal);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 0.9em;
+    color: var(--cor-acento);
+}
+
+.project-footer {
+    display: flex;
+    gap: 25px;
+    margin-top: auto;
+    border-top: 1px solid var(--cor-borda);
+    padding-top: 20px;
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--cor-texto-secundario);
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    padding: 8px 0;
+}
+
+.project-link svg {
+    stroke: currentColor;
+    transition: transform 0.2s ease;
+}
+
+.project-link:hover {
+    color: var(--cor-acento);
+}
+
+.project-link:hover svg {
+    transform: translate(2px, -2px);
 }
 
 .no-projects {
@@ -218,28 +462,315 @@ body.light-mode .globe-button:hover {
 }
 
 /* ===================================== */
-/* --- ANIMAÇÕES E RESPONSIVIDADE --- */
+/* --- RESPONSIVIDADE COMPLETA --- */
 /* ===================================== */
 
+/* Tablets e telas médias */
+@media (max-width: 992px) {
+    .projects-container {
+        max-width: 800px;
+    }
+
+    .project-card {
+        padding: 24px 28px;
+    }
+
+    .project-title {
+        font-size: 1.4em;
+    }
+}
+
+/* =============================== */
+/* DESKTOP (acima de 769px) */
+/* Botão no fluxo: entre header e card */
+/* =============================== */
+@media (min-width: 769px) {
+    .header-button {
+        position: static;       /* ✅ No fluxo normal */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 28px auto 18px; /* ✅ Margem: Topo (do header) | Auto (centro) | Base (do card) */
+        padding: 12px 22px;
+        border-radius: 40px;
+        text-decoration: none;
+        background-color: var(--fundo-secundario);
+        border: 1px solid var(--cor-acento);
+        box-shadow: 0 2px 10px var(--cor-sombra);
+        font-weight: 500;
+    }
+
+    .main-content {
+        padding-top: 0;
+    }
+}
+
+/* =============================== */
+/* Mobile (até 768px) */
+/* Botão ALINHADO À ESQUERDA e Ícones ESTÁTICOS */
+/* =============================== */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .header-name,
+    .header-projects {
+        font-size: 2em;
+        width: 100%; /* Garante que ocupem a linha para empurrar o resto */
+    }
+
+    /* --- MUDANÇA AQUI (ÍCONES) --- */
+    .header-controls {
+        position: absolute; /* ✅ Mudado de fixed para absolute (fica preso no topo da página, não da tela) */
+        top: 22px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        z-index: 1100;
+    }
+
+    /* --- BOTÃO VOLTAR (Mantido no fluxo e esquerda) --- */
+    .header-button {
+        position: static; /* ✅ Sai do modo fixo e entra no fluxo da página */
+        display: flex;    /* Ocupa flexibilidade */
+        align-items: center;
+        justify-content: center;
+        
+        /* Espaçamento estratégico ALINHADO À ESQUERDA: */
+        margin-top: 10px;    /* Afasta do texto do cabeçalho */
+        margin-bottom: 25px; /* Afasta do card do projeto */
+        margin-left: 0;      /* ✅ Cola na esquerda */
+        margin-right: auto;  /* ✅ Empurra o resto para direita */
+        
+        padding: 10px 24px;
+        width: fit-content;  /* Largura se ajusta ao texto */
+        min-width: unset;
+        max-width: 100%;
+        
+        background-color: var(--fundo-secundario);
+        border: 1px solid var(--cor-acento);
+        border-radius: 40px;
+        box-shadow: 0 2px 8px var(--cor-sombra);
+        font-weight: 500;
+        font-size: 0.95em;
+        text-align: center;
+        z-index: 1;
+    }
+
+    .header-button:hover {
+        background-color: var(--cor-acento);
+        color: white;
+        border-color: var(--cor-acento);
+        transform: translateY(-2px);
+    }
+
+    /* Ajuste do padding do main content */
+    .main-content {
+        padding-top: 20px; 
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .project-card {
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .project-title {
+        width: 100%;
+        word-wrap: break-word;
+    }
+
+    .project-date {
+        align-self: flex-start;
+        max-width: 100%;
+        white-space: normal;
+    }
+
+    .project-institution {
+        max-width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .project-institution svg {
+        display: none;
+    }
+
+    .project-description {
+        max-width: 100%;
+    }
+
+    .project-features {
+        gap: 10px;
+        width: 100%;
+    }
+
+    .feature-tag {
+        font-size: 0.85em;
+        padding: 6px 12px;
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+
+    .project-tech {
+        gap: 8px;
+        width: 100%;
+    }
+
+    .tech-badge {
+        font-size: 0.8em;
+        padding: 4px 10px;
+        max-width: 100%;
+    }
+
+    .outputs-list {
+        padding-left: 20px;
+        width: 100%;
+    }
+
+    .outputs-list li {
+        font-size: 0.85em;
+        flex-wrap: wrap;
+        width: 100%;
+        word-wrap: break-word;
+    }
+
+    .project-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+        width: 100%;
+    }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+    .main-content {
+        padding: 15px 12px;
+    }
+
+    .header-name,
+    .header-projects {
+        font-size: 1.6em;
+    }
+
+    .header-controls {
+        top: 18px;
+        right: 12px;
+        gap: 10px;
+    }
+
+    .theme-toggle-button svg,
+    .globe-button svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .header-button {
+        font-size: 0.88em;
+        padding: 8px 16px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+
+    .projects-container {
+        gap: 15px;
+    }
+
+    .project-card {
+        padding: 16px;
+    }
+
+    .project-title {
+        font-size: 1.2em;
+    }
+}
+
+/* Landscape em celulares */
+@media (max-height: 500px) and (orientation: landscape) {
+    .main-content {
+        padding-top: 10px;
+    }
+
+    .header-controls {
+        top: 14px;
+        right: 20px;
+    }
+
+    .header-button {
+        margin: 5px auto 15px 0;
+        font-size: 0.85em;
+        padding: 6px 14px;
+    }
+}
+
+/* Ajustes para dark mode específicos do card */
+body.dark-mode .project-card {
+    border-color: var(--cor-borda);
+}
+
+body.dark-mode .project-card:hover {
+    border-color: var(--cor-acento);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .feature-tag {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .tech-badge {
+    background-color: rgba(52, 152, 219, 0.15);
+}
+
+body.dark-mode .project-institution {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Ajustes para light mode específicos do card */
+body.light-mode .project-card {
+    background-color: var(--fundo-secundario);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .feature-tag {
+    background-color: #f8f9fa;
+}
+
+body.light-mode .tech-badge {
+    background-color: #e8f0fe;
+}
+
+body.light-mode .outputs-list code {
+    background-color: #f0f0f0;
+    color: #2c3e50;
+}
+
+/* Animações */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 768px) {
-    .header { padding: 20px; flex-direction: column; align-items: flex-start; }
-    .header-name, .header-projects { font-size: 2em; }
-    
-    /* Reposiciona controles no mobile */
-    .header-controls { top: 155px; right: 20px; }
-    
-    /* Missão: Subir levemente o botão de voltar no mobile */
-    .header-button { 
-        margin-top: -8px; 
-        margin-bottom: 30px;
-    }
-
-    .projects-container { grid-template-columns: 1fr; }
+.hidden {
+    display: none !important;
 }
-
-.hidden { display: none !important; }

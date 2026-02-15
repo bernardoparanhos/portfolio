@@ -7,21 +7,96 @@ const translations = {
         name: "Bernardo Paranhos",
         projectsHeaderTitle: "Projetos",
         backButton: "Voltar à Página Inicial",
-        noProjectsMessage: "Nenhum projeto disponível no momento. Em breve novas adições!"
+        noProjectsMessage: "Nenhum projeto disponível no momento. Em breve novas adições!",
+        
+        // Traduções específicas do projeto de KPIs
+        projectKpiTitle: "Do código ao indicador: automatizando o PCM com Python",
+        projectKpiPeriod: "jan/2026 - fev/2026",
+        projectKpiInstitution: "Projeto acadêmico - Universidade Tecnológica Federal do Paraná",
+        projectKpiDescription: "Gerador de KPIs de manutenção em Python, simulando 90 dias de operação industrial. Transforma lógica de programação em indicadores que apoiam decisões no PCM (Planejamento e Controle de Manutenção).",
+        featureEquipments: "15 equipamentos simulados",
+        featureKPIs: "MTBF, MTTR, Disponibilidade",
+        featureCriticality: "Análise de criticidade",
+        featureExport: "Exportação Excel/CSV",
+        techPython: "Python",
+        techPandas: "Pandas",
+        techNumpy: "NumPy",
+        techDataAnalysis: "Análise de Dados",
+        outputsTitle: "Arquivos gerados (7 CSVs + Excel)",
+        equipmentsFile: "Dados dos equipamentos",
+        ordersFile: "Histórico de OM",
+        kpiEquipFile: "KPIs por equipamento",
+        kpiTypeFile: "KPIs por tipo",
+        kpiAvailabilityFile: "Disponibilidade mensal",
+        kpiCostsFile: "Análise financeira",
+        kpiTrendFile: "Tendências",
+        excelFile: "Relatório consolidado",
+        viewGithub: "Ver no GitHub",
+        viewReadme: "Ver README"
     },
     en: {
         projectsPageTitle: "Projects | Bernardo Paranhos",
         name: "Bernardo Paranhos",
         projectsHeaderTitle: "Projects",
         backButton: "Back to Home Page",
-        noProjectsMessage: "No projects available at the moment. New additions coming soon!"
+        noProjectsMessage: "No projects available at the moment. New additions coming soon!",
+        
+        // Translations for KPI project
+        projectKpiTitle: "From code to indicator: automating PCM with Python",
+        projectKpiPeriod: "Jan 2026 - Feb 2026",
+        projectKpiInstitution: "Academic project - Federal University of Technology - Paraná",
+        projectKpiDescription: "Maintenance KPI generator in Python, simulating 90 days of industrial operation. Transforms programming logic into indicators that support PCM (Planning and Maintenance Control) decisions.",
+        featureEquipments: "15 simulated equipment",
+        featureKPIs: "MTBF, MTTR, Availability",
+        featureCriticality: "Criticality analysis",
+        featureExport: "Excel/CSV Export",
+        techPython: "Python",
+        techPandas: "Pandas",
+        techNumpy: "NumPy",
+        techDataAnalysis: "Data Analysis",
+        outputsTitle: "Generated files (7 CSVs + Excel)",
+        equipmentsFile: "Equipment data",
+        ordersFile: "Maintenance orders history",
+        kpiEquipFile: "KPIs per equipment",
+        kpiTypeFile: "KPIs by type",
+        kpiAvailabilityFile: "Monthly availability",
+        kpiCostsFile: "Financial analysis",
+        kpiTrendFile: "Trends",
+        excelFile: "Consolidated report",
+        viewGithub: "View on GitHub",
+        viewReadme: "View README"
     },
     es: {
         projectsPageTitle: "Proyectos | Bernardo Paranhos",
         name: "Bernardo Paranhos",
         projectsHeaderTitle: "Proyectos",
         backButton: "Volver a la Página Principal",
-        noProjectsMessage: "No hay proyectos disponibles en este momento. ¡Nuevas adiciones próximamente!"
+        noProjectsMessage: "No hay proyectos disponibles en este momento. ¡Nuevas adiciones próximamente!",
+        
+        // Traducciones para el proyecto de KPI
+        projectKpiTitle: "Del código al indicador: automatizando el PCM con Python",
+        projectKpiPeriod: "ene 2026 - feb 2026",
+        projectKpiInstitution: "Proyecto académico - Universidad Tecnológica Federal de Paraná",
+        projectKpiDescription: "Generador de KPIs de mantenimiento en Python, simulando 90 días de operación industrial. Transforma la lógica de programación en indicadores que apoyan decisiones en el PCM (Planificación y Control de Mantenimiento).",
+        featureEquipments: "15 equipos simulados",
+        featureKPIs: "MTBF, MTTR, Disponibilidad",
+        featureCriticality: "Análisis de criticidad",
+        featureExport: "Exportación Excel/CSV",
+        techPython: "Python",
+        techPandas: "Pandas",
+        techNumpy: "NumPy",
+        techDataAnalysis: "Análisis de Datos",
+        outputsTitle: "Archivos generados (7 CSVs + Excel)",
+        equipmentsFile: "Datos de equipos",
+        ordersFile: "Historial de OM",
+        kpiEquipFile: "KPIs por equipo",
+        kpiTypeFile: "KPIs por tipo",
+        kpiAvailabilityFile: "Disponibilidad mensual",
+        kpiCostsFile: "Análisis financiero",
+        kpiTrendFile: "Tendencias",
+        excelFile: "Informe consolidado",
+        viewGithub: "Ver en GitHub",
+        viewReadme: "Ver README"
     }
 };
 
@@ -38,6 +113,47 @@ let translatableElementsCache = null;
 let currentLang = localStorage.getItem(LANG_KEY) || 'pt';
 let lastAppliedLang = null;
 let languageLoadingTimeout = null;
+
+// =========================================
+// DADOS DOS PROJETOS
+// =========================================
+const projectsData = [
+    {
+        id: 'kpi-manutencao',
+        dataAttrs: {
+            title: 'projectKpiTitle',
+            period: 'projectKpiPeriod',
+            institution: 'projectKpiInstitution',
+            description: 'projectKpiDescription'
+        },
+        features: [
+            { key: 'featureEquipments', icon: '⏱️' },
+            { key: 'featureKPIs', icon: '📊' },
+            { key: 'featureCriticality', icon: '⚠️' },
+            { key: 'featureExport', icon: '📁' }
+        ],
+        technologies: [
+            { key: 'techPython' },
+            { key: 'techPandas' },
+            { key: 'techNumpy' },
+            { key: 'techDataAnalysis' }
+        ],
+        outputs: [
+            { file: 'equipamentos.csv', descriptionKey: 'equipmentsFile' },
+            { file: 'ordens_manutencao.csv', descriptionKey: 'ordersFile' },
+            { file: 'kpi_equipamentos.csv', descriptionKey: 'kpiEquipFile' },
+            { file: 'kpi_manutencao.csv', descriptionKey: 'kpiTypeFile' },
+            { file: 'kpi_disponibilidade.csv', descriptionKey: 'kpiAvailabilityFile' },
+            { file: 'kpi_custos.csv', descriptionKey: 'kpiCostsFile' },
+            { file: 'kpi_tendencia.csv', descriptionKey: 'kpiTrendFile' },
+            { file: 'kpis_manutencao_completo.xlsx', descriptionKey: 'excelFile' }
+        ],
+        links: {
+    github: 'https://github.com/bernardoparanhos/gerador_kpis.py',
+    readme: 'https://github.com/bernardoparanhos/gerador_kpis.py#readme'
+}
+    }
+];
 
 // =========================================
 // FUNÇÕES DE TEMA
@@ -101,17 +217,6 @@ function showLanguageLoading() {
     languageLoadingTimeout = setTimeout(() => hideLanguageLoading(), 10000);
 }
 
-function hideLanguageLoading() {
-    clearTimeout(languageLoadingTimeout);
-    const globeButton = document.getElementById('language-toggle');
-    if (globeButton && globeButton.dataset.originalContent) {
-        globeButton.innerHTML = globeButton.dataset.originalContent;
-        globeButton.classList.remove('loading');
-        delete globeButton.dataset.originalContent;
-    }
-    document.querySelectorAll('.lang-option').forEach(btn => btn.classList.remove('loading'));
-}
-
 async function setLanguage(lang) {
     if (lastAppliedLang === lang) {
         const dropdown = document.getElementById('language-dropdown');
@@ -162,18 +267,170 @@ async function setLanguage(lang) {
     }
 }
 
-/**
- * Mantém o container limpo ou com mensagem de "em breve"
- */
+function hideLanguageLoading() {
+    clearTimeout(languageLoadingTimeout);
+    const globeButton = document.getElementById('language-toggle');
+    if (globeButton && globeButton.dataset.originalContent) {
+        globeButton.innerHTML = globeButton.dataset.originalContent;
+        globeButton.classList.remove('loading');
+        delete globeButton.dataset.originalContent;
+    }
+    document.querySelectorAll('.lang-option').forEach(btn => btn.classList.remove('loading'));
+}
+
+// =========================================
+// FUNÇÃO DE CRIAÇÃO DO CARD DE PROJETO
+// =========================================
+
+function createProjectCard(project, lang) {
+    const t = translations[lang];
+    
+    // Criar features HTML
+    const featuresHTML = project.features.map(f => `
+        <span class="feature-tag">
+            <span style="margin-right: 4px;">${f.icon}</span>
+            ${t[f.key]}
+        </span>
+    `).join('');
+    
+    // Criar tecnologias HTML
+    const techHTML = project.technologies.map(tech => `
+        <span class="tech-badge">${t[tech.key]}</span>
+    `).join('');
+    
+    // Criar outputs HTML
+    const outputsHTML = project.outputs.map(output => `
+        <li><code>${output.file}</code> - ${t[output.descriptionKey]}</li>
+    `).join('');
+    
+    return `
+        <div class="project-card" data-project="${project.id}">
+            <div class="project-header">
+                <h2 class="project-title">${t[project.dataAttrs.title]}</h2>
+                <span class="project-date">${t[project.dataAttrs.period]}</span>
+            </div>
+            
+            <div class="project-institution">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span>${t[project.dataAttrs.institution]}</span>
+            </div>
+            
+            <p class="project-description">${t[project.dataAttrs.description]}</p>
+            
+            <div class="project-features">
+                ${featuresHTML}
+            </div>
+            
+            <div class="project-tech">
+                ${techHTML}
+            </div>
+            
+            <div class="project-outputs">
+                <details class="outputs-details">
+                    <summary class="outputs-summary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        <span>${t.outputsTitle}</span>
+                        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </summary>
+                    <ul class="outputs-list">
+                        ${outputsHTML}
+                    </ul>
+                </details>
+            </div>
+            
+            <div class="project-footer">
+                <a href="${project.links.github}" class="project-link" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    ${t.viewGithub}
+                </a>
+                <a href="${project.links.readme}" class="project-link" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                    ${t.viewReadme}
+                </a>
+            </div>
+        </div>
+    `;
+}
+
+// =========================================
+// FUNÇÃO DE ATUALIZAÇÃO DO CONTEÚDO
+// =========================================
+
 function updateProjectsContent(lang) {
     const projectsContainer = document.getElementById('projectsContainer');
     if (!projectsContainer) return;
     
-    projectsContainer.innerHTML = `
-        <div class="no-projects">
-            <p>${translations[lang].noProjectsMessage}</p>
-        </div>
-    `;
+    if (projectsData.length > 0) {
+        // Gerar HTML para todos os projetos
+        const projectsHTML = projectsData.map(project => 
+            createProjectCard(project, lang)
+        ).join('');
+        
+        projectsContainer.innerHTML = projectsHTML;
+    } else {
+        // Se não houver projetos, mostrar mensagem
+        projectsContainer.innerHTML = `
+            <div class="no-projects">
+                <p>${translations[lang].noProjectsMessage}</p>
+            </div>
+        `;
+    }
+}
+
+// =========================================
+// FUNÇÕES DE ANIMAÇÃO E INTERAÇÃO
+// =========================================
+
+function setupProjectInteractions() {
+    // Fechar todos os details quando mudar de idioma
+    document.querySelectorAll('.outputs-details[open]').forEach(details => {
+        details.removeAttribute('open');
+    });
+    
+    // Adicionar tracking de cliques nos links dos projetos (opcional)
+    document.querySelectorAll('.project-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const projectCard = e.target.closest('.project-card');
+            const projectId = projectCard?.dataset.project;
+            
+            // Aqui você pode adicionar analytics se desejar
+            console.log(`Projeto ${projectId} - Link clicado: ${link.href}`);
+        });
+    });
+}
+
+// =========================================
+// FUNÇÕES DE SINCRONIZAÇÃO
+// =========================================
+
+function syncWithOpener() {
+    if (window.opener && !window.opener.closed) {
+        try {
+            const theme = document.body.classList.contains(LIGHT_MODE_CLASS) ? LIGHT_MODE : DARK_MODE;
+            window.opener.postMessage({ 
+                type: 'syncState', 
+                theme, 
+                lang: currentLang 
+            }, '*');
+        } catch (e) {
+            console.warn('Não foi possível sincronizar com a janela pai');
+        }
+    }
 }
 
 // =========================================
@@ -187,8 +444,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightModeToggle = document.getElementById('lightModeToggle');
     const darkModeToggle = document.getElementById('darkModeToggle');
 
-    lightModeToggle.addEventListener('click', () => applyTheme(LIGHT_MODE));
-    darkModeToggle.addEventListener('click', () => applyTheme(DARK_MODE));
+    if (lightModeToggle && darkModeToggle) {
+        lightModeToggle.addEventListener('click', () => applyTheme(LIGHT_MODE));
+        darkModeToggle.addEventListener('click', () => applyTheme(DARK_MODE));
+    }
     
     const languageToggle = document.getElementById('language-toggle');
     const languageDropdown = document.getElementById('language-dropdown');
@@ -226,10 +485,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('load', () => {
-    if (window.opener && !window.opener.closed) {
-        try {
-            const theme = document.body.classList.contains(LIGHT_MODE_CLASS) ? LIGHT_MODE : DARK_MODE;
-            window.opener.postMessage({ type: 'syncState', theme, lang: currentLang }, '*');
-        } catch (e) {}
-    }
+    syncWithOpener();
+    setupProjectInteractions();
 });
+
+// =========================================
+// EXPOSIÇÃO DE FUNÇÕES GLOBAIS (opcional)
+// =========================================
+window.projectsAPI = {
+    refreshProjects: () => updateProjectsContent(currentLang),
+    getCurrentLang: () => currentLang,
+    getProjectsData: () => projectsData
+};

@@ -60,7 +60,105 @@
         <a href="/" class="header-button" data-lang-key="backButton">Voltar à Página Inicial</a>
         
         <div class="projects-container" id="projectsContainer">
+            <!-- PROJETO 1: Gerador de KPIs de Manutenção -->
+            <div class="project-card" data-project="kpi-manutencao">
+                <div class="project-header">
+                    <h2 class="project-title">Do código ao indicador: automatizando o PCM com Python</h2>
+                    <span class="project-date">jan/2026 - fev/2026</span>
+                </div>
+                
+                <div class="project-institution">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span>Projeto acadêmico - Universidade Tecnológica Federal do Paraná</span>
+                </div>
+                
+                <p class="project-description">
+                    Gerador de KPIs de manutenção em Python, simulando 90 dias de operação industrial. 
+                    Transforma lógica de programação em indicadores que apoiam decisões no PCM 
+                    (Planejamento e Controle de Manutenção).
+                </p>
+                
+                <div class="project-features">
+                    <span class="feature-tag">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                        </svg>
+                        15 equipamentos simulados
+                    </span>
+                    <span class="feature-tag">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        MTBF, MTTR, Disponibilidade
+                    </span>
+                    <span class="feature-tag">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5M17 12h-5M17 19h-5"/>
+                        </svg>
+                        Análise de criticidade
+                    </span>
+                    <span class="feature-tag">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/>
+                        </svg>
+                        Exportação Excel/CSV
+                    </span>
+                </div>
+                
+                <div class="project-tech">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Pandas</span>
+                    <span class="tech-badge">NumPy</span>
+                    <span class="tech-badge">Análise de Dados</span>
+                </div>
+                
+                <div class="project-outputs">
+                    <details class="outputs-details">
+                        <summary class="outputs-summary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                            <span>Arquivos gerados (7 CSVs + Excel)</span>
+                            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </summary>
+                        <ul class="outputs-list">
+                            <li><code>equipamentos.csv</code> - Dados dos equipamentos</li>
+                            <li><code>ordens_manutencao.csv</code> - Histórico de OM</li>
+                            <li><code>kpi_equipamentos.csv</code> - KPIs por equipamento</li>
+                            <li><code>kpi_manutencao.csv</code> - KPIs por tipo</li>
+                            <li><code>kpi_disponibilidade.csv</code> - Disponibilidade mensal</li>
+                            <li><code>kpi_custos.csv</code> - Análise financeira</li>
+                            <li><code>kpi_tendencia.csv</code> - Tendências</li>
+                            <li><code>kpis_manutencao_completo.xlsx</code> - Relatório consolidado</li>
+                        </ul>
+                    </details>
+                </div>
+                
+                <div class="project-footer">
+                    <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                        Ver no GitHub
+                    </a>
+                    <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                        Ver README
+                    </a>
+                </div>
             </div>
+        </div>
     </main>
 
     <script src="projetos.js"></script>
