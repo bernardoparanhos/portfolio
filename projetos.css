@@ -661,6 +661,19 @@ body.light-mode .globe-button:hover {
         align-items: flex-start;
         width: 100%;
     }
+    
+    /* ========================================= */
+    /* CORREÇÃO: Mostrar descrição completa no mobile */
+    /* ========================================= */
+    .project-description {
+        -webkit-line-clamp: unset !important;
+        line-clamp: unset !important;
+        display: block !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        max-width: 100%;
+        white-space: normal;
+    }
 }
 
 /* Mobile pequeno (até 480px) */

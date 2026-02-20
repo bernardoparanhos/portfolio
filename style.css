@@ -1879,3 +1879,8 @@ div.certificate-action.status-badge {
 .status-badge:hover svg path {
     fill: transparent; /* Garante que não preencha no hover */
 }
+
+/* CORREÇÃO: Quando o menu está aberto, theme-switcher vai para trás */
+body:has(.sidebar.open) .theme-switcher {
+    z-index: 999 !important;
+}
