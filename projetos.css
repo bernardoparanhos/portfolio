@@ -787,3 +787,45 @@ body.light-mode .outputs-list code {
 .hidden {
     display: none !important;
 }
+
+
+/* =========================================
+   GALERIA DE IMAGENS DO PROJETO
+   ========================================= */
+
+.project-gallery {
+    display: grid;
+    /* Divide em 2 colunas no desktop. Se tiver só 1 imagem, ela ocupa tudo */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 1.5rem; /* Espaço entre as imagens */
+    margin: 1.5rem 0;
+    overflow: visible; /* Remove a barra de rolagem lateral de vez */
+}
+
+.project-img-wrapper {
+    width: 100%;
+    border-radius: 8px; /* Bordas arredondadas pra combinar com o card */
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.2); /* Fundo escuro sutil */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Bordinha elegante */
+}
+
+.project-img {
+    width: 100%;
+    height: auto; /* Deixa a altura se ajustar automaticamente à largura */
+    display: block;
+    object-fit: contain; /* ESSENCIAL: Garante que a imagem NÃO seja cortada */
+    transition: transform 0.3s ease;
+}
+
+/* Efeito sutil de zoom ao passar o mouse (opcional, mas dá um toque premium) */
+.project-img:hover {
+    transform: scale(1.02);
+}
+
+/* Responsividade: No celular, as imagens ficam uma embaixo da outra */
+@media (max-width: 768px) {
+    .project-gallery {
+        grid-template-columns: 1fr; 
+    }
+}

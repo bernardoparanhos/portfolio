@@ -32,7 +32,23 @@ const translations = {
         kpiTrendFile: "Tendências",
         excelFile: "Relatório consolidado",
         viewGithub: "Ver no GitHub",
-        viewReadme: "Ver README"
+        viewReadme: "Ver README",
+
+        // Traduções específicas do projeto Mapa de Risco
+        projectMapaTitle: "Mapa de Risco Industrial — SST Interativo",
+        projectMapaPeriod: "fev/2026 - mar/2026",
+        projectMapaInstitution: "Projeto acadêmico de SST - UTFPR Medianeira",
+        projectMapaDescription: "Ferramenta de visualização de periculosidade baseada nas Normas Regulamentadoras (NR) do MTE. Representa um galpão industrial com 10 zonas classificadas pela Matriz de Risco 5x5.",
+        featureMapaInterativo: "Mapa SVG 100% clicável",
+        featureMapaCalor: "Heatmap de riscos",
+        featurePainelNR: "Painel dinâmico de NRs e EPIs",
+        featureAcessibilidade: "Acessível (ARIA/Teclado)",
+        techHTML5: "HTML5",
+        techCSS3: "CSS3 (Variáveis/Animações)",
+        techJS: "Vanilla JS",
+        mapaImg1Alt: "Visão geral do Mapa de Risco Industrial",
+        mapaImg2Alt: "Detalhes do painel com NRs e EPIs aplicáveis",
+        viewLive: "Acessar Projeto ao Vivo"
     },
     en: {
         projectsPageTitle: "Projects | Bernardo Paranhos",
@@ -64,7 +80,23 @@ const translations = {
         kpiTrendFile: "Trends",
         excelFile: "Consolidated report",
         viewGithub: "View on GitHub",
-        viewReadme: "View README"
+        viewReadme: "View README",
+
+        // Translations for Risk Map project
+        projectMapaTitle: "Industrial Risk Map — Interactive OSH",
+        projectMapaPeriod: "Feb 2026 - Mar 2026",
+        projectMapaInstitution: "OSH Academic Project - UTFPR Medianeira",
+        projectMapaDescription: "Hazard visualization tool based on the Ministry of Labor's Regulatory Norms (NR). Represents an industrial warehouse with 10 zones classified by the 5x5 Risk Matrix.",
+        featureMapaInterativo: "100% clickable SVG map",
+        featureMapaCalor: "Risk Heatmap",
+        featurePainelNR: "Dynamic NR & PPE panel",
+        featureAcessibilidade: "Accessible (ARIA/Keyboard)",
+        techHTML5: "HTML5",
+        techCSS3: "CSS3 (Variables/Animations)",
+        techJS: "Vanilla JS",
+        mapaImg1Alt: "Overview of the Industrial Risk Map",
+        mapaImg2Alt: "Details of the panel with applicable NRs and PPEs",
+        viewLive: "View Live Demo"
     },
     es: {
         projectsPageTitle: "Proyectos | Bernardo Paranhos",
@@ -96,7 +128,23 @@ const translations = {
         kpiTrendFile: "Tendencias",
         excelFile: "Informe consolidado",
         viewGithub: "Ver en GitHub",
-        viewReadme: "Ver README"
+        viewReadme: "Ver README",
+
+        // Traducciones para el proyecto Mapa de Riesgo
+        projectMapaTitle: "Mapa de Riesgo Industrial — SST Interactivo",
+        projectMapaPeriod: "feb 2026 - mar 2026",
+        projectMapaInstitution: "Proyecto académico de SST - UTFPR Medianeira",
+        projectMapaDescription: "Herramienta de visualización de peligrosidad basada en las Normas Reguladoras (NR) del Ministerio de Trabajo. Representa una nave industrial con 10 zonas clasificadas por la Matriz de Riesgo 5x5.",
+        featureMapaInterativo: "Mapa SVG 100% clicable",
+        featureMapaCalor: "Mapa de calor de riesgos",
+        featurePainelNR: "Panel dinámico de NR y EPP",
+        featureAcessibilidade: "Accesible (ARIA/Teclado)",
+        techHTML5: "HTML5",
+        techCSS3: "CSS3 (Variables/Animaciones)",
+        techJS: "Vanilla JS",
+        mapaImg1Alt: "Visión general del Mapa de Riesgo Industrial",
+        mapaImg2Alt: "Detalles del panel con NRs y EPPs aplicables",
+        viewLive: "Ver Proyecto en Vivo"
     }
 };
 
@@ -118,6 +166,37 @@ let languageLoadingTimeout = null;
 // DADOS DOS PROJETOS
 // =========================================
 const projectsData = [
+    {
+        id: 'mapa-risco-industrial',
+        dataAttrs: {
+            title: 'projectMapaTitle',
+            period: 'projectMapaPeriod',
+            institution: 'projectMapaInstitution',
+            description: 'projectMapaDescription'
+        },
+        images: [
+          { src: '../image/img1.png', altKey: 'mapaImg1Alt' },
+            { src: '../image/img2.png', altKey: 'mapaImg2Alt' }
+        ],
+        features: [
+            { key: 'featureMapaInterativo', icon: '🗺️' },
+            { key: 'featureMapaCalor', icon: '🔴' },
+            { key: 'featurePainelNR', icon: '📋' },
+            { key: 'featureAcessibilidade', icon: '♿' }
+        ],
+        technologies: [
+            { key: 'techHTML5' },
+            { key: 'techCSS3' },
+            { key: 'techJS' },
+            { key: 'techPython' }
+        ],
+        outputs: [], // Deixado vazio de propósito para a seção não renderizar
+        links: {
+            github: 'https://github.com/bernardoparanhos/mapa-risco-industrial',
+            readme: 'https://github.com/bernardoparanhos/mapa-risco-industrial#readme',
+            live: 'https://bernardoparanhos.github.io/mapa-risco-industrial/' // Ajuste esta URL se hospedar em outro local
+        }
+    },
     {
         id: 'kpi-manutencao',
         dataAttrs: {
@@ -149,9 +228,9 @@ const projectsData = [
             { file: 'kpis_manutencao_completo.xlsx', descriptionKey: 'excelFile' }
         ],
         links: {
-    github: 'https://github.com/bernardoparanhos/gerador_kpis.py',
-    readme: 'https://github.com/bernardoparanhos/gerador_kpis.py#readme'
-}
+            github: 'https://github.com/bernardoparanhos/gerador_kpis.py',
+            readme: 'https://github.com/bernardoparanhos/gerador_kpis.py#readme'
+        }
     }
 ];
 
@@ -298,35 +377,25 @@ function createProjectCard(project, lang) {
         <span class="tech-badge">${t[tech.key]}</span>
     `).join('');
     
-    // Criar outputs HTML
-    const outputsHTML = project.outputs.map(output => `
-        <li><code>${output.file}</code> - ${t[output.descriptionKey]}</li>
-    `).join('');
+    // GALERIA CONDICIONAL: Só renderiza se houver imagens
+    let galleryHTML = '';
+    if (project.images && project.images.length > 0) {
+        const imgsHTML = project.images.map(img => `
+            <div class="project-img-wrapper">
+                <img src="${img.src}" alt="${t[img.altKey] || 'Imagem do projeto'}" class="project-img" loading="lazy">
+            </div>
+        `).join('');
+        galleryHTML = `<div class="project-gallery">${imgsHTML}</div>`;
+    }
     
-    return `
-        <div class="project-card" data-project="${project.id}">
-            <div class="project-header">
-                <h2 class="project-title">${t[project.dataAttrs.title]}</h2>
-                <span class="project-date">${t[project.dataAttrs.period]}</span>
-            </div>
-            
-            <div class="project-institution">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
-                <span>${t[project.dataAttrs.institution]}</span>
-            </div>
-            
-            <p class="project-description">${t[project.dataAttrs.description]}</p>
-            
-            <div class="project-features">
-                ${featuresHTML}
-            </div>
-            
-            <div class="project-tech">
-                ${techHTML}
-            </div>
-            
+    // OUTPUTS CONDICIONAL: Só renderiza se houver arquivos de output
+    let outputsSection = '';
+    if (project.outputs && project.outputs.length > 0) {
+        const outputsHTML = project.outputs.map(output => `
+            <li><code>${output.file}</code> - ${t[output.descriptionKey]}</li>
+        `).join('');
+        
+        outputsSection = `
             <div class="project-outputs">
                 <details class="outputs-details">
                     <summary class="outputs-summary">
@@ -346,8 +415,53 @@ function createProjectCard(project, lang) {
                     </ul>
                 </details>
             </div>
+        `;
+    }
+
+    // BOTÃO LIVE DEMO CONDICIONAL
+    let liveLinkHTML = '';
+    if (project.links.live) {
+        liveLinkHTML = `
+            <a href="${project.links.live}" class="project-link" target="_blank" rel="noopener noreferrer" style="color: var(--cor-acento);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                ${t.viewLive}
+            </a>
+        `;
+    }
+    
+    return `
+        <div class="project-card" data-project="${project.id}">
+            <div class="project-header">
+                <h2 class="project-title">${t[project.dataAttrs.title]}</h2>
+                <span class="project-date">${t[project.dataAttrs.period]}</span>
+            </div>
+            
+            <div class="project-institution">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span>${t[project.dataAttrs.institution]}</span>
+            </div>
+            
+            <p class="project-description">${t[project.dataAttrs.description]}</p>
+            
+            ${galleryHTML}
+            
+            <div class="project-features">
+                ${featuresHTML}
+            </div>
+            
+            <div class="project-tech">
+                ${techHTML}
+            </div>
+            
+            ${outputsSection}
             
             <div class="project-footer">
+                ${liveLinkHTML}
                 <a href="${project.links.github}" class="project-link" target="_blank" rel="noopener noreferrer">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
