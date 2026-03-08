@@ -136,107 +136,151 @@
 <section id="page2" class="page-section">
     <h2 data-lang-key="educationTitle">Educação</h2>
     
-    <div class="experience-item" itemscope itemtype="https://schema.org/EducationalOccupationalCredential">
-        <div class="experience-logo">
-            <img src="image/logo.utfpr.png" alt="UTFPR - Universidade Tecnológica Federal do Paraná - Engenharia de Produção" itemprop="image"> 
+    <div class="experience-item utfpr-card" itemscope itemtype="https://schema.org/EducationalOccupationalCredential">
+    <div class="experience-logo">
+        <img src="image/logo.utfpr.png" alt="UTFPR - Universidade Tecnológica Federal do Paraná - Engenharia de Produção" itemprop="image"> 
+    </div>
+    <div class="experience-details">
+        <h3 data-lang-key="utfprDegree" itemprop="recognizedBy">Universidade Tecnológica Federal do Paraná</h3>
+        <p data-lang-key="utfprProgram" itemprop="name">Bacharelado - Engenharia de Produção</p>
+        <p data-lang-key="utfprStart">Graduação em andamento</p>
+    </div>
+    <div class="experience-location">
+        <svg width="40px" height="40px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet"><path fill="#009B3A" d="M36 27a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V9a4 4 0 0 1 4-5h28a4 4 0 0 1 4 4v18z"></path><path fill="#FEDF01" d="M32.728 18L18 29.124L3.272 18L18 6.875z"></path><circle fill="#002776" cx="17.976" cy="17.924" r="6.458"></circle><path fill="#CBE9D4" d="M12.277 14.887a6.406 6.406 0 0 0-.672 2.023c3.995-.29 9.417 1.891 11.744 4.595c.402-.604.7-1.28.883-2.004c-2.872-2.808-7.917-4.63-11.955-4.614z"></path><path fill="#88C9F9" d="M12 18.233h1v1h-1zm1 2h1v1h-1z"></path><path fill="#55ACEE" d="M15 18.233h1v1h-1zm2 1h1v1h-1zm4 2h1v1h-1zm-3 1h1v1h-1zm3-6h1v1h-1z"></path><path fill="#3B88C3" d="M19 20.233h1v1h-1z"></path></svg>
+        <div class="location-details">
+            <p data-lang-key="utfprPeriod">2025 - 2030</p>
+            <p data-lang-key="utfprLocation">Medianeira, Brasil</p>
         </div>
-        <div class="experience-details">
-            <h3 data-lang-key="utfprDegree" itemprop="recognizedBy">Universidade Tecnológica Federal do Paraná</h3>
-            <p data-lang-key="utfprProgram" itemprop="name">Bacharelado - Engenharia de Produção</p>
-            <p data-lang-key="utfprStart">Graduação em andamento</p>
+    </div>
+</div>
+
+<!-- Botão toggle -->
+<button class="utfpr-toggle-btn" id="utfprToggle" aria-expanded="false" aria-controls="utfprPanel">
+    <span class="utfpr-toggle-label">Ver detalhes acadêmicos</span>
+    <svg class="utfpr-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+</button>
+
+<!-- Painel expansível -->
+<div class="utfpr-panel" id="utfprPanel" aria-hidden="true">
+
+    <!-- Linha 1: Período atual + Destaques -->
+    <div class="utfpr-panel-top">
+        <div class="utfpr-periodo-badge">
+            <span class="utfpr-periodo-label">PERÍODO ATUAL</span>
+            <span class="utfpr-periodo-num">2º</span>
+            <span class="utfpr-periodo-subs">Disciplinas em curso:</span>
+            <ul class="utfpr-periodo-list">
+                <li>Fundamentos de Programação</li>
+                <li>Estruturas Geométricas e Vetores</li>
+                <li>Matemática Univariável</li>
+                <li>Economia</li>
+                <li>Gestão Financeira</li>
+                <li>Gestão de Pessoas</li>
+                <li>Metodologia da Pesquisa</li>
+            </ul>
         </div>
-        <div class="experience-location">
-            <svg width="40px" height="40px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet"><path fill="#009B3A" d="M36 27a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V9a4 4 0 0 1 4-5h28a4 4 0 0 1 4 4v18z"></path><path fill="#FEDF01" d="M32.728 18L18 29.124L3.272 18L18 6.875z"></path><circle fill="#002776" cx="17.976" cy="17.924" r="6.458"></circle><path fill="#CBE9D4" d="M12.277 14.887a6.406 6.406 0 0 0-.672 2.023c3.995-.29 9.417 1.891 11.744 4.595c.402-.604.7-1.28.883-2.004c-2.872-2.808-7.917-4.63-11.955-4.614z"></path><path fill="#88C9F9" d="M12 18.233h1v1h-1zm1 2h1v1h-1z"></path><path fill="#55ACEE" d="M15 18.233h1v1h-1zm2 1h1v1h-1zm4 2h1v1h-1zm-3 1h1v1h-1zm3-6h1v1h-1z"></path><path fill="#3B88C3" d="M19 20.233h1v1h-1z"></path></svg>
-            <div class="location-details">
-                <p data-lang-key="utfprPeriod">2025 - 2030</p>
-                <p data-lang-key="utfprLocation">Medianeira, Brasil</p>
+
+        <div class="utfpr-destaques">
+            <h4 class="utfpr-section-title">Destaques Acadêmicos</h4>
+            <ul class="utfpr-destaques-list">
+                <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span><strong>Iniciação Científica (2026):</strong> Projeto MAT-IA com metodologia de gestão de projetos</span>
+                </li>
+                <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span><strong>Certificadoras UTFPR:</strong> Módulos práticos de liderança e planejamento estratégico</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Linha 2: Grade por período -->
+    <h4 class="utfpr-section-title utfpr-grade-title">Grade Curricular</h4>
+    <div class="utfpr-grade">
+
+        <div class="utfpr-periodo">
+            <div class="utfpr-periodo-header">1º Período</div>
+            <div class="utfpr-disc-list">
+                <span>Informática Instrumental</span>
+                <span>Leitura e Escrita Acadêmica</span>
+                <span>Fundamentos de Matemática</span>
+                <span>Desenho Técnico (CAD)</span>
+                <span>Introdução à Eng. de Produção</span>
+                <span>Gestão Organizacional</span>
+                <span>Química Geral</span>
+            </div>
+        </div>
+
+        <div class="utfpr-periodo utfpr-periodo--atual">
+            <div class="utfpr-periodo-header">2º Período <span class="utfpr-atual-tag">atual</span></div>
+            <div class="utfpr-disc-list">
+                <span>Fund. de Programação</span>
+                <span>Estruturas Geométricas</span>
+                <span>Matemática Univariável</span>
+                <span>Economia</span>
+                <span>Estrutura Financeira</span>
+                <span>Gestão de Pessoas</span>
+                <span>Metodologia da Pesquisa</span>
+            </div>
+        </div>
+
+        <div class="utfpr-periodo">
+            <div class="utfpr-periodo-header">3º Período</div>
+            <div class="utfpr-disc-list">
+                <span>Física do Movimento</span>
+                <span>Álgebra Linear</span>
+                <span>Matemática Multivariável</span>
+                <span>Ergonomia</span>
+                <span>Gestão de Custos</span>
+                <span>Introdução à Qualidade</span>
+                <span>Sociologia</span>
+            </div>
+        </div>
+
+        <div class="utfpr-periodo">
+            <div class="utfpr-periodo-header">4º Período</div>
+            <div class="utfpr-disc-list">
+                <span>Termodinâmica</span>
+                <span>Estatística</span>
+                <span>Eng. de Segurança do Trabalho</span>
+                <span>Logística</span>
+                <span>Gestão Financeira</span>
+                <span>Gestão da Qualidade</span>
+                <span>Filosofia</span>
+            </div>
+        </div>
+
+        <div class="utfpr-periodo">
+            <div class="utfpr-periodo-header">5º–6º Período</div>
+            <div class="utfpr-disc-list">
+                <span>Pesquisa Operacional 1 e 2</span>
+                <span>Arranjo Físico</span>
+                <span>Gestão de Materiais</span>
+                <span>PCP 1</span>
+                <span>Logística de Distribuição</span>
+                <span>Eletricidade e Magnetismo</span>
+                <span>Fenômenos de Transporte</span>
+            </div>
+        </div>
+
+        <div class="utfpr-periodo">
+            <div class="utfpr-periodo-header">7º–9º Período</div>
+            <div class="utfpr-disc-list">
+                <span>Automação Industrial</span>
+                <span>Inteligência Computacional</span>
+                <span>Gestão de Projetos</span>
+                <span>PCP 2 e 3</span>
+                <span>Sustentabilidade</span>
+                <span>Eng. Econômica</span>
+                <span>TCC</span>
             </div>
         </div>
     </div>
-
-    <h2 data-lang-key="coursesTitle">Cursos/Especializações</h2>
-
-<div class="carousel-container">
-    
-    <button class="carousel-btn prev-btn" aria-label="Curso Anterior">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-    </button>
-
-    <div class="carousel-track-container">
-        <ul class="carousel-track">
-            
-           <li class="carousel-slide current-slide">
-                <div class="experience-item" itemscope itemtype="https://schema.org/Course">
-                    <div class="experience-logo">
-                         <img src="image/udemy-wordmark-logo-png_seeklogo-409220-removebg-preview.png" alt="Udemy Logo" itemprop="image">
-                    </div>
-                    <div class="experience-details">
-                        <h3 itemprop="name" data-lang-key="udemyCourseTitle">Pacote Office 365 - Microsoft Office Essencial</h3>
-                        
-                        <p itemprop="provider" data-lang-key="udemyCoursePlatform">Udemy</p>
-                        
-                        <p data-lang-key="udemyCourseDuration">Carga horária: 20h</p>
-                    </div>
-                    <div class="experience-location">
-                        <a href="image/Certificado Udemy Pacote Office.pdf" target="_blank" class="certificate-action">
-                            <svg viewBox="0 0 1024 1024" width="20" height="20"><path d="M448 768A320 320 0 1 0 448 128a320 320 0 0 0 0 640z m297.344-76.992l214.592 214.592-54.336 54.336-214.592-214.592a384 384 0 1 1 54.336-54.336z" fill="currentColor" /></svg>
-                            <span class="certificate-text" data-lang-key="viewCertificateAction">Ver Certificado</span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-
-            <li class="carousel-slide">
-                <div class="experience-item" itemscope itemtype="https://schema.org/Course">
-                    <div class="experience-logo">
-                         <img src="image/Logo-Hashtag-Original-1024x458.png.webp" alt="Hashtag Treinamentos" itemprop="image">
-                    </div>
-                    <div class="experience-details">
-                        <h3 itemprop="name" data-lang-key="hashtagExcelTitle">Excel Impressionador (Expert)</h3>
-                        <p itemprop="provider" data-lang-key="hashtagProvider">Hashtag Treinamentos</p>
-                        <p data-lang-key="hashtagExcelDetails">Foco: Dashboards, VBA e Gestão de Dados</p>
-                    </div>
-                    <div class="experience-location">
-                        <div class="certificate-action status-badge running">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-                            <span class="certificate-text" data-lang-key="statusInProgress">Em Andamento</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="carousel-slide">
-                <div class="experience-item" itemscope itemtype="https://schema.org/Course">
-                    <div class="experience-logo">
-                         <img src="image/Logo-Hashtag-Original-1024x458.png.webp" alt="SQL Course" itemprop="image">
-                    </div>
-                    <div class="experience-details">
-                        <h3 itemprop="name" data-lang-key="hashtagSqlTitle">SQL Impressionador</h3>
-                        <p itemprop="provider" data-lang-key="hashtagProvider">Hashtag Treinamentos</p>
-                        <p data-lang-key="hashtagSqlDetails">SQL para analisar dados com precisão e tomar decisões melhores.</p>
-                    </div>
-                    <div class="experience-location">
-                        <div class="certificate-action status-badge future">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                            <span class="certificate-text" data-lang-key="statusComingSoon">Em Breve</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-        </ul>
-    </div>
-
-    <button class="carousel-btn next-btn" aria-label="Próximo Curso">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-    </button>
-
-    <div class="carousel-nav">
-        <button class="carousel-indicator current-slide"></button>
-        <button class="carousel-indicator"></button>
-        <button class="carousel-indicator"></button>
-    </div>
 </div>
+
 </section>
 
    <section id="page3" class="page-section" itemscope itemtype="https://schema.org/AboutPage">
@@ -247,7 +291,7 @@
             <div class="skill-row">
                 <div class="skill-item">
                     <img src="image/ChatGPT_Image_12_de_jul._de_2025__19_25_15-removebg-preview.png" alt="Habilidade de Comunicação Técnica - Bernardo Paranhos" class="skill-image">
-                    <p data-lang-key="communicationSkill">Organização e Método/p>
+                    <p data-lang-key="communicationSkill">Organização e Método</p>
                 </div>
                 <div class="skill-item">
                     <img src="image/ChatGPT_Image_12_de_jul._de_2025__19_25_15-removebg-preview.png" alt="Trabalho em Equipe e Liderança" class="skill-image">

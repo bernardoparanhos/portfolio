@@ -12,52 +12,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const LIGHT_MODE = 'light';
     const DARK_MODE = 'dark';
 
-    /**
-     * Aplica o tema ao body, altera o ícone de toggle e salva no localStorage.
-     * @param {string} theme - 'light' ou 'dark'
-     */
     function applyTheme(theme) {
         if (theme === DARK_MODE) {
             body.classList.add(DARK_MODE_CLASS);
-            lightModeToggle.style.display = 'block'; // Mostrar Sol (para voltar ao claro)
-            darkModeToggle.style.display = 'none';  // Esconder Lua
+            lightModeToggle.style.display = 'block';
+            darkModeToggle.style.display = 'none';
             localStorage.setItem(THEME_KEY, DARK_MODE);
         } else {
             body.classList.remove(DARK_MODE_CLASS);
-            lightModeToggle.style.display = 'none';  // Esconder Sol
-            darkModeToggle.style.display = 'block'; // Mostrar Lua (para ir para o escuro)
+            lightModeToggle.style.display = 'none';
+            darkModeToggle.style.display = 'block';
             localStorage.setItem(THEME_KEY, LIGHT_MODE);
         }
     }
 
-    /**
-     * Inicializa o tema ao carregar a página (pega do localStorage ou da preferência do sistema).
-     */
     function initTheme() {
         const savedTheme = localStorage.getItem(THEME_KEY);
-        
         if (savedTheme) {
-            // Se houver tema salvo, aplica
             applyTheme(savedTheme);
         } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            // Se não houver salvo, mas o sistema operacional prefere Dark Mode, usa Dark Mode
             applyTheme(DARK_MODE);
         } else {
-            // Caso contrário, usa Light Mode como padrão
             applyTheme(LIGHT_MODE);
         }
     }
 
-    // Event Listeners para os botões de troca de tema
-    lightModeToggle.addEventListener('click', () => {
-        applyTheme(LIGHT_MODE);
-    });
-
-    darkModeToggle.addEventListener('click', () => {
-        applyTheme(DARK_MODE);
-    });
-
-    // Inicializa o tema imediatamente
+    lightModeToggle.addEventListener('click', () => { applyTheme(LIGHT_MODE); });
+    darkModeToggle.addEventListener('click', () => { applyTheme(DARK_MODE); });
     initTheme();
 
     // =========================================
@@ -66,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menuToggle');
     const sidebar = document.getElementById('sidebar');
 
-    // Configuração inicial de acessibilidade
     menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
     menuToggle.setAttribute('aria-expanded', 'false');
     menuToggle.setAttribute('aria-controls', 'sidebar');
@@ -74,16 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menuToggle.addEventListener('click', () => {
         const isNowOpen = !sidebar.classList.contains('open');
-        
-        // Alterna classes visuais
         sidebar.classList.toggle('open');
         menuToggle.classList.toggle('open');
-        
-        // Atualiza atributos de acessibilidade
         menuToggle.setAttribute('aria-expanded', isNowOpen);
         sidebar.setAttribute('aria-hidden', !isNowOpen);
-        
-        // Foco no primeiro botão quando o menu abre
         if (isNowOpen) {
             setTimeout(() => {
                 const firstButton = sidebar.querySelector('button');
@@ -92,22 +66,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Fechar o menu com a tecla ESC
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && sidebar.classList.contains('open')) {
             sidebar.classList.remove('open');
             menuToggle.classList.remove('open');
             menuToggle.setAttribute('aria-expanded', 'false');
             sidebar.setAttribute('aria-hidden', 'true');
-            menuToggle.focus(); // Retorna o foco para o botão do menu
+            menuToggle.focus();
         }
     });
 
-    // Fechar o menu ao clicar fora dele (melhorado)
     document.addEventListener('click', (event) => {
         const isClickInsideMenu = sidebar.contains(event.target);
         const isClickOnToggle = menuToggle.contains(event.target);
-        
         if (!isClickInsideMenu && !isClickOnToggle && sidebar.classList.contains('open')) {
             sidebar.classList.remove('open');
             menuToggle.classList.remove('open');
@@ -116,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Fechar o menu ao clicar em um item da sidebar
     const sidebarButtons = document.querySelectorAll('.sidebar-button');
     sidebarButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -158,20 +128,97 @@ document.addEventListener('DOMContentLoaded', () => {
             utfprPeriod: "2025 - 2030",
             utfprLocation: "Medianeira, Brasil",
 
+            // --- UTFPR PAINEL ---
+            utfprToggleOpen: "Ver detalhes acadêmicos",
+            utfprToggleClose: "Fechar detalhes",
+            utfprPeriodoLabel: "PERÍODO ATUAL",
+            utfprPeriodoSubs: "Disciplinas em curso:",
+            utfprDestaques: "Destaques Acadêmicos",
+            utfprGrade: "Grade Curricular",
+            utfprAtualTag: "atual",
+            utfprDestaque1: "<strong>Bolsista INOVAGRAD – UTFPR (2026):</strong> Projeto de inovação pedagógica com aplicação de IA no ensino de graduação",
+            utfprDestaque2: "<strong>Certificadoras UTFPR:</strong> Módulos práticos de liderança e planejamento estratégico",
+
+            // Headers de período
+            p1header: "1º Período",
+            p2header: "2º Período",
+            p3header: "3º Período",
+            p4header: "4º Período",
+            p56header: "5º–6º Período",
+            p79header: "7º–9º Período",
+
+            // 1º Período
+            d_informatica: "Informática Instrumental",
+            d_leitura: "Leitura e Escrita Acadêmica",
+            d_fundmat: "Fundamentos de Matemática",
+            d_desenho: "Desenho Técnico (CAD)",
+            d_introeng: "Introdução à Eng. de Produção",
+            d_gestorg: "Gestão Organizacional",
+            d_quimica: "Química Geral",
+
+            // 2º Período
+            d_fundprog: "Fund. de Programação",
+            d_estrutgeo: "Estruturas Geométricas",
+            d_matuniv: "Matemática Univariável",
+            d_economia: "Economia",
+            d_estrutfin: "Estrutura Financeira",
+            d_gestpessoas: "Gestão de Pessoas",
+            d_metodpesq: "Metodologia da Pesquisa",
+
+            // Badge período atual (lista completa)
+            d_fundprog_full: "Fundamentos de Programação",
+            d_estrutgeo_full: "Estruturas Geométricas e Vetores",
+            d_matuniv_full: "Matemática Univariável",
+            d_economia_full: "Economia",
+            d_gestfin_full: "Gestão Financeira",
+            d_gestpessoas_full: "Gestão de Pessoas",
+            d_metodpesq_full: "Metodologia da Pesquisa",
+
+            // 3º Período
+            d_fisica: "Física do Movimento",
+            d_algebra: "Álgebra Linear",
+            d_matmulti: "Matemática Multivariável",
+            d_ergonomia: "Ergonomia",
+            d_gestcustos: "Gestão de Custos",
+            d_qualidade: "Introdução à Qualidade",
+            d_sociologia: "Sociologia",
+
+            // 4º Período
+            d_termodi: "Termodinâmica",
+            d_estatistica: "Estatística",
+            d_seguranca: "Eng. de Segurança do Trabalho",
+            d_logistica: "Logística",
+            d_gestfin4: "Gestão Financeira",
+            d_gestqual: "Gestão da Qualidade",
+            d_filosofia: "Filosofia",
+
+            // 5º–6º Período
+            d_pesqop: "Pesquisa Operacional 1 e 2",
+            d_arranjo: "Arranjo Físico",
+            d_gestmat: "Gestão de Materiais",
+            d_pcp1: "PCP 1",
+            d_logdist: "Logística de Distribuição",
+            d_eletromag: "Eletricidade e Magnetismo",
+            d_fenomenos: "Fenômenos de Transporte",
+
+            // 7º–9º Período
+            d_automacao: "Automação Industrial",
+            d_intcomp: "Inteligência Computacional",
+            d_gestproj: "Gestão de Projetos",
+            d_pcp23: "PCP 2 e 3",
+            d_sustent: "Sustentabilidade",
+            d_engec: "Eng. Econômica",
+            d_tcc: "TCC",
+
             coursesTitle: "Cursos/Especializações",
-            // CURSO UDEMY
             udemyCourseTitle: "Pacote Office 365 - Microsoft Office Essencial",
             udemyCoursePlatform: "Udemy",
             udemyCourseDuration: "20h",
             viewCertificateAction: "Ver Certificado",
-
-            // --- NOVO: CURSO EXCEL HASHTAG ---
             hashtagExcelTitle: "Excel Impressionador (Expert)",
             hashtagProvider: "Hashtag Treinamentos",
             hashtagExcelDetails: "Foco: Dashboards, VBA e Gestão de Dados",
             statusInProgress: "Em Andamento",
-
-            // --- NOVO: CURSO SQL HASHTAG ---
             hashtagSqlTitle: "SQL Impressionador",
             hashtagSqlDetails: "SQL para analisar dados com precisão e tomar decisões melhores.",
             statusComingSoon: "Em Breve",
@@ -198,7 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
             aboutMeNavLink: "SOBRE MIM",
             educationNavLink: "EDUCAÇÃO",
             footerText: "&copy; 2026 Bernardo Paranhos — Portfólio acadêmico. <a href='https://github.com/bernardoparanhos/portfolio/blob/main/LICENSE' target='_blank' class='footer-license-link'>Licenciado sob MIT</a>",
-            // --- Mensagens de toast ---
             emailCopiedToast: "E-mail copiado!",
             copyErrorToast: "Não foi possível copiar o e-mail.",
             languageLoading: "Alterando idioma..."
@@ -228,20 +274,97 @@ document.addEventListener('DOMContentLoaded', () => {
             utfprPeriod: "2025 - 2030",
             utfprLocation: "Medianeira, Brazil",
 
+            // --- UTFPR PANEL ---
+            utfprToggleOpen: "View academic details",
+            utfprToggleClose: "Close details",
+            utfprPeriodoLabel: "CURRENT SEMESTER",
+            utfprPeriodoSubs: "Current courses:",
+            utfprDestaques: "Academic Highlights",
+            utfprGrade: "Curriculum Grid",
+            utfprAtualTag: "current",
+            utfprDestaque1: "<strong>INOVAGRAD Scholar – UTFPR (2026):</strong> Pedagogical innovation project applying AI in undergraduate education",
+            utfprDestaque2: "<strong>UTFPR Certifications:</strong> Practical modules in leadership and strategic planning",
+
+            // Period headers
+            p1header: "1st Semester",
+            p2header: "2nd Semester",
+            p3header: "3rd Semester",
+            p4header: "4th Semester",
+            p56header: "5th–6th Semester",
+            p79header: "7th–9th Semester",
+
+            // 1st Semester
+            d_informatica: "Introduction to Computing",
+            d_leitura: "Academic Reading & Writing",
+            d_fundmat: "Mathematics Fundamentals",
+            d_desenho: "Technical Drawing (CAD)",
+            d_introeng: "Intro to Production Engineering",
+            d_gestorg: "Organizational Management",
+            d_quimica: "General Chemistry",
+
+            // 2nd Semester
+            d_fundprog: "Prog. Fundamentals",
+            d_estrutgeo: "Geometric Structures",
+            d_matuniv: "Single-Variable Calculus",
+            d_economia: "Economics",
+            d_estrutfin: "Financial Structure",
+            d_gestpessoas: "People Management",
+            d_metodpesq: "Research Methodology",
+
+            // Badge current semester (full names)
+            d_fundprog_full: "Programming Fundamentals",
+            d_estrutgeo_full: "Geometric Structures & Vectors",
+            d_matuniv_full: "Single-Variable Calculus",
+            d_economia_full: "Economics",
+            d_gestfin_full: "Financial Management",
+            d_gestpessoas_full: "People Management",
+            d_metodpesq_full: "Research Methodology",
+
+            // 3rd Semester
+            d_fisica: "Physics of Motion",
+            d_algebra: "Linear Algebra",
+            d_matmulti: "Multivariable Calculus",
+            d_ergonomia: "Ergonomics",
+            d_gestcustos: "Cost Management",
+            d_qualidade: "Introduction to Quality",
+            d_sociologia: "Sociology",
+
+            // 4th Semester
+            d_termodi: "Thermodynamics",
+            d_estatistica: "Statistics",
+            d_seguranca: "Occupational Safety Engineering",
+            d_logistica: "Logistics",
+            d_gestfin4: "Financial Management",
+            d_gestqual: "Quality Management",
+            d_filosofia: "Philosophy",
+
+            // 5th–6th Semester
+            d_pesqop: "Operations Research 1 & 2",
+            d_arranjo: "Facility Layout",
+            d_gestmat: "Materials Management",
+            d_pcp1: "Production Planning 1",
+            d_logdist: "Distribution Logistics",
+            d_eletromag: "Electricity & Magnetism",
+            d_fenomenos: "Transport Phenomena",
+
+            // 7th–9th Semester
+            d_automacao: "Industrial Automation",
+            d_intcomp: "Computational Intelligence",
+            d_gestproj: "Project Management",
+            d_pcp23: "Production Planning 2 & 3",
+            d_sustent: "Sustainability",
+            d_engec: "Engineering Economics",
+            d_tcc: "Senior Thesis",
+
             coursesTitle: "Courses/Specializations",
-            // CURSO UDEMY
             udemyCourseTitle: "Office 365 Package - Microsoft Essential Office",
             udemyCoursePlatform: "Udemy",
             udemyCourseDuration: "20h",
             viewCertificateAction: "View Certificate",
-
-            // --- NOVO: CURSO EXCEL HASHTAG (TRADUÇÃO) ---
             hashtagExcelTitle: "Excel Impressionador (Expert)",
             hashtagProvider: "Hashtag Treinamentos",
             hashtagExcelDetails: "Focus: Dashboards, VBA and Data Management",
             statusInProgress: "In Progress",
-
-            // --- NOVO: CURSO SQL HASHTAG (TRADUÇÃO) ---
             hashtagSqlTitle: "SQL Impressionador",
             hashtagSqlDetails: "SQL to analyze data accurately and make better decisions.",
             statusComingSoon: "Coming Soon",
@@ -268,7 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
             aboutMeNavLink: "ABOUT ME",
             educationNavLink: "EDUCATION",
             footerText: "&copy; 2026 Bernardo Paranhos — Academic Portfolio. <a href='https://github.com/bernardoparanhos/portfolio/blob/main/LICENSE' target='_blank' class='footer-license-link'>Licensed under MIT</a>",
-            // --- Mensagens de toast ---
             emailCopiedToast: "Email copied!",
             copyErrorToast: "Could not copy email.",
             languageLoading: "Changing language..."
@@ -298,20 +420,97 @@ document.addEventListener('DOMContentLoaded', () => {
             utfprPeriod: "2025 - 2030",
             utfprLocation: "Medianeira, Brasil",
 
+            // --- UTFPR PANEL ---
+            utfprToggleOpen: "Ver detalles académicos",
+            utfprToggleClose: "Cerrar detalles",
+            utfprPeriodoLabel: "SEMESTRE ACTUAL",
+            utfprPeriodoSubs: "Materias en curso:",
+            utfprDestaques: "Destacados Académicos",
+            utfprGrade: "Plan de Estudios",
+            utfprAtualTag: "actual",
+            utfprDestaque1: "<strong>Becario INOVAGRAD – UTFPR (2026):</strong> Proyecto de innovación pedagógica con aplicación de IA en la enseñanza universitaria",
+            utfprDestaque2: "<strong>Certificadoras UTFPR:</strong> Módulos prácticos de liderazgo y planificación estratégica",
+
+            // Headers de período
+            p1header: "1er Semestre",
+            p2header: "2do Semestre",
+            p3header: "3er Semestre",
+            p4header: "4to Semestre",
+            p56header: "5to–6to Semestre",
+            p79header: "7mo–9no Semestre",
+
+            // 1er Semestre
+            d_informatica: "Informática Instrumental",
+            d_leitura: "Lectura y Escritura Académica",
+            d_fundmat: "Fundamentos de Matemáticas",
+            d_desenho: "Dibujo Técnico (CAD)",
+            d_introeng: "Intro a Ing. de Producción",
+            d_gestorg: "Gestión Organizacional",
+            d_quimica: "Química General",
+
+            // 2do Semestre
+            d_fundprog: "Fund. de Programación",
+            d_estrutgeo: "Estructuras Geométricas",
+            d_matuniv: "Cálculo Univariable",
+            d_economia: "Economía",
+            d_estrutfin: "Estructura Financiera",
+            d_gestpessoas: "Gestión de Personas",
+            d_metodpesq: "Metodología de Investigación",
+
+            // Badge semestre actual (nombres completos)
+            d_fundprog_full: "Fundamentos de Programación",
+            d_estrutgeo_full: "Estructuras Geométricas y Vectores",
+            d_matuniv_full: "Cálculo Univariable",
+            d_economia_full: "Economía",
+            d_gestfin_full: "Gestión Financiera",
+            d_gestpessoas_full: "Gestión de Personas",
+            d_metodpesq_full: "Metodología de Investigación",
+
+            // 3er Semestre
+            d_fisica: "Física del Movimiento",
+            d_algebra: "Álgebra Lineal",
+            d_matmulti: "Cálculo Multivariable",
+            d_ergonomia: "Ergonomía",
+            d_gestcustos: "Gestión de Costos",
+            d_qualidade: "Introducción a la Calidad",
+            d_sociologia: "Sociología",
+
+            // 4to Semestre
+            d_termodi: "Termodinámica",
+            d_estatistica: "Estadística",
+            d_seguranca: "Ing. de Seguridad Laboral",
+            d_logistica: "Logística",
+            d_gestfin4: "Gestión Financiera",
+            d_gestqual: "Gestión de la Calidad",
+            d_filosofia: "Filosofía",
+
+            // 5to–6to Semestre
+            d_pesqop: "Investigación Operacional 1 y 2",
+            d_arranjo: "Distribución en Planta",
+            d_gestmat: "Gestión de Materiales",
+            d_pcp1: "Planeación de la Producción 1",
+            d_logdist: "Logística de Distribución",
+            d_eletromag: "Electricidad y Magnetismo",
+            d_fenomenos: "Fenómenos de Transporte",
+
+            // 7mo–9no Semestre
+            d_automacao: "Automatización Industrial",
+            d_intcomp: "Inteligencia Computacional",
+            d_gestproj: "Gestión de Proyectos",
+            d_pcp23: "Planeación de la Producción 2 y 3",
+            d_sustent: "Sustentabilidad",
+            d_engec: "Ingeniería Económica",
+            d_tcc: "Trabajo de Grado",
+
             coursesTitle: "Cursos/Especializaciones",
-            // CURSO UDEMY
             udemyCourseTitle: "Paquete Office 365 - Microsoft Office Esencial",
             udemyCoursePlatform: "Udemy",
             udemyCourseDuration: "20h",
             viewCertificateAction: "Ver Certificado",
-
-            // --- NOVO: CURSO EXCEL HASHTAG (TRADUÇÃO) ---
             hashtagExcelTitle: "Excel Impressionador (Experto)",
             hashtagProvider: "Hashtag Treinamentos",
             hashtagExcelDetails: "Enfoque: Dashboards, VBA y Gestión de Datos",
             statusInProgress: "En Curso",
-
-            // --- NOVO: CURSO SQL HASHTAG (TRADUÇÃO) ---
             hashtagSqlTitle: "SQL Impressionador",
             hashtagSqlDetails: "SQL para analizar datos con precisión y tomar mejores decisiones.",
             statusComingSoon: "Próximamente",
@@ -324,8 +523,8 @@ document.addEventListener('DOMContentLoaded', () => {
             analyticalSkill: "Trabajo en Equipo",
             hardSkillsTitle: "Habilidades Duras",
             excelPowerBI: "Excel e Power BI",
-            dataAnalysis: "Tecnología y Automação",
-            webFundamentals: "Planejamento e Controle",
+            dataAnalysis: "Tecnología y Automatización",
+            webFundamentals: "Planificación y Control",
             aboutMeP1: "Como futuro Ingeniero de Producción, mi misión es resolver desafíos industriales mediante la integración de tecnología, eficiencia y seguridad. Me enfoco en <strong>procesos industriales, seguridad laboral y mejora continua</strong>, aplicando mi razonamiento analítico para desarrollar soluciones productivas, seguras y sostenibles.",
 
             quoteText: "\"La confianza en uno mismo es el primer secreto del éxito\" <br> Ralph Waldo Emerson",
@@ -338,7 +537,6 @@ document.addEventListener('DOMContentLoaded', () => {
             aboutMeNavLink: "SOBRE MÍ",
             educationNavLink: "EDUCACIÓN",
             footerText: "&copy; 2026 Bernardo Paranhos — Portafolio académico. <a href='https://github.com/bernardoparanhos/portfolio/blob/main/LICENSE' target='_blank' class='footer-license-link'>Licenciado bajo MIT</a>",
-            // --- Mensagens de toast ---
             emailCopiedToast: "¡Correo electrónico copiado!",
             copyErrorToast: "No se pudo copiar el correo electrónico.",
             languageLoading: "Cambiando idioma..."
@@ -347,7 +545,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentLang = localStorage.getItem('lang') || 'pt';
     
-    // CACHE para elementos traduzíveis (Performance)
     let translatableElementsCache = null;
     let lastAppliedLang = null;
     let languageLoadingTimeout = null;
@@ -356,80 +553,180 @@ document.addEventListener('DOMContentLoaded', () => {
     // FUNÇÕES DE LOADING PARA TROCA DE IDIOMA
     // =========================================
     
-    /**
-     * Mostra indicador de carregamento durante troca de idioma
-     * @param {string} lang - Idioma sendo carregado
-     */
     function showLanguageLoading(lang) {
         const globeButton = document.getElementById('globeButton');
         if (!globeButton) return;
-        
-        // Salva conteúdo original
         if (!globeButton.dataset.originalContent) {
             globeButton.dataset.originalContent = globeButton.innerHTML;
         }
-        
-        // Spinner SVG animado
         globeButton.innerHTML = `
             <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor">
-                <style>
-                    @keyframes lang-spin { to { transform: rotate(360deg); } }
-                </style>
+                <style>@keyframes lang-spin { to { transform: rotate(360deg); } }</style>
                 <path d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z" 
-                      style="animation: lang-spin 0.75s linear infinite; transform-origin: center;">
-                </path>
+                      style="animation: lang-spin 0.75s linear infinite; transform-origin: center;"></path>
             </svg>
         `;
-        
-        // Desabilita interações durante carregamento
         globeButton.style.pointerEvents = 'none';
-        
-        // Fecha dropdown se estiver aberto
         const dropdown = document.getElementById('languageDropdown');
         if (dropdown && dropdown.classList.contains('open')) {
             dropdown.classList.remove('open');
         }
-        
-        // Desabilita botões do dropdown
         document.querySelectorAll('.language-dropdown button').forEach(btn => {
             btn.style.pointerEvents = 'none';
             btn.style.opacity = '0.6';
         });
-        
-        // Timeout de segurança (remove loading se travar)
         clearTimeout(languageLoadingTimeout);
         languageLoadingTimeout = setTimeout(() => {
             hideLanguageLoading();
             console.warn("Timeout na troca de idioma");
-        }, 10000); // 10 segundos máximo
+        }, 10000);
     }
     
-    /**
-     * Esconde indicador de carregamento
-     */
     function hideLanguageLoading() {
         clearTimeout(languageLoadingTimeout);
-        
         const globeButton = document.getElementById('globeButton');
         if (globeButton && globeButton.dataset.originalContent) {
             globeButton.innerHTML = globeButton.dataset.originalContent;
             delete globeButton.dataset.originalContent;
             globeButton.style.pointerEvents = 'auto';
         }
-        
-        // Reabilita botões do dropdown
         document.querySelectorAll('.language-dropdown button').forEach(btn => {
             btn.style.pointerEvents = 'auto';
             btn.style.opacity = '1';
         });
     }
+
+    // =========================================
+    // RENDER DO PAINEL UTFPR
+    // Gerado inteiramente por JS para suportar tradução completa.
+    // Chamado no carregamento e a cada troca de idioma.
+    // =========================================
+    function renderUtfprPanel(lang) {
+        const panel = document.getElementById('utfprPanel');
+        if (!panel) return;
+
+        const t = translations[lang];
+        const wasOpen = panel.classList.contains('open');
+
+        panel.innerHTML = `
+            <div class="utfpr-panel-top">
+                <div class="utfpr-periodo-badge">
+                    <span class="utfpr-periodo-label">${t.utfprPeriodoLabel}</span>
+                    <span class="utfpr-periodo-num">2º</span>
+                    <span class="utfpr-periodo-subs">${t.utfprPeriodoSubs}</span>
+                    <ul class="utfpr-periodo-list">
+                        <li>${t.d_fundprog_full}</li>
+                        <li>${t.d_estrutgeo_full}</li>
+                        <li>${t.d_matuniv_full}</li>
+                        <li>${t.d_economia_full}</li>
+                        <li>${t.d_gestfin_full}</li>
+                        <li>${t.d_gestpessoas_full}</li>
+                        <li>${t.d_metodpesq_full}</li>
+                    </ul>
+                </div>
+                <div class="utfpr-destaques">
+                    <h4 class="utfpr-section-title">${t.utfprDestaques}</h4>
+                    <ul class="utfpr-destaques-list">
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>${t.utfprDestaque1}</span>
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>${t.utfprDestaque2}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4 class="utfpr-section-title utfpr-grade-title">${t.utfprGrade}</h4>
+            <div class="utfpr-grade">
+
+                <div class="utfpr-periodo">
+                    <div class="utfpr-periodo-header">${t.p1header}</div>
+                    <div class="utfpr-disc-list">
+                        <span>${t.d_informatica}</span>
+                        <span>${t.d_leitura}</span>
+                        <span>${t.d_fundmat}</span>
+                        <span>${t.d_desenho}</span>
+                        <span>${t.d_introeng}</span>
+                        <span>${t.d_gestorg}</span>
+                        <span>${t.d_quimica}</span>
+                    </div>
+                </div>
+
+                <div class="utfpr-periodo utfpr-periodo--atual">
+                    <div class="utfpr-periodo-header">${t.p2header} <span class="utfpr-atual-tag">${t.utfprAtualTag}</span></div>
+                    <div class="utfpr-disc-list">
+                        <span>${t.d_fundprog}</span>
+                        <span>${t.d_estrutgeo}</span>
+                        <span>${t.d_matuniv}</span>
+                        <span>${t.d_economia}</span>
+                        <span>${t.d_estrutfin}</span>
+                        <span>${t.d_gestpessoas}</span>
+                        <span>${t.d_metodpesq}</span>
+                    </div>
+                </div>
+
+                <div class="utfpr-periodo">
+                    <div class="utfpr-periodo-header">${t.p3header}</div>
+                    <div class="utfpr-disc-list">
+                        <span>${t.d_fisica}</span>
+                        <span>${t.d_algebra}</span>
+                        <span>${t.d_matmulti}</span>
+                        <span>${t.d_ergonomia}</span>
+                        <span>${t.d_gestcustos}</span>
+                        <span>${t.d_qualidade}</span>
+                        <span>${t.d_sociologia}</span>
+                    </div>
+                </div>
+
+                <div class="utfpr-periodo">
+                    <div class="utfpr-periodo-header">${t.p4header}</div>
+                    <div class="utfpr-disc-list">
+                        <span>${t.d_termodi}</span>
+                        <span>${t.d_estatistica}</span>
+                        <span>${t.d_seguranca}</span>
+                        <span>${t.d_logistica}</span>
+                        <span>${t.d_gestfin4}</span>
+                        <span>${t.d_gestqual}</span>
+                        <span>${t.d_filosofia}</span>
+                    </div>
+                </div>
+
+                <div class="utfpr-periodo">
+                    <div class="utfpr-periodo-header">${t.p56header}</div>
+                    <div class="utfpr-disc-list">
+                        <span>${t.d_pesqop}</span>
+                        <span>${t.d_arranjo}</span>
+                        <span>${t.d_gestmat}</span>
+                        <span>${t.d_pcp1}</span>
+                        <span>${t.d_logdist}</span>
+                        <span>${t.d_eletromag}</span>
+                        <span>${t.d_fenomenos}</span>
+                    </div>
+                </div>
+
+                <div class="utfpr-periodo">
+                    <div class="utfpr-periodo-header">${t.p79header}</div>
+                    <div class="utfpr-disc-list">
+                        <span>${t.d_automacao}</span>
+                        <span>${t.d_intcomp}</span>
+                        <span>${t.d_gestproj}</span>
+                        <span>${t.d_pcp23}</span>
+                        <span>${t.d_sustent}</span>
+                        <span>${t.d_engec}</span>
+                        <span>${t.d_tcc}</span>
+                    </div>
+                </div>
+
+            </div>
+        `;
+
+        if (wasOpen) panel.classList.add('open');
+    }
     
-    /**
-     * Função assíncrona para trocar idioma com feedback visual
-     * @param {string} lang - Idioma para trocar
-     */
     async function setLanguage(lang) {
-        // Verifica se já está no mesmo idioma
         if (lastAppliedLang === lang) {
             const dropdown = document.getElementById('languageDropdown');
             if (dropdown && dropdown.classList.contains('open')) {
@@ -438,35 +735,25 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
-        // Validação do idioma
         if (!translations[lang]) {
             console.warn(`Idioma "${lang}" não suportado. Usando Português como fallback.`);
             lang = 'pt';
         }
         
-        // Mostra loading
         showLanguageLoading(lang);
         
         try {
-            // Pequeno delay para melhor UX (o usuário vê o clique)
             await new Promise(resolve => setTimeout(resolve, 150));
             
-            // Atualiza o atributo lang do documento
             document.documentElement.lang = lang;
             
-            // Cache de elementos (uma única busca)
-            if (!translatableElementsCache) {
-                translatableElementsCache = document.querySelectorAll('[data-lang-key]');
-            }
+            translatableElementsCache = document.querySelectorAll('[data-lang-key]');
             
-            // Atualiza traduções em batch (mais eficiente)
             const updatePromises = [];
             translatableElementsCache.forEach(element => {
                 const key = element.getAttribute('data-lang-key');
                 const translation = translations[lang][key];
-                
                 if (translation) {
-                    // Otimização: textContent para texto puro, innerHTML para HTML
                     if (translation.includes('<')) {
                         updatePromises.push(Promise.resolve().then(() => {
                             element.innerHTML = translation;
@@ -479,10 +766,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             
-            // Aguarda todas as atualizações
             await Promise.all(updatePromises);
+
+            renderUtfprPanel(lang);
+
+            const utfprPanel = document.getElementById('utfprPanel');
+            const utfprToggleLabel = document.querySelector('.utfpr-toggle-label');
+            if (utfprToggleLabel && utfprPanel) {
+                const isOpen = utfprPanel.classList.contains('open');
+                utfprToggleLabel.textContent = isOpen
+                    ? translations[lang].utfprToggleClose
+                    : translations[lang].utfprToggleOpen;
+            }
             
-            // Atualiza botões ativos no dropdown
             document.querySelectorAll('.language-dropdown button').forEach(button => {
                 if (button.dataset.lang === lang) {
                     button.classList.add('active');
@@ -491,19 +787,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             
-            // Salva preferência e atualiza cache
             localStorage.setItem('lang', lang);
             currentLang = lang;
             lastAppliedLang = lang;
             
-            // Pequeno delay para o usuário perceber a mudança
             await new Promise(resolve => setTimeout(resolve, 300));
             
         } catch (error) {
             console.error("Erro na troca de idioma:", error);
-            // Poderia mostrar um toast de erro aqui
         } finally {
-            // Esconde loading
             hideLanguageLoading();
         }
     }
@@ -516,10 +808,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const globeSVG = `
         <svg width="35px" height="35px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
             <title>globe</title>
-            <desc>Created with Sketch Beta.</desc>
             <defs></defs>
             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-                <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-204.000000, -671.000000)" fill="currentColor"> <path d="M231.596,694.829 C229.681,694.192 227.622,693.716 225.455,693.408 C225.75,691.675 225.907,689.859 225.957,688 L233.962,688 C233.783,690.521 232.936,692.854 231.596,694.829 L231.596,694.829 Z M223.434,700.559 C224.1,698.95 224.645,697.211 225.064,695.379 C226.862,695.645 228.586,696.038 230.219,696.554 C228.415,698.477 226.073,699.892 223.434,700.559 L223.434,700.559 Z M220.971,700.951 C220.649,700.974 220.328,701 220,701 C219.672,701 219.352,700.974 219.029,700.951 C218.178,699.179 217.489,697.207 216.979,695.114 C217.973,695.027 218.98,694.976 220,694.976 C221.02,694.976 222.027,695.027 223.022,695.114 C222.511,697.207 221.822,699.179 220.971,700.951 L220.971,700.951 Z M209.781,696.554 C211.414,696.038 213.138,695.645 214.936,695.379 C215.355,697.211 215.9,698.95 216.566,700.559 C213.927,699.892 211.586,698.477 209.781,696.554 L209.781,696.554 Z M208.404,694.829 C207.064,692.854 206.217,690.521 206.038,688 L214.043,688 C214.093,689.859 214.25,691.675 214.545,693.408 C212.378,693.716 210.319,694.192 208.404,694.829 L208.404,694.829 Z M208.404,679.171 C210.319,679.808 212.378,680.285 214.545,680.592 C214.25,682.325 214.093,684.141 214.043,686 L206.038,686 C206.217,683.479 207.064,681.146 208.404,679.171 L208.404,679.171 Z M216.566,673.441 C215.9,675.05 215.355,676.789 214.936,678.621 C213.138,678.356 211.414,677.962 209.781,677.446 C211.586,675.523 213.927,674.108 216.566,673.441 L216.566,673.441 Z M219.029,673.049 C219.352,673.027 219.672,673 220,673 C220.328,673 220.649,673.027 220.971,673.049 C221.822,674.821 222.511,676.794 223.022,678.886 C222.027,678.973 221.02,679.024 220,679.024 C218.98,679.024 217.973,678.973 216.979,678.886 C217.489,676.794 218.178,674.821 219.029,673.049 L219.029,673.049 Z M223.954,688 C223.9,689.761 223.74,691.493 223.439,693.156 C222.313,693.058 221.168,693 220,693 C218.832,693 217.687,693.058 216.562,693.156 C216.26,691.493 216.1,689.761 216.047,688 L223.954,688 L223.954,688 Z M216.047,686 C216.1,684.239 216.26,682.507 216.562,680.844 C217.687,680.942 218.832,681 220,681 C221.168,681 222.313,680.942 223.438,680.844 C223.74,682.507 223.9,684.239 223.954,686 L216.047,686 L216.047,686 Z M230.219,677.446 C228.586,677.962 226.862,677.962 225.064,678.621 C224.645,676.789 224.1,675.05 223.434,673.441 C226.073,674.108 228.415,675.523 230.219,677.446 L230.219,677.446 Z M231.596,679.171 C232.936,681.146 233.783,683.479 233.962,686 L225.957,686 C225.907,684.141 225.75,682.325 225.455,680.592 C227.622,680.285 229.681,679.808 231.596,679.171 L231.596,679.171 Z M220,671 C211.164,671 204,678.163 204,687 C204,695.837 211.164,703 220,703 C228.836,703 236,695.837 236,687 C236,678.163 228.836,671 220,671 L220,671 Z" id="globe" sketch:type="MSShapeGroup"></path>
+                <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-204.000000, -671.000000)" fill="currentColor">
+                    <path d="M231.596,694.829 C229.681,694.192 227.622,693.716 225.455,693.408 C225.75,691.675 225.907,689.859 225.957,688 L233.962,688 C233.783,690.521 232.936,692.854 231.596,694.829 L231.596,694.829 Z M223.434,700.559 C224.1,698.95 224.645,697.211 225.064,695.379 C226.862,695.645 228.586,696.038 230.219,696.554 C228.415,698.477 226.073,699.892 223.434,700.559 L223.434,700.559 Z M220.971,700.951 C220.649,700.974 220.328,701 220,701 C219.672,701 219.352,700.974 219.029,700.951 C218.178,699.179 217.489,697.207 216.979,695.114 C217.973,695.027 218.98,694.976 220,694.976 C221.02,694.976 222.027,695.027 223.022,695.114 C222.511,697.207 221.822,699.179 220.971,700.951 L220.971,700.951 Z M209.781,696.554 C211.414,696.038 213.138,695.645 214.936,695.379 C215.355,697.211 215.9,698.95 216.566,700.559 C213.927,699.892 211.586,698.477 209.781,696.554 L209.781,696.554 Z M208.404,694.829 C207.064,692.854 206.217,690.521 206.038,688 L214.043,688 C214.093,689.859 214.25,691.675 214.545,693.408 C212.378,693.716 210.319,694.192 208.404,694.829 L208.404,694.829 Z M208.404,679.171 C210.319,679.808 212.378,680.285 214.545,680.592 C214.25,682.325 214.093,684.141 214.043,686 L206.038,686 C206.217,683.479 207.064,681.146 208.404,679.171 L208.404,679.171 Z M216.566,673.441 C215.9,675.05 215.355,676.789 214.936,678.621 C213.138,678.356 211.414,677.962 209.781,677.446 C211.586,675.523 213.927,674.108 216.566,673.441 L216.566,673.441 Z M219.029,673.049 C219.352,673.027 219.672,673 220,673 C220.328,673 220.649,673.027 220.971,673.049 C221.822,674.821 222.511,676.794 223.022,678.886 C222.027,678.973 221.02,679.024 220,679.024 C218.98,679.024 217.973,678.973 216.979,678.886 C217.489,676.794 218.178,674.821 219.029,673.049 L219.029,673.049 Z M223.954,688 C223.9,689.761 223.74,691.493 223.439,693.156 C222.313,693.058 221.168,693 220,693 C218.832,693 217.687,693.058 216.562,693.156 C216.26,691.493 216.1,689.761 216.047,688 L223.954,688 L223.954,688 Z M216.047,686 C216.1,684.239 216.26,682.507 216.562,680.844 C217.687,680.942 218.832,681 220,681 C221.168,681 222.313,680.942 223.438,680.844 C223.74,682.507 223.9,684.239 223.954,686 L216.047,686 L216.047,686 Z M230.219,677.446 C228.586,677.962 226.862,677.962 225.064,678.621 C224.645,676.789 224.1,675.05 223.434,673.441 C226.073,674.108 228.415,675.523 230.219,677.446 L230.219,677.446 Z M231.596,679.171 C232.936,681.146 233.783,683.479 233.962,686 L225.957,686 C225.907,684.141 225.75,682.325 225.455,680.592 C227.622,680.285 229.681,679.808 231.596,679.171 L231.596,679.171 Z M220,671 C211.164,671 204,678.163 204,687 C204,695.837 211.164,703 220,703 C228.836,703 236,695.837 236,687 C236,678.163 228.836,671 220,671 L220,671 Z" id="globe" sketch:type="MSShapeGroup"></path>
                 </g>
             </g>
         </svg>
@@ -528,15 +820,9 @@ document.addEventListener('DOMContentLoaded', () => {
     languageSelector.innerHTML = `
         <button class="globe-button" id="globeButton" aria-label="Select Language">${globeSVG}</button>
         <div class="language-dropdown" id="languageDropdown">
-            <button data-lang="pt">
-                <img src="image/icons/brazil-flag.svg" alt="Bandeira do Brasil"> Português
-            </button>
-            <button data-lang="en">
-                <img src="image/icons/uk-flag.svg" alt="UK Flag"> English
-            </button>
-            <button data-lang="es">
-                <img src="image/icons/spain-flag.svg" alt="Spain Flag"> Español
-            </button>
+            <button data-lang="pt"><img src="image/icons/brazil-flag.svg" alt="Bandeira do Brasil"> Português</button>
+            <button data-lang="en"><img src="image/icons/uk-flag.svg" alt="UK Flag"> English</button>
+            <button data-lang="es"><img src="image/icons/spain-flag.svg" alt="Spain Flag"> Español</button>
         </div>
     `;
 
@@ -561,7 +847,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Inicializa com o idioma salvo
     setLanguage(currentLang);
 
     // =========================================
@@ -576,37 +861,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const lang = currentLang;
 
             try {
-                // TENTATIVA 1: Método moderno (Clipboard API)
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     await navigator.clipboard.writeText(email);
                     showToast(translations[lang].emailCopiedToast);
-                    return; // Sucesso, para aqui
+                    return;
                 }
-                
-                // TENTATIVA 2: Método antigo (document.execCommand)
                 const textArea = document.createElement("textarea");
                 textArea.value = email;
                 textArea.style.position = "fixed";
-                textArea.style.left = "-999999px"; // Mais confiável que opacity: 0
+                textArea.style.left = "-999999px";
                 document.body.appendChild(textArea);
                 textArea.select();
-                
                 const success = document.execCommand("copy");
                 document.body.removeChild(textArea);
-                
                 if (success) {
                     showToast(translations[lang].emailCopiedToast);
                 } else {
                     throw new Error("execCommand falhou");
                 }
-                
             } catch (error) {
                 console.error("Erro ao copiar e-mail:", error);
-                
-                // TENTATIVA 3: Fallback amigável
                 showToast(`${translations[lang].copyErrorToast}: ${email}`);
-                
-                // Opcional: Seleciona o texto para o usuário copiar manualmente
                 if (copyEmailBtn.querySelector('span')) {
                     const range = document.createRange();
                     range.selectNode(copyEmailBtn.querySelector('span'));
@@ -619,45 +894,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showToast(message) {
         const toast = document.getElementById("toast");
-        if (!toast) {
-            console.warn("Elemento toast não encontrado");
-            return;
-        }
-        
+        if (!toast) { console.warn("Elemento toast não encontrado"); return; }
         toast.textContent = message;
         toast.classList.add("show");
-
-        setTimeout(() => {
-            toast.classList.remove("show");
-        }, 2500);
+        setTimeout(() => { toast.classList.remove("show"); }, 2500);
     }
 
-// =========================================
+    // =========================================
     // E. NAVEGAÇÃO SUAVE E LIMPEZA DE URL (CORRIGIDO)
     // =========================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            
             const targetId = this.getAttribute('href');
-
-            // CORREÇÃO: Se o link for apenas "#" (como o botão de e-mail),
-            // paramos a execução aqui para não dar erro no console.
-            if (targetId === '#') {
-                e.preventDefault();
-                return;
-            }
-
-            // Tenta encontrar o elemento na página
+            if (targetId === '#') { e.preventDefault(); return; }
             try {
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     e.preventDefault();
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-
-                    // Fecha o menu mobile se estiver aberto
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     const sidebar = document.getElementById('sidebar');
                     const menuToggle = document.getElementById('menuToggle');
                     if (sidebar && sidebar.classList.contains('open')) {
@@ -668,7 +922,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             } catch (error) {
-                // Se der algum outro erro de seletor, ele cai aqui silenciosamente
                 console.warn("Elemento de destino não encontrado:", targetId);
             }
         });
@@ -679,73 +932,61 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================
     const track = document.querySelector('.carousel-track');
     
-    // Verificação de segurança: só roda se o carrossel existir na página
     if (track) {
         const slides = Array.from(track.children);
         const nextButton = document.querySelector('.next-btn');
         const prevButton = document.querySelector('.prev-btn');
         const dotsNav = document.querySelector('.carousel-nav');
         const dots = Array.from(dotsNav.children);
-
-        // Índice atual (começa no 0)
         let currentIndex = 0;
 
-        /**
-         * Move o carrossel para o slide desejado
-         * @param {number} index - O número do slide (0, 1, 2...)
-         */
         const updateSlidePosition = (index) => {
-            // Move o track para a esquerda baseado na porcentagem (0%, -100%, -200%)
-            // Isso garante que funcione perfeitamente no celular ou desktop
             track.style.transform = `translateX(-${index * 100}%)`;
-
-            // Atualiza as bolinhas (dots)
-            dots.forEach(d => d.classList.remove('current-slide')); // Remove classe de todos
-            dots[index].classList.add('current-slide'); // Adiciona no atual
-            
-            // Atualiza o índice global
+            dots.forEach(d => d.classList.remove('current-slide'));
+            dots[index].classList.add('current-slide');
             currentIndex = index;
         };
 
-        // --- Event Listener: Botão Próximo (Seta Direita) ---
         if (nextButton) {
             nextButton.addEventListener('click', () => {
                 const nextIndex = currentIndex + 1;
-                
-                // Se chegar no fim, volta para o começo (Loop Infinito)
-                if (nextIndex >= slides.length) {
-                    updateSlidePosition(0);
-                } else {
-                    updateSlidePosition(nextIndex);
-                }
+                updateSlidePosition(nextIndex >= slides.length ? 0 : nextIndex);
             });
         }
-
-        // --- Event Listener: Botão Anterior (Seta Esquerda) ---
         if (prevButton) {
             prevButton.addEventListener('click', () => {
                 const prevIndex = currentIndex - 1;
-
-                // Se estiver no primeiro e voltar, vai para o último
-                if (prevIndex < 0) {
-                    updateSlidePosition(slides.length - 1);
-                } else {
-                    updateSlidePosition(prevIndex);
-                }
+                updateSlidePosition(prevIndex < 0 ? slides.length - 1 : prevIndex);
             });
         }
-
-        // --- Event Listener: Navegação pelas Bolinhas ---
         dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                updateSlidePosition(index);
-            });
+            dot.addEventListener('click', () => { updateSlidePosition(index); });
         });
-        
-        // (Opcional) Navegação por teclado (Setas Esquerda/Direita) se o carrossel estiver focado
         track.parentElement.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') prevButton.click();
             if (e.key === 'ArrowRight') nextButton.click();
+        });
+    }
+
+    // =========================================
+    // G. TOGGLE DO PAINEL UTFPR (COM TRADUÇÃO)
+    // =========================================
+    const utfprToggle = document.getElementById('utfprToggle');
+    const utfprPanel = document.getElementById('utfprPanel');
+
+    if (utfprToggle && utfprPanel) {
+        renderUtfprPanel(currentLang);
+
+        utfprToggle.addEventListener('click', () => {
+            const isOpen = utfprPanel.classList.contains('open');
+            utfprPanel.classList.toggle('open');
+            utfprToggle.setAttribute('aria-expanded', !isOpen);
+            utfprPanel.setAttribute('aria-hidden', isOpen);
+
+            const label = utfprToggle.querySelector('.utfpr-toggle-label');
+            label.textContent = isOpen
+                ? translations[currentLang].utfprToggleOpen
+                : translations[currentLang].utfprToggleClose;
         });
     }
 

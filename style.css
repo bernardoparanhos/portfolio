@@ -451,7 +451,7 @@ body.dark-mode .image-container img {
     align-items: center;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: auto;
     position: relative;
     transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
 }
@@ -622,121 +622,6 @@ body.dark-mode .certificate-action:hover svg path {
     height: 20px;
     color: var(--cor-texto-secundario); /* APLICAÇÃO: Cor do ícone no tema atual */
     transition: color 0.2s ease;
-}
-
-/* ===================================== */
-/* --- CARROSSEL DE CURSOS (ESTILO LIMPO & PÍLULA) --- */
-/* ===================================== */
-
-.carousel-container {
-    position: relative;
-    max-width: 850px;
-    width: 95%;
-    margin: 0 auto 40px auto;
-    /* Padding removido para as setas ficarem fora do fluxo */
-    box-sizing: border-box;
-}
-
-.carousel-track-container {
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-    /* Adiciona um padding vertical pequeno para garantir que sombras não cortem */
-    padding: 10px 0; 
-}
-
-.carousel-track {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    transition: transform 0.4s ease-in-out;
-    align-items: center; /* Garante alinhamento vertical dos slides */
-}
-
-.carousel-slide {
-    min-width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    padding: 0 10px; /* Um pequeno respiro lateral entre slides */
-}
-
-.carousel-slide .experience-item {
-    width: 100%;
-    margin-bottom: 0;
-}
-
-/* --- BOTÕES (SETAS LIMPAS) --- */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    /* REMOVIDO: background, border, radius, shadow */
-    background: none;
-    border: none;
-    box-shadow: none;
-    color: var(--cor-texto-secundario); /* Cor neutra inicial */
-    
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    transition: all 0.3s ease;
-    padding: 0;
-}
-
-/* Aumenta o ícone SVG */
-.carousel-btn svg {
-    width: 40px;
-    height: 40px;
-}
-
-.carousel-btn:hover {
-    /* REMOVIDO background hover */
-    background: none;
-    color: var(--cor-acento); /* Apenas muda a cor do ícone */
-}
-
-/* Posicionamento mais afastado do card */
-.prev-btn { left: -60px; }
-.next-btn { right: -60px; }
-
-/* --- INDICADORES (ESTILO PÍLULA) --- */
-.carousel-nav {
-    display: flex;
-    justify-content: center;
-    padding: 20px 0 10px 0;
-    gap: 8px; /* Espaço menor entre elas */
-    align-items: center;
-}
-
-.carousel-indicator {
-    border: none;
-    width: 10px;  /* Largura inicial (bolinha pequena) */
-    height: 10px; /* Altura fixa */
-    border-radius: 20px; /* Garante que fique redondo nas pontas */
-    background-color: var(--cor-texto-secundario);
-    opacity: 0.3;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-/* Estilo da bolinha selecionada (Pílula) */
-.carousel-indicator.current-slide {
-    background-color: var(--cor-acento);
-    opacity: 1;
-    width: 35px; /* Estica para virar uma pílula */
-    /* Transform scale removido para não distorcer a pílula */
-}
-
-/* Ajuste para Dark Mode nas setas (apenas cor do ícone) */
-body.dark-mode .carousel-btn {
-    color: var(--cor-texto-secundario);
-}
-body.dark-mode .carousel-btn:hover {
-    color: var(--cor-acento);
 }
 
 /* ===================================== */
@@ -1381,37 +1266,6 @@ body.dark-mode .toast {
         padding: 10px 15px;
     }
 
-    /* --- NOVO: AJUSTES DO CARROSSEL (TABLET/MOBILE) --- */
-    .carousel-container {
-        width: 100%;
-        max-width: 100%;
-        padding: 0; /* Remove o espaço que era reservado para as setas */
-        margin-bottom: 30px;
-    }
-
-    .carousel-btn {
-        display: none !important; /* Esconde as setas definitivamente */
-    }
-
-    .carousel-slide {
-        padding: 0; /* Remove o respiro lateral entre slides */
-    }
-
-    /* Força o card a ficar centralizado e com tamanho bom */
-    .carousel-slide .experience-item {
-        width: 95% !important; 
-        margin: 0 auto; 
-        /* Garante que o flex column do card original funcione */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Ajuste da área das bolinhas */
-    .carousel-nav {
-    padding-top: 20px;
-    gap: 12px;
-}
     
     /* REGRAS DA SEÇÃO 3 */
     .skills-container {
@@ -1596,27 +1450,6 @@ body.dark-mode .toast {
         width: 98%;
     }
 
-    /* --- NOVO: AJUSTES DO CARROSSEL (CELULAR PEQUENO) --- */
-    .carousel-slide .experience-item {
-    width: 100% !important;
-    border-radius: 12px;
-    padding: 25px 15px; /* Mais espaço interno */
-}
-
-    .carousel-indicator {
-    width: 20px !important;
-    height: 20px !important;
-    border-radius: 50%;
-    opacity: 0.5;
-}
-    
-    /* Pílula Ativa Grande */
-.carousel-indicator.current-slide {
-    width: 45px !important; 
-    border-radius: 20px;
-    opacity: 1;
-}
-
     .certificate-action {
         font-size: 0.9em;
         padding: 8px 12px;
@@ -1689,17 +1522,6 @@ body.dark-mode .toast {
 /* --- CORREÇÃO PARA CELULAR DEITADO (LANDSCAPE) --- */
 @media (max-height: 480px) and (orientation: landscape) {
     
-    /* 1. ESCONDER AS SETAS (O que faltava!) */
-    .carousel-btn {
-        display: none !important;
-    }
-    
-    /* 2. Ajuste do container para não deixar buraco onde estavam as setas */
-    .carousel-container {
-        padding: 0;
-        width: 100%;
-    }
-
     /* 3. Ajustes visuais gerais para Landscape */
     .image-container {
         height: 85vh;
@@ -1833,54 +1655,265 @@ body.dark-mode .toast {
     align-items: center;
 }
 
-/* --- ESTILO PARA BADGES DE STATUS (NÃO CLICÁVEIS) --- */
-
-/* Base para a etiqueta (usa a mesma estrutura do botão mas sem ser link) */
-div.certificate-action.status-badge {
-    cursor: default; /* Mostra a seta normal do mouse, não a mãozinha */
-    background-color: transparent;
-    text-decoration: none;
-}
-
-/* Estilo específico para "Em Andamento" */
-.status-badge.running {
-    border-color: var(--cor-acento); /* Borda da cor do tema */
-    color: var(--cor-acento);
-    opacity: 0.8;
-}
-
-/* Remove o hover (não muda de cor ao passar o mouse) */
-.status-badge.running:hover {
-    background-color: transparent;
-    color: var(--cor-acento);
-    transform: none; /* Não pula para cima */
-    box-shadow: none;
-}
-
-/* Estilo específico para "Em Breve" */
-.status-badge.future {
-    border-color: var(--cor-texto-secundario); /* Cinza */
-    color: var(--cor-texto-secundario);
-    opacity: 0.6; /* Levemente apagado */
-    border-style: dashed; /* Borda tracejada para indicar futuro/planejamento */
-}
-
-.status-badge.future:hover {
-    background-color: transparent;
-    color: var(--cor-texto-secundario);
-    transform: none;
-    box-shadow: none;
-}
-
-/* Garante que o ícone mantenha a cor do texto */
-.status-badge svg {
-    color: inherit; 
-}
-.status-badge:hover svg path {
-    fill: transparent; /* Garante que não preencha no hover */
-}
-
 /* CORREÇÃO: Quando o menu está aberto, theme-switcher vai para trás */
 body:has(.sidebar.open) .theme-switcher {
     z-index: 999 !important;
+}
+
+/* ===================================== */
+/* --- UTFPR EXPANDABLE PANEL --- */
+/* ===================================== */
+
+.utfpr-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: 20px;
+    color: var(--cor-texto-secundario);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85em;
+    font-weight: 600;
+    padding: 8px 18px;
+    cursor: pointer;
+    margin: -20px auto 30px auto;
+    transition: all 0.25s ease;
+    letter-spacing: 0.03em;
+}
+
+.utfpr-toggle-btn:hover {
+    border-color: var(--cor-acento);
+    color: var(--cor-acento);
+}
+
+.utfpr-toggle-btn[aria-expanded="true"] .utfpr-toggle-icon {
+    transform: rotate(180deg);
+}
+
+.utfpr-toggle-icon {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* Painel */
+.utfpr-panel {
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto 40px auto;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.35s ease;
+    box-sizing: border-box;
+}
+
+.utfpr-panel.open {
+    max-height: 4000px;
+    opacity: 1;
+}
+
+/* Top row: período + destaques */
+.utfpr-panel-top {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+/* Badge período atual */
+.utfpr-periodo-badge {
+    background-color: var(--cor-acento);
+    color: white;
+    border-radius: 14px;
+    padding: 18px 22px;
+    min-width: 190px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.utfpr-periodo-label {
+    font-size: 0.65em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    opacity: 0.85;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.utfpr-periodo-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.8em;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.utfpr-periodo-subs {
+    font-size: 0.72em;
+    font-weight: 600;
+    opacity: 0.9;
+    margin-bottom: 6px;
+}
+
+.utfpr-periodo-list {
+    margin: 0;
+    padding-left: 14px;
+    font-size: 0.75em;
+    opacity: 0.92;
+    line-height: 1.6;
+}
+
+/* Destaques */
+.utfpr-destaques {
+    background-color: var(--fundo-secundario);
+    border: 1px solid var(--cor-borda);
+    border-radius: 14px;
+    padding: 18px 22px;
+    flex: 1;
+}
+
+.utfpr-section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cor-texto-secundario);
+    margin: 0 0 12px 0;
+    opacity: 0.7;
+}
+
+.utfpr-grade-title {
+    margin-bottom: 14px;
+}
+
+.utfpr-destaques-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.utfpr-destaques-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.88em;
+    color: var(--cor-texto-secundario);
+    line-height: 1.45;
+}
+
+.utfpr-destaques-list li svg {
+    color: var(--cor-acento);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.utfpr-destaques-list li strong {
+    color: var(--cor-texto-principal);
+}
+
+/* Grade curricular */
+.utfpr-grade {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.utfpr-periodo {
+    background-color: var(--fundo-secundario);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.utfpr-periodo:hover {
+    border-color: var(--cor-acento);
+}
+
+.utfpr-periodo--atual {
+    border-color: var(--cor-acento);
+}
+
+.utfpr-periodo-header {
+    background-color: var(--fundo-principal);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78em;
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.utfpr-periodo--atual .utfpr-periodo-header {
+    background-color: var(--cor-acento);
+    color: white;
+    border-bottom-color: transparent;
+}
+
+.utfpr-atual-tag {
+    font-size: 0.75em;
+    background: rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 1px 7px;
+    font-weight: 600;
+}
+
+.utfpr-disc-list {
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.utfpr-disc-list span {
+    font-size: 0.78em;
+    color: var(--cor-texto-secundario);
+    line-height: 1.4;
+    padding: 2px 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.utfpr-disc-list span:last-child {
+    border-bottom: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .utfpr-grade {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
+    }
+
+    .utfpr-periodo {
+        break-inside: avoid;
+    }
+
+    .utfpr-panel-top {
+        flex-direction: column;
+    }
+
+    .utfpr-periodo-badge {
+        min-width: unset;
+    }
+}
+
+@media (max-width: 480px) {
+    .utfpr-grade {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .utfpr-toggle-btn {
+        font-size: 0.8em;
+        padding: 7px 14px;
+    }
 }
