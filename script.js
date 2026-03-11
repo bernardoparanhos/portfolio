@@ -136,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
             utfprDestaques: "Destaques Acadêmicos",
             utfprGrade: "Grade Curricular",
             utfprAtualTag: "atual",
-            utfprDestaque1: "<strong>Bolsista INOVAGRAD – UTFPR (2026):</strong> Projeto de inovação pedagógica com aplicação de IA no ensino de graduação",
             utfprDestaque2: "<strong>Certificadoras UTFPR:</strong> Módulos práticos de liderança e planejamento estratégico",
 
             // Headers de período
@@ -282,7 +281,6 @@ document.addEventListener('DOMContentLoaded', () => {
             utfprDestaques: "Academic Highlights",
             utfprGrade: "Curriculum Grid",
             utfprAtualTag: "current",
-            utfprDestaque1: "<strong>INOVAGRAD Scholar – UTFPR (2026):</strong> Pedagogical innovation project applying AI in undergraduate education",
             utfprDestaque2: "<strong>UTFPR Certifications:</strong> Practical modules in leadership and strategic planning",
 
             // Period headers
@@ -428,7 +426,6 @@ document.addEventListener('DOMContentLoaded', () => {
             utfprDestaques: "Destacados Académicos",
             utfprGrade: "Plan de Estudios",
             utfprAtualTag: "actual",
-            utfprDestaque1: "<strong>Becario INOVAGRAD – UTFPR (2026):</strong> Proyecto de innovación pedagógica con aplicación de IA en la enseñanza universitaria",
             utfprDestaque2: "<strong>Certificadoras UTFPR:</strong> Módulos prácticos de liderazgo y planificación estratégica",
 
             // Headers de período
@@ -627,10 +624,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="utfpr-destaques">
                     <h4 class="utfpr-section-title">${t.utfprDestaques}</h4>
                     <ul class="utfpr-destaques-list">
-                        <li>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>${t.utfprDestaque1}</span>
-                        </li>
                         <li>
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             <span>${t.utfprDestaque2}</span>
