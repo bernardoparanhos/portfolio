@@ -114,13 +114,12 @@ document.addEventListener('DOMContentLoaded', () => {
             portfolioTitle: "Portfólio Engenharia de Produção",
             name: "BERNARDO PARANHOS",
             role: "Engenheiro de Produção Graduando",
-            keywords: "ENGENHARIA DE PRODUÇÃO | GESTÃO INDUSTRIAL | OTIMIZAÇÃO",
+            keywords: "ENGENHARIA DE PRODUÇÃO | OTIMIZAÇÃO DE PROCESSOS | DADOS & IA",
             curriculumButton: "Currículo",
             aboutMeButton: "Sobre mim",
             projectsButton: "Projetos",
             welcomeHeading: "Bem-vindo!",
-            welcomeText: "Olá! Sou <strong>Bernardo Paranhos</strong>, graduando em Engenharia de Produção pela UTFPR. Meu foco é integrar a organização dos <strong>processos industriais</strong> com ferramentas tecnológicas de controle. Busco oportunidades para aplicar raciocínio lógico e gestão administrativa na melhoria da rotina produtiva.</p>",
-            
+welcomeText: "Olá! Sou <strong>Bernardo Paranhos</strong>, graduando em Engenharia de Produção pela UTFPR. Meu foco é conectar a teoria da engenharia com a prática do chão de fábrica, utilizando análise de dados, automação e IA para resolver problemas reais. Busco oportunidades para aplicar raciocínio lógico na redução de custos e melhoria contínua da rotina produtiva.",            
             educationTitle: "Educação",
             utfprDegree: "Universidade Tecnológica Federal do Paraná",
             utfprProgram: "Bacharelado - Engenharia de produção",
@@ -232,8 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
             excelPowerBI: "Excel e Power BI",
             dataAnalysis: "Tecnologia e Automação",
             webFundamentals: "Planejamento e Controle",
-            aboutMeP1: "Meu objetivo é atuar na <strong>melhoria contínua e na segurança do trabalho</strong>, utilizando a tecnologia não como fim, mas como meio para tornar processos mais ágeis e confiáveis. Estou preparado para aprender e contribuir com organização desde o primeiro dia.",
-            
+aboutMeP1: "Meu objetivo é atuar na <strong>melhoria contínua e na segurança do trabalho</strong>, utilizando a tecnologia não como fim, mas como meio para tornar processos mais ágeis e confiáveis. Estou preparado para aprender e contribuir com a organização desde o primeiro dia.",            
             quoteText: "\"A confiança em si mesmo é o primeiro segredo do sucesso\" <br> Ralph Waldo Emerson",
 
             contactTitle: "Entre em contato comigo",
@@ -259,13 +257,12 @@ document.addEventListener('DOMContentLoaded', () => {
             portfolioTitle: "Production Engineering Portfolio",
             name: "BERNARDO PARANHOS",
             role: "Graduating Production Engineer",
-            keywords: "PRODUCTION ENGINEERING | INDUSTRIAL MANAGEMENT | OPTIMIZATION",
+            keywords: "PRODUCTION ENGINEERING | PROCESS OPTIMIZATION | DATA & AI",
             curriculumButton: "Resume",
             aboutMeButton: "About Me",
             projectsButton: "Projects",
             welcomeHeading: "Welcome!",
-            welcomeText: "Hello! I'm <strong>Bernardo Paranhos</strong>, a Production Engineering undergraduate at UTFPR. My focus is on integrating the organization of <strong>industrial processes</strong> with technological control tools. I seek opportunities to apply logical reasoning and administrative management to improve production routines.</p>",
-            
+welcomeText: "Hello! I'm <strong>Bernardo Paranhos</strong>, a Production Engineering undergraduate at UTFPR. My focus is on connecting engineering theory with shop floor practice, using data analysis, automation, and AI to solve real problems. I seek opportunities to apply logical reasoning to cost reduction and continuous improvement of production routines.",            
             educationTitle: "Education",
             utfprDegree: "Federal University of Technology - Paraná",
             utfprProgram: "Bachelor's Degree - Production Engineering",
@@ -377,8 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
             excelPowerBI: "Excel and Power BI",
             dataAnalysis: "Technology and Automation",
             webFundamentals: "Planning and Control",
-            aboutMeP1: "As a future Production Engineer, my mission is to solve industrial challenges through the integration of technology, efficiency, and safety. I focus on <strong>industrial processes, occupational safety, and continuous improvement</strong>, applying my analytical reasoning to develop solutions that are productive, safe, and sustainable.",
-
+aboutMeP1: "My goal is to work in <strong>continuous improvement and occupational safety</strong>, using technology not as an end, but as a means to make processes more agile and reliable. I am ready to learn and contribute to the organization from day one.",
             quoteText: "\"Self-confidence is the first secret of success\" <br> Ralph Waldo Emerson",
 
             contactTitle: "Get in touch with me",
@@ -404,13 +400,12 @@ document.addEventListener('DOMContentLoaded', () => {
             portfolioTitle: "Portafolio de Ingeniería de Producción",
             name: "BERNARDO PARANHOS",
             role: "Estudiante de Ingeniería de Producción",
-            keywords: "INGENIERÍA DE PRODUCCIÓN | GESTIÓN INDUSTRIAL | OPTIMIZACIÓN",
+            keywords: "INGENIERÍA DE PRODUCCIÓN | OPTIMIZACIÓN DE PROCESOS | DATOS E IA",
             curriculumButton: "Currículum",
             aboutMeButton: "Sobre mí",
             projectsButton: "Proyectos",
             welcomeHeading: "¡Bienvenido!",
-            welcomeText: "¡Hola! Soy <strong>Bernardo Paranhos</strong>, graduando en Ingeniería de Producción por la UTFPR. Mi enfoque es integrar la organización de los <strong>procesos industriales</strong> con herramientas tecnológicas de control. Busco oportunidades para aplicar razonamiento lógico y gestión administrativa en la mejora de la rutina productiva.</p>",
-            
+welcomeText: "¡Hola! Soy <strong>Bernardo Paranhos</strong>, estudiante de Ingeniería de Producción en la UTFPR. Mi enfoque es conectar la teoría de la ingeniería con la práctica en la planta, utilizando análisis de datos, automatización e IA para resolver problemas reales. Busco oportunidades para aplicar el razonamiento lógico en la reducción de costos y la mejora continua de la rutina productiva.",            
             educationTitle: "Educación",
             utfprDegree: "Universidad Tecnológica Federal de Paraná",
             utfprProgram: "Licenciatura - Ingeniería de Producción",
@@ -522,8 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
             excelPowerBI: "Excel e Power BI",
             dataAnalysis: "Tecnología y Automatización",
             webFundamentals: "Planificación y Control",
-            aboutMeP1: "Como futuro Ingeniero de Producción, mi misión es resolver desafíos industriales mediante la integración de tecnología, eficiencia y seguridad. Me enfoco en <strong>procesos industriales, seguridad laboral y mejora continua</strong>, aplicando mi razonamiento analítico para desarrollar soluciones productivas, seguras y sostenibles.",
-
+aboutMeP1: "Mi objetivo es trabajar en la <strong>mejora continua y la seguridad laboral</strong>, utilizando la tecnología no como un fin, sino como un medio para hacer los procesos más ágiles y confiables. Estoy preparado para aprender y contribuir con la organización desde el primer día.",
             quoteText: "\"La confianza en uno mismo es el primer secreto del éxito\" <br> Ralph Waldo Emerson",
 
             contactTitle: "Ponte en contacto conmigo",

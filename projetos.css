@@ -287,11 +287,6 @@ body.light-mode .globe-button:hover {
     line-height: 1.5;
     color: var(--cor-texto-secundario);
     margin: 0 0 20px 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Reduzido para 2 linhas */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
     max-width: 95%;
 }
 
