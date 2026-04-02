@@ -167,37 +167,6 @@ let languageLoadingTimeout = null;
 // =========================================
 const projectsData = [
     {
-        id: 'mapa-risco-industrial',
-        dataAttrs: {
-            title: 'projectMapaTitle',
-            period: 'projectMapaPeriod',
-            institution: 'projectMapaInstitution',
-            description: 'projectMapaDescription'
-        },
-        images: [
-          { src: '../image/img1.png', altKey: 'mapaImg1Alt' },
-            { src: '../image/img2.png', altKey: 'mapaImg2Alt' }
-        ],
-        features: [
-            { key: 'featureMapaInterativo', icon: '🗺️' },
-            { key: 'featureMapaCalor', icon: '🔴' },
-            { key: 'featurePainelNR', icon: '📋' },
-            { key: 'featureAcessibilidade', icon: '♿' }
-        ],
-        technologies: [
-            { key: 'techHTML5' },
-            { key: 'techCSS3' },
-            { key: 'techJS' },
-            { key: 'techPython' }
-        ],
-        outputs: [], // Deixado vazio de propósito para a seção não renderizar
-        links: {
-            github: 'https://github.com/bernardoparanhos/mapa-risco-industrial',
-            readme: 'https://github.com/bernardoparanhos/mapa-risco-industrial#readme',
-            live: 'https://bernardoparanhos.github.io/mapa-risco-industrial/' // Ajuste esta URL se hospedar em outro local
-        }
-    },
-    {
         id: 'kpi-manutencao',
         dataAttrs: {
             title: 'projectKpiTitle',
